@@ -9,9 +9,11 @@ package
 	
 	import flash.display.Sprite;
 	import flexUnitTests.ToArrayTests;
+	import flexUnitTests.FirstTests;
 	
 	public class FlexUnitCompilerApplication extends Sprite
 	{
+		private var flexUnitTests_FirstTests_obj:flexUnitTests.FirstTests;
 		private var flexUnitTests_ToArrayTests_obj:flexUnitTests.ToArrayTests;
 		
 		private var System_WhereTests_obj:flexUnitTests.WhereTests;

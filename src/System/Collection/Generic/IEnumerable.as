@@ -17,7 +17,14 @@ package System.Collection.Generic
 		function ToArray():Array;
 		//public static TSource[] ToArray<TSource>();
 		
-		//function First(condition:Function=null):*;
+		function First(predicate:Function=null):*;
+		//public static TSource First<TSource>();
+		//public static TSource First<TSource>(Func<TSource, bool> predicate);
+		
+		//public static TSource FirstOrDefault<TSource>();
+		//public static TSource FirstOrDefault<TSource>(Func<TSource, bool> predicate);
+		
+
 		//function Aggregate(seed:*, aggregator:Function):*;
 		//function Sum(selector:Function):*;
 		

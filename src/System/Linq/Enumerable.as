@@ -40,5 +40,13 @@ package System.Linq
 				result.push(enumerator.Current());
 			return result;	
 		}
+		
+		public function First(predicate:Function=null):* {
+			if(predicate == null)
+				predicate = function(x) { return true; };
+			
+			var filteredEnumerator:IEnumerator = Where(predicate).GetEnumerator();
+			return filteredEnumerator.MoveNext() ? filteredEnumerator.Current() : null;
+		}
 	}
 }

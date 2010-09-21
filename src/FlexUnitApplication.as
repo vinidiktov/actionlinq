@@ -4,6 +4,7 @@ package
 	
 	import flash.display.Sprite;
 	
+	import flexUnitTests.FirstTests;
 	import flexUnitTests.SelectTests;
 	import flexUnitTests.ToArrayTests;
 	import flexUnitTests.WhereTests;
@@ -27,6 +28,7 @@ package
 		public function currentRunTestSuite():Array
 		{
 			var testsToRun:Array = new Array();
+			testsToRun.push(flexUnitTests.FirstTests);
 			testsToRun.push(flexUnitTests.SelectTests);
 			testsToRun.push(flexUnitTests.ToArrayTests);
 			testsToRun.push(flexUnitTests.WhereTests);

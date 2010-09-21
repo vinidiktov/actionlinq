@@ -14,12 +14,14 @@ package System.Collection.Generic
 		//public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
 		//public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
 		
+		function ToArray():Array;
+		//public static TSource[] ToArray<TSource>();
 		
 		//function First(condition:Function=null):*;
 		//function Aggregate(seed:*, aggregator:Function):*;
 		//function Sum(selector:Function):*;
 		
 		
-		//function ToArray():Array;
+		
 	}
 }

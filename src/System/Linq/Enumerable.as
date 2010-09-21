@@ -33,5 +33,12 @@ package System.Linq
 		public function Select(selector:Function):IEnumerable {
 			return new Enumerable(new SelectEnumerator(this, selector));
 		}
+		
+		public function ToArray():Array {
+			var result:Array = new Array();
+			while(enumerator.MoveNext())
+				result.push(enumerator.Current());
+			return result;	
+		}
 	}
 }

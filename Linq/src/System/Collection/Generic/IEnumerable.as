@@ -14,6 +14,9 @@ package System.Collection.Generic
 		//* public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
 		//public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
 		
+		function Skip(count:int):IEnumerable; 
+		//* public static IEnumerable<TSource> Skip<TSource>(int count);
+		
 		function ToArray():Array;
 		//* public static TSource[] ToArray<TSource>();
 		

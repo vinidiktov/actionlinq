@@ -44,6 +44,12 @@ package System.Linq
 					return new SelectEnumerator(source, selector) });
 		}
 		
+		public function Skip(count:int):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new SkipEnumerator(source, count) });
+		}
+		
 		public function ToArray():Array {
 			var result:Array = new Array();
 			var enumerator:IEnumerator = GetEnumerator();

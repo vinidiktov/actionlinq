@@ -13,7 +13,7 @@ package flexUnitTests
 			var data:Array = [1,2,3,4,5];
 			var first:int = Enumerable.From(data).First(function(x){return x >= 4;});
 			
-			Assert.assertEquals(first, 4);
+			Assert.assertEquals(first, 4);  
 		}
 		
 		[Test]

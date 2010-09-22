@@ -3,6 +3,7 @@
   <includeClasses>
     <classEntry path="FlexUnitApplication.as"/>
     <classEntry path="System.Linq.ListEnumerator"/>
+    <classEntry path="System.Linq.SkipEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

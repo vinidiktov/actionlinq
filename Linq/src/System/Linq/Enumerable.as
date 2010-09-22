@@ -3,6 +3,8 @@ package System.Linq
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	
+	import mx.collections.IList;
+	
 	public class Enumerable implements IEnumerable
 	{
 		private var source:*;
@@ -18,8 +20,9 @@ package System.Linq
 				return new Enumerable( obj as Array,
 					function(source:*):IEnumerator { return new ArrayEnumerator(source as Array) });
 			
-			//if(obj is IList)
-			//	return new Enumerable(new ListEnumerator(obj as IList));
+			if(obj is IList)
+				return new Enumerable(obj as IList,
+					function(source:*):IEnumerator { return new ListEnumerator(obj as IList) });
 			
 			return null;
 		}

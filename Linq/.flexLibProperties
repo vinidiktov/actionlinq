@@ -2,6 +2,7 @@
 <flexLibProperties includeAllClasses="true" version="3">
   <includeClasses>
     <classEntry path="FlexUnitApplication.as"/>
+    <classEntry path="System.Linq.ListEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -32,6 +32,7 @@ package System.Linq
 
 		public function Reset():void
 		{
+			enumerator.Reset();
 		}
 	}
 }

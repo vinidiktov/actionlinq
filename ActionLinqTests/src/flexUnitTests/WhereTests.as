@@ -12,7 +12,6 @@ package flexUnitTests
 		{
 			var data:Array = [1, 2, 3, 4, 5];
 			var filtered:IEnumerable = Enumerable.From(data).Where(function(x){return x >= 4});
-			
 			var enumerator:IEnumerator = filtered.GetEnumerator();
 			
 			Assert.assertEquals(true, enumerator.MoveNext());
@@ -20,6 +19,21 @@ package flexUnitTests
 			Assert.assertEquals(true, enumerator.MoveNext());
 			Assert.assertEquals(5, enumerator.Current());
 			Assert.assertEquals(false, enumerator.MoveNext());
+		}
+		
+		[Test]
+		public function Resetting_Where_Starts_Over()
+		{
+			var data:Array = [1, 2, 3, 4, 5];
+			var filtered:IEnumerable = Enumerable.From(data).Where(function(x){return x >= 4});
+			var enumerator:IEnumerator = filtered.GetEnumerator();
+			
+			enumerator.MoveNext();
+			enumerator.MoveNext();
+			enumerator.Reset();
+			enumerator.MoveNext();
+			
+			Assert.assertEquals(4, enumerator.Current());
 		}
 	}
 }

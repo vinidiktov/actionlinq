@@ -20,6 +20,21 @@ package flexUnitTests
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 4);
 			Assert.assertFalse(enumerator.MoveNext());
-		}		
+		}	
+		
+		[Test]
+		public function Resetting_Select_Starts_Over()
+		{
+			var data:Array = [1,2];
+			var mapped:IEnumerable = Enumerable.From(data).Select(function(x){return x*2});
+			var enumerator:IEnumerator = mapped.GetEnumerator();
+			
+			enumerator.MoveNext();
+			enumerator.MoveNext();
+			enumerator.Reset();
+			enumerator.MoveNext();
+			
+			Assert.assertEquals(2, enumerator.Current());
+		}
 	}
 }

@@ -4,7 +4,7 @@ package System.Collection.Generic
 
 	public interface IEnumerable
 	{
-		function GetEnumerator():IEnumerator;
+		function GetEnumerator():IEnumerator; 
 		
 		function Where(predicate:Function):IEnumerable;		
 		//public static IEnumerable<TSource> Where<TSource>(Func<TSource, bool> predicate);

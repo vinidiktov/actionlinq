@@ -41,7 +41,7 @@ package flexUnitTests
 			
 			Assert.assertEquals(enumerator1.Current(), 1);
 			Assert.assertEquals(enumerator2.Current(), 2);
-			
 		}
+		
 	}
 }

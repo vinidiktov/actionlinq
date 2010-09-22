@@ -1,0 +1,5 @@
+glob:*/.FlexUnitSettings
+glob:*/.settings
+glob:*/bin-debug
+glob:*/bin
+glob:*/html-template

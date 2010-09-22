@@ -8,6 +8,7 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 					   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
+			import flexUnitTests.IntegrationTests;
 			import flexUnitTests.SkipTests;
 			import flexUnitTests.AggregateTests;
 			import flexUnitTests.EnumerableTests;
@@ -15,6 +16,9 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			import flexUnitTests.SelectTests;
 			import flexUnitTests.ToArrayTests;
 			import flexUnitTests.WhereTests;
+			
+			private var flexUnitTests_IntegrationTests_obj:flexUnitTests.IntegrationTests;
+			
 			
 			private var flexUnitTests_SkipTests_obj:flexUnitTests.SkipTests;
 			

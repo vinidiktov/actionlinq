@@ -69,5 +69,13 @@ package System.Linq
 			
 			return aggregate;
 		}
+		
+		public function Sum(selector:Function=null):* {
+			if(selector == null)
+				selector = function(x) { return x; };
+			
+			return Aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
+		}
+		
 	}
 }

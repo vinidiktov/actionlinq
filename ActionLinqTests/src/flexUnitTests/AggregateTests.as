@@ -16,6 +16,23 @@ package flexUnitTests
 			Assert.assertEquals(product, 24);
 		}
 		
+		[Test]
+		public function Sum_Will_Sum_The_Values_Of_A_Collection()
+		{
+			var data:Array = [1,2,3,4];
+			var sum:int = Enumerable.From(data).Sum();
+			
+			Assert.assertEquals(sum, 10);
+		}
+		
+		[Test]
+		public function Sum_With_Selector_Sums_The_Selected_Values()
+		{
+			var data:Array = ["a", "ab", "abc", "abcd"];
+			var sum:int = Enumerable.From(data).Sum(function(item:String) { return item.length });
+			
+			Assert.assertEquals(sum, 10);
+		}
 		
 	}
 }

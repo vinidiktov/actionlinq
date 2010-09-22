@@ -30,8 +30,8 @@ package System.Collection.Generic
 		//* public static TAccumulate Aggregate<TSource, TAccumulate>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func);
 		//public static TResult Aggregate<TSource, TAccumulate, TResult>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector);
 		
-		//function Sum(selector:Function):*;
-		//public static int Sum();
+		function Sum(selector:Function=null):*;
+		//* public static int Sum();
 		//* public static int Sum<TSource>(Func<TSource, int> selector);
 		
 	}

@@ -8,11 +8,15 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 					   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
+			import flexUnitTests.AggregateTests;
 			import flexUnitTests.EnumerableTests;
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.SelectTests;
 			import flexUnitTests.ToArrayTests;
 			import flexUnitTests.WhereTests;
+			
+			private var flexUnitTests_AggregateTests_obj:flexUnitTests.AggregateTests;
+			
 			
 			private var flexUnitTests_EnumerableTests_obj:flexUnitTests.EnumerableTests;
 			private var flexUnitTests_WhereTests_obj:flexUnitTests.WhereTests;

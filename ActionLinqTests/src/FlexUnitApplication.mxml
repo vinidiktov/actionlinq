@@ -12,12 +12,12 @@
 			import flexUnitTests.SelectTests;
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.EnumerableTests;
-			import flexUnitTests.BasicTest;
+			import flexUnitTests.AggregateTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(flexUnitTests.BasicTest);
+				testsToRun.push(flexUnitTests.AggregateTests);
 				testsToRun.push(flexUnitTests.EnumerableTests);
 				testsToRun.push(flexUnitTests.FirstTests);
 				testsToRun.push(flexUnitTests.SelectTests);

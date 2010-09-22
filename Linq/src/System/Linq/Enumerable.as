@@ -58,5 +58,16 @@ package System.Linq
 			var filteredEnumerator:IEnumerator = Where(predicate).GetEnumerator();
 			return filteredEnumerator.MoveNext() ? filteredEnumerator.Current() : null;
 		}
+		
+		public function Aggregate(seed:*, aggregator:Function):* {
+			var aggregate = seed;
+			var enumerator:IEnumerator = GetEnumerator();
+			
+			while(enumerator.MoveNext()) {
+				aggregate = aggregator(aggregate, enumerator.Current());
+			}
+			
+			return aggregate;
+		}
 	}
 }

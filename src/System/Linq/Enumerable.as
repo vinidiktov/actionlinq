@@ -5,15 +5,18 @@ package System.Linq
 	
 	public class Enumerable implements IEnumerable
 	{
-		private var enumerator:IEnumerator;
+		private var source:*;
+		private var enumeratorFactory:Function;
 		
-		public function Enumerable(enumerator:IEnumerator) {
-			this.enumerator = enumerator;	
+		public function Enumerable(source:*, enumeratorFactory:Function) {
+			this.source = source;
+			this.enumeratorFactory = enumeratorFactory;	
 		}
 		
 		public static function From(obj:Object) : IEnumerable {
 			if(obj is Array)
-				return new Enumerable(new ArrayEnumerator(obj as Array));
+				return new Enumerable( obj as Array,
+					function(source:*):IEnumerator { return new ArrayEnumerator(source as Array) });
 			
 			//if(obj is IList)
 			//	return new Enumerable(new ListEnumerator(obj as IList));
@@ -23,21 +26,28 @@ package System.Linq
 		
 		public function GetEnumerator():IEnumerator
 		{
-			return enumerator;
+			return enumeratorFactory(source);
 		}
 		
 		public function Where(predicate:Function):IEnumerable {
-			return new Enumerable(new WhereEnumerator(this, predicate));
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new WhereEnumerator(source, predicate) });
 		}
 		
 		public function Select(selector:Function):IEnumerable {
-			return new Enumerable(new SelectEnumerator(this, selector));
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new SelectEnumerator(source, selector) });
 		}
 		
 		public function ToArray():Array {
 			var result:Array = new Array();
+			var enumerator:IEnumerator = GetEnumerator();
+			
 			while(enumerator.MoveNext())
 				result.push(enumerator.Current());
+			
 			return result;	
 		}
 		

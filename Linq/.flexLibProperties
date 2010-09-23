@@ -4,6 +4,7 @@
     <classEntry path="FlexUnitApplication.as"/>
     <classEntry path="System.Linq.ListEnumerator"/>
     <classEntry path="System.Linq.SkipEnumerator"/>
+    <classEntry path="System.Linq.ConcatEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

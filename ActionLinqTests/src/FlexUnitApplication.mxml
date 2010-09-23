@@ -14,12 +14,14 @@
 			import flexUnitTests.IntegrationTests;
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.EnumerableTests;
+			import flexUnitTests.ConcatTests;
 			import flexUnitTests.AggregateTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
 				testsToRun.push(flexUnitTests.AggregateTests);
+				testsToRun.push(flexUnitTests.ConcatTests);
 				testsToRun.push(flexUnitTests.EnumerableTests);
 				testsToRun.push(flexUnitTests.FirstTests);
 				testsToRun.push(flexUnitTests.IntegrationTests);

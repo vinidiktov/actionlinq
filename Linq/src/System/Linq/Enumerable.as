@@ -50,6 +50,12 @@ package System.Linq
 					return new SkipEnumerator(source, count) });
 		}
 		
+		public function Concat(second:IEnumerable):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new ConcatEnumerator(source, second) });
+		}
+		
 		public function ToArray():Array {
 			var result:Array = new Array();
 			var enumerator:IEnumerator = GetEnumerator();

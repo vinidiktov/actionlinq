@@ -17,6 +17,9 @@ package System.Collection.Generic
 		function Skip(count:int):IEnumerable; 
 		//* public static IEnumerable<TSource> Skip<TSource>(int count);
 		
+		function Concat(second:IEnumerable):IEnumerable;
+		//* public static IEnumerable<TSource> Concat<TSource>(IEnumerable<TSource> second);
+		
 		function ToArray():Array;
 		//* public static TSource[] ToArray<TSource>();
 		

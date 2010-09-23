@@ -44,6 +44,12 @@ package System.Linq
 					return new SelectEnumerator(source, selector) });
 		}
 		
+		public function SelectMany(collectionSelector:Function, resultSelector:Function):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new SelectManyEnumerator(source, collectionSelector, resultSelector) });
+		}
+		
 		public function Skip(count:int):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {

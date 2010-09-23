@@ -14,6 +14,13 @@ package System.Collection.Generic
 		//* public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
 		//public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
 		
+		function SelectMany(collectionSelector:Function, resultSelector:Function):IEnumerable;
+		//public static IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, IEnumerable<TResult>> selector);		
+		//public static IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, int, IEnumerable<TResult>> selector);
+		//public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, int, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
+		//* public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
+
+		
 		function Skip(count:int):IEnumerable; 
 		//* public static IEnumerable<TSource> Skip<TSource>(int count);
 		

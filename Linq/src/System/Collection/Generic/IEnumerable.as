@@ -30,7 +30,11 @@ package System.Collection.Generic
 		//public static TSource FirstOrDefault<TSource>();
 		//public static TSource FirstOrDefault<TSource>(Func<TSource, bool> predicate);
 		
-
+		function Any(predicate:Function=null):Boolean;
+		//* public static bool Any<TSource>();
+		//* public static bool Any<TSource>(Func<TSource, bool> predicate);
+		
+		
 		function Aggregate(seed:*, aggregator:Function):*;
 		//public static TSource Aggregate<TSource>(Func<TSource, TSource, TSource> func);
 		//* public static TAccumulate Aggregate<TSource, TAccumulate>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func);

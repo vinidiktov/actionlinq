@@ -74,6 +74,13 @@ package System.Linq
 			return filteredEnumerator.MoveNext() ? filteredEnumerator.Current() : null;
 		}
 		
+		public function Any(predicate:Function=null):Boolean {
+			if(predicate == null)
+				predicate = function(x) { return true; };
+			
+			return Where(predicate).GetEnumerator().MoveNext();
+		}
+		
 		public function Aggregate(seed:*, aggregator:Function):* {
 			var aggregate = seed;
 			var enumerator:IEnumerator = GetEnumerator();

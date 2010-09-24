@@ -7,6 +7,9 @@ package flexUnitTests
 	import flexunit.framework.Assert;
 	
 	import mx.collections.ArrayCollection;
+	
+	import org.flexunit.assertThat;
+	import org.hamcrest.object.equalTo;
 
 	public class EnumerableTests
 	{		
@@ -92,5 +95,26 @@ package flexUnitTests
 			Assert.assertEquals(enumerator2.Current(), 2);
 		}
 		
+		//[Test]
+		public function Explicit_Cast_Creates_Enumerable():void {
+			var data:Array = [1,2,3];
+			var enumerable:IEnumerable = Enumerable(data);
+			
+			assertThat(enumerable.Sum(), equalTo(6));
+		}
+		
+		[Test]
+		public function Enumerable_Plays_Nicely_With_for_each():void {
+			var data:Array = [1,2,3];
+			var enumerable:IEnumerable = Enumerable.From(data);
+			
+			var count = 0;
+			for each(var item in enumerable)
+			{
+				count += item;
+			}
+		
+			assertThat(count, equalTo(6));
+		}
 	}
 }

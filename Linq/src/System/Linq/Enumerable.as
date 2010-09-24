@@ -4,8 +4,10 @@ package System.Linq
 	import System.Collection.Generic.IEnumerator;
 	
 	import mx.collections.IList;
+	import flash.utils.Proxy;
+	import flash.utils.flash_proxy;
 	
-	public class Enumerable implements IEnumerable
+	public class Enumerable extends Proxy implements IEnumerable
 	{
 		private var source:*;
 		private var enumeratorFactory:Function;
@@ -105,5 +107,19 @@ package System.Linq
 			return Aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
 		}
 		
+		private var currentEnumerator:IEnumerator;
+		
+		override flash_proxy function nextNameIndex (index:int):int {
+			if(index <= 0)
+			{
+				currentEnumerator = GetEnumerator();
+			}
+			
+			return currentEnumerator.MoveNext() ? index + 1 : 0;
+		}
+		
+		override flash_proxy function nextValue(index:int):* {
+			return currentEnumerator.Current();
+		}
 	}
 }

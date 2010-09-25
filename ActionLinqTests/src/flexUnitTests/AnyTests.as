@@ -6,30 +6,26 @@ package flexUnitTests
 	import org.flexunit.assertThat;
 	import org.hamcrest.object.equalTo;
 
-	public class AnyTests
+	public class AnyTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function Populated_Enumerable_Has_Any():void {
-			assertThat(Enumerable.From([1]).Any(), equalTo(true));
+			assertThat([1].Any(), equalTo(true));
 		}
 		
 		[Test]
 		public function Unpopulated_Enumerable_Does_Not_Have_Any():void {
-			assertThat(Enumerable.From([]).Any(), equalTo(false));
+			assertThat([].Any(), equalTo(false));
 		}
 		
 		[Test]
 		public function Any_With_Predicate_Returns_True_When_Matched():void {
-			var enumerable:IEnumerable = Enumerable.From([1,2,3]);
-			
-			assertThat(enumerable.Any(function(x){return x > 2}), equalTo(true));
+			assertThat([1,2,3].Any(function(x){return x > 2}), equalTo(true));
 		}
 		
 		[Test]
 		public function Any_With_Predicate_Returns_False_When_Not_Matched():void {
-			var enumerable:IEnumerable = Enumerable.From([1,2]);
-			
-			assertThat(enumerable.Any(function(x){return x > 2}), equalTo(false));
+			assertThat([1,2].Any(function(x){return x > 2}), equalTo(false));
 		}
 		
 	}

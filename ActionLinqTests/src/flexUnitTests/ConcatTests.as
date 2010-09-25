@@ -8,13 +8,12 @@ package flexUnitTests
 	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 
-	public class ConcatTests
+	public class ConcatTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function Concat_Concatenates_Two_Sets():void {
-			var data1:IEnumerable = Enumerable.From([1,3,4]);
-			var data2:IEnumerable = Enumerable.From([3,5,6]);
-			var combined:IEnumerable = data1.Concat(data2);
+			var data2:IEnumerable = [3,5,6].AsEnumerable();
+			var combined:IEnumerable = [1,3,4].Concat(data2);
 			
 			var enumerator:IEnumerator = combined.GetEnumerator();
 			
@@ -35,9 +34,8 @@ package flexUnitTests
 		
 		[Test]
 		public function Reset_Will_Reset_Both_Enumerators():void {
-			var data1:IEnumerable = Enumerable.From([1,3,4]);
-			var data2:IEnumerable = Enumerable.From([3,5,6]);
-			var combined:IEnumerable = data1.Concat(data2);
+			var data2:IEnumerable = [3,5,6].AsEnumerable();
+			var combined:IEnumerable = [1,3,4].Concat(data2);
 			
 			var enumerator:IEnumerator = combined.GetEnumerator();
 			

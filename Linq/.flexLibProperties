@@ -6,6 +6,7 @@
     <classEntry path="System.Linq.SkipEnumerator"/>
     <classEntry path="System.Linq.ConcatEnumerator"/>
     <classEntry path="System.Linq.SelectManyEnumerator"/>
+    <classEntry path="System.Linq.XMLListEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

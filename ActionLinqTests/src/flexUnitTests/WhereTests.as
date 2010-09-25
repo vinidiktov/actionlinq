@@ -4,14 +4,19 @@ package flexUnitTests
 	import System.Linq.*;
 	
 	import flexunit.framework.*;
+	
+	import mx.collections.ArrayCollection;
+	
+	import org.flexunit.assertThat;
+	import org.hamcrest.collection.array;
 
-	public class WhereTests
-	{		
+	public class WhereTests extends EnumerableTestsBase
+	{	
 		[Test]
 		public function Where_Filters_On_Predicate(): void
 		{
 			var data:Array = [1, 2, 3, 4, 5];
-			var filtered:IEnumerable = Enumerable.From(data).Where(function(x){return x >= 4});
+			var filtered:IEnumerable = data.Where(function(x){return x >= 4});
 			var enumerator:IEnumerator = filtered.GetEnumerator();
 			
 			Assert.assertEquals(true, enumerator.MoveNext());
@@ -25,7 +30,7 @@ package flexUnitTests
 		public function Resetting_Where_Starts_Over()
 		{
 			var data:Array = [1, 2, 3, 4, 5];
-			var filtered:IEnumerable = Enumerable.From(data).Where(function(x){return x >= 4});
+			var filtered:IEnumerable = data.Where(function(x){return x >= 4});
 			var enumerator:IEnumerator = filtered.GetEnumerator();
 			
 			enumerator.MoveNext();
@@ -35,5 +40,6 @@ package flexUnitTests
 			
 			Assert.assertEquals(4, enumerator.Current());
 		}
+		
 	}
 }

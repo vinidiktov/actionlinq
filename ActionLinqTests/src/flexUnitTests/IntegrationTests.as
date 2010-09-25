@@ -5,12 +5,11 @@ package flexUnitTests
 	
 	import flexunit.framework.Assert;
 
-	public class IntegrationTests
+	public class IntegrationTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function Do_A_Bunch_Of_Stuff() {
-			var data:Array = [1,2,3,4,5,6];
-			var morphed:IEnumerable = Enumerable.From(data)
+			var morphed:IEnumerable = [1,2,3,4,5,6]
 				.Where(function(x) { return x % 2 } )
 				.Select(function(x) { return x * 4 } )
 				.Skip(1);

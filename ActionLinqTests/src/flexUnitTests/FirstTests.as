@@ -5,13 +5,12 @@ package flexUnitTests
 	
 	import flexunit.framework.Assert;
 
-	public class FirstTests
+	public class FirstTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function First_With_Predicate_Returns_First_Match()
 		{
-			var data:Array = [1,2,3,4,5];
-			var first:int = Enumerable.From(data).First(function(x){return x >= 4;});
+			var first:int = [1,2,3,4,5].First(function(x){return x >= 4;});
 			
 			Assert.assertEquals(first, 4);  
 		}
@@ -19,8 +18,7 @@ package flexUnitTests
 		[Test]
 		public function First_Without_Predicate_Returns_First_Item()
 		{
-			var data:Array = [1,2,3,4,5];
-			var first:int = Enumerable.From(data).First();
+			var first:int = [1,2,3,4,5].First();
 			
 			Assert.assertEquals(first, 1);
 		}

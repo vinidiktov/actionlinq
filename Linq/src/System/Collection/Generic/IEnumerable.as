@@ -1,6 +1,8 @@
 package System.Collection.Generic
 {
 	import System.Linq.*;
+	
+	import mx.collections.ArrayCollection;
 
 	public interface IEnumerable
 	{
@@ -28,7 +30,10 @@ package System.Collection.Generic
 		//* public static IEnumerable<TSource> Concat<TSource>(IEnumerable<TSource> second);
 		
 		function ToArray():Array;
+		function ToArrayCollection():ArrayCollection;
 		//* public static TSource[] ToArray<TSource>();
+		
+		
 		
 		function First(predicate:Function=null):*;
 		//* public static TSource First<TSource>();

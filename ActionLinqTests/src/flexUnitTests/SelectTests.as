@@ -5,13 +5,12 @@ package flexUnitTests
 	
 	import flexunit.framework.*;
 	
-	public class SelectTests
+	public class SelectTests extends EnumerableTestsBase
 	{
 		[Test]
 		public function Select_Maps_Values_To_Function()
 		{
-			var data:Array = [1,2];
-			var mapped:IEnumerable = Enumerable.From(data).Select(function(x){return x*2});
+			var mapped:IEnumerable = [1,2].Select(function(x){return x*2});
 			
 			var enumerator:IEnumerator = mapped.GetEnumerator();
 			
@@ -25,8 +24,7 @@ package flexUnitTests
 		[Test]
 		public function Resetting_Select_Starts_Over()
 		{
-			var data:Array = [1,2];
-			var mapped:IEnumerable = Enumerable.From(data).Select(function(x){return x*2});
+			var mapped:IEnumerable = [1,2].Select(function(x){return x*2});
 			var enumerator:IEnumerator = mapped.GetEnumerator();
 			
 			enumerator.MoveNext();

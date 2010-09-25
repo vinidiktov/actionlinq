@@ -3,21 +3,26 @@ package System.Linq
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	
-	import mx.collections.IList;
 	import flash.utils.Proxy;
 	import flash.utils.flash_proxy;
+	
+	import mx.collections.ArrayCollection;
+	import mx.collections.IList;
 	
 	public class Enumerable extends Proxy implements IEnumerable
 	{
 		private var source:*;
 		private var enumeratorFactory:Function;
 		
-		public function Enumerable(source:*, enumeratorFactory:Function) {
+		public function Enumerable(source:*, enumeratorFactory:Function) {	
 			this.source = source;
 			this.enumeratorFactory = enumeratorFactory;	
-		}
+		} 
 		
 		public static function From(obj:Object) : IEnumerable {
+			if(obj is IEnumerable)
+				return obj as IEnumerable;
+			
 			if(obj is Array)
 				return new Enumerable( obj as Array,
 					function(source:*):IEnumerator { return new ArrayEnumerator(source as Array) });
@@ -25,6 +30,10 @@ package System.Linq
 			if(obj is IList)
 				return new Enumerable(obj as IList,
 					function(source:*):IEnumerator { return new ListEnumerator(obj as IList) });
+			
+			if(obj is XMLList)
+				return new Enumerable(obj as XMLList,
+					function(source:*):IEnumerator { return new XMLListEnumerator(obj as XMLList) });
 			
 			return null;
 		}
@@ -70,6 +79,16 @@ package System.Linq
 			
 			while(enumerator.MoveNext())
 				result.push(enumerator.Current());
+			
+			return result;	
+		}
+		 
+		public function ToArrayCollection():ArrayCollection {
+			var result:ArrayCollection = new ArrayCollection();
+			var enumerator:IEnumerator = GetEnumerator();
+			
+			while(enumerator.MoveNext())
+				result.addItem(enumerator.Current());
 			
 			return result;	
 		}

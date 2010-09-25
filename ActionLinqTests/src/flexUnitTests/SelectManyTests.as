@@ -12,11 +12,9 @@ package flexUnitTests
 	{		
 		[Test]
 		public function Multi_Dimensional_Collection_Gets_Flattened_With_SelectMany():void {
-			var dataA:IEnumerable = Enumerable.From([1,4,7]);
-			var dataB:IEnumerable = Enumerable.From([2,5,8]);
 			
-			var result:IEnumerable = dataA.SelectMany(
-				function(x) { return dataB },
+			var result:IEnumerable = [1,4,7].SelectMany(
+				function(x) { return [2,5,8].AsEnumerable() },
 				function(x, y) { return x + y });
 			
 			assertThat(result.ToArray(), array(3,6,9,6,9,12,9,12,15));
@@ -25,10 +23,9 @@ package flexUnitTests
 		[Test]
 		public function When_CollectionSelector_Is_Empty_It_Still_Works():void
 		{
-			var dataA:IEnumerable = Enumerable.From([1,4,7]);
-			var dataB:IEnumerable = Enumerable.From([2,5,8]);
+			var dataB:IEnumerable = [2,5,8].AsEnumerable();
 			
-			var result:IEnumerable = dataA.SelectMany(
+			var result:IEnumerable = [1,4,7].SelectMany(
 				function(x) { return x%2 ? dataB : Enumerable.From([]) },
 				function(x, y) { return x + y });
 			
@@ -37,11 +34,9 @@ package flexUnitTests
 		
 		[Test]
 		public function Reset_Causes_Everything_To_Back_To_The_Beginning():void {
-			var dataA:IEnumerable = Enumerable.From([1,4,7]);
-			var dataB:IEnumerable = Enumerable.From([2,5,8]);
 			
-			var result:IEnumerable = dataA.SelectMany(
-				function(x) { return dataB },
+			var result:IEnumerable = [1,4,7].SelectMany(
+				function(x) { return [2,5,8].AsEnumerable() },
 				function(x, y) { return x + y });
 			var enumerator:IEnumerator = result.GetEnumerator();
 			

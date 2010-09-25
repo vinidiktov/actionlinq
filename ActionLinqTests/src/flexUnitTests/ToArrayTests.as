@@ -1,15 +1,17 @@
 package flexUnitTests
 {
 	import System.Linq.*;
+	
 	import flexunit.framework.Assert;
+	
+	import mx.collections.ArrayCollection;
 
-	public class ToArrayTests
+	public class ToArrayTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function ToArray_Converts_IEnumerable_To_Array():void
 		{
-			var data:Array = [1,2];
-			var converted:Array = Enumerable.From(data).ToArray();
+			var converted:Array = [1,2].ToArray();
 			
 			Assert.assertEquals(converted.length, 2);
 			Assert.assertEquals(converted[0], 1);
@@ -19,12 +21,20 @@ package flexUnitTests
 		[Test]
 		public function ToArray_On_Where_Returns_Array()
 		{
-			var data:Array = [1, 2, 3, 4, 5];
-			var filtered:Array = Enumerable.From(data).Where(function(x){return x >= 4}).ToArray();
+			var filtered:Array = [1,2,3,4,5].Where(function(x){return x >= 4}).ToArray();
 			
 			Assert.assertEquals(filtered.length, 2);
 			Assert.assertEquals(filtered[0], 4);
 			Assert.assertEquals(filtered[1], 5);
+		}
+		
+		[Test]
+		public function ToArrayCollection_Converts_IEnumerable_To_Array():void{
+			var converted:ArrayCollection = [1,2].ToArrayCollection();
+			
+			Assert.assertEquals(converted.length, 2);
+			Assert.assertEquals(converted[0], 1);
+			Assert.assertEquals(converted[1], 2);
 		}
 		
 	}

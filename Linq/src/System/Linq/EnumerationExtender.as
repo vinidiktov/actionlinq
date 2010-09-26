@@ -34,6 +34,9 @@ package System.Linq
 			c.prototype.Skip = function(count:int):IEnumerable {
 				return this.AsEnumerable().Skip(count);
 			}
+			c.prototype.OrderBy = function(keySelector:Function):IEnumerable {
+				return this.AsEnumerable().OrderBy(keySelector);
+			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
 				return this.AsEnumerable().Concat(second);
 			}
@@ -58,7 +61,7 @@ package System.Linq
 			
 			var names:Array = [
 				"AsEnumerable", "GetEnumerator", "Where", 
-				"Select", "SelectMany", "Take","Skip", "Concat",
+				"Select", "SelectMany", "Take","Skip", "OrderBy", "Concat",
 				"ToArray", "ToArrayCollection", "First", "Any", 
 				"Aggregate", "Sum"];
 			

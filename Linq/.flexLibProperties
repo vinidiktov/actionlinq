@@ -8,6 +8,7 @@
     <classEntry path="System.Linq.SelectManyEnumerator"/>
     <classEntry path="System.Linq.XMLListEnumerator"/>
     <classEntry path="System.Linq.TakeEnumerator"/>
+    <classEntry path="System.Linq.OrderByEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

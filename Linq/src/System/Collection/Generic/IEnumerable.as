@@ -25,9 +25,12 @@ package System.Collection.Generic
 		function Take(count:int):IEnumerable;
 		//IEnumerable<TSource> Take<TSource>(int count);
 		
-		
 		function Skip(count:int):IEnumerable; 
 		//* public static IEnumerable<TSource> Skip<TSource>(int count);
+
+		function OrderBy(keySelector:Function):IEnumerable;
+		//* IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector);
+		//IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector, IComparer<TKey> comparer);
 		
 		function Concat(second:IEnumerable):IEnumerable;
 		//* public static IEnumerable<TSource> Concat<TSource>(IEnumerable<TSource> second);

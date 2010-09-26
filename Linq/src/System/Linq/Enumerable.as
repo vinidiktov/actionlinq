@@ -73,6 +73,12 @@ package System.Linq
 					return new SkipEnumerator(source, count) });
 		}
 		
+		public function OrderBy(keySelector:Function):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new OrderByEnumerator(source, keySelector) });
+		}
+		
 		public function Concat(second:IEnumerable):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {

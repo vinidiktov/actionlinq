@@ -61,6 +61,12 @@ package System.Linq
 					return new SelectManyEnumerator(source, collectionSelector, resultSelector) });
 		}
 		
+		public function Take(count:int):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new TakeEnumerator(source, count) });
+		}
+		
 		public function Skip(count:int):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {

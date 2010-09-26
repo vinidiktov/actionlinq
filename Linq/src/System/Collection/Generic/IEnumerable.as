@@ -9,19 +9,22 @@ package System.Collection.Generic
 		function GetEnumerator():IEnumerator; 
 		
 		function Where(predicate:Function):IEnumerable;		
-		//* public static IEnumerable<TSource> Where<TSource>(Func<TSource, bool> predicate);
-		//public static IEnumerable<TSource> Where<TSource>(Func<TSource, int, bool> predicate);
+		//* IEnumerable<TSource> Where<TSource>(Func<TSource, bool> predicate);
+		//IEnumerable<TSource> Where<TSource>(Func<TSource, int, bool> predicate);
 
 		function Select(selector:Function):IEnumerable;
-		//* public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
-		//public static IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
+		//* IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
+		//IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
 		
 		function SelectMany(collectionSelector:Function, resultSelector:Function):IEnumerable;
-		//public static IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, IEnumerable<TResult>> selector);		
-		//public static IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, int, IEnumerable<TResult>> selector);
-		//public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, int, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
-		//* public static IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
+		//IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, IEnumerable<TResult>> selector);		
+		//IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, int, IEnumerable<TResult>> selector);
+		//IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, int, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
+		//* IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
 
+		function Take(count:int):IEnumerable;
+		//IEnumerable<TSource> Take<TSource>(int count);
+		
 		
 		function Skip(count:int):IEnumerable; 
 		//* public static IEnumerable<TSource> Skip<TSource>(int count);

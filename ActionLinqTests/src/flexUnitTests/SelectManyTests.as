@@ -8,7 +8,7 @@ package flexUnitTests
 	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 
-	public class SelectManyTests
+	public class SelectManyTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function Multi_Dimensional_Collection_Gets_Flattened_With_SelectMany():void {

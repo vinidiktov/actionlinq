@@ -9,6 +9,7 @@
 		<![CDATA[
 			import flexUnitTests.WhereTests;
 			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.TakeTests;
 			import flexUnitTests.SkipTests;
 			import flexUnitTests.SelectTests;
 			import flexUnitTests.SelectManyTests;
@@ -31,6 +32,7 @@
 				testsToRun.push(flexUnitTests.SelectManyTests);
 				testsToRun.push(flexUnitTests.SelectTests);
 				testsToRun.push(flexUnitTests.SkipTests);
+				testsToRun.push(flexUnitTests.TakeTests);
 				testsToRun.push(flexUnitTests.ToArrayTests);
 				testsToRun.push(flexUnitTests.WhereTests);
 				return testsToRun;

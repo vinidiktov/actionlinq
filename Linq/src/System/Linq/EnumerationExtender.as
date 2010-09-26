@@ -28,6 +28,9 @@ package System.Linq
 			c.prototype.SelectMany = function(collectionSelector:Function, resultSelector:Function):IEnumerable {
 				return this.AsEnumerable().SelectMany(collectionSelector, resultSelector);
 			}
+			c.prototype.Take = function(count:int):IEnumerable {
+				return this.AsEnumerable().Take(count);	
+			}
 			c.prototype.Skip = function(count:int):IEnumerable {
 				return this.AsEnumerable().Skip(count);
 			}
@@ -53,8 +56,11 @@ package System.Linq
 				return this.AsEnumerable().Sum(selector);
 			}
 			
-			var names:Array = ["AsEnumerable", "GetEnumerator", "Where", "Select", "SelectMany", "Skip", "Concat",
-				"ToArray", "ToArrayCollection", "First", "Any", "Aggregate", "Sum"];
+			var names:Array = [
+				"AsEnumerable", "GetEnumerator", "Where", 
+				"Select", "SelectMany", "Take","Skip", "Concat",
+				"ToArray", "ToArrayCollection", "First", "Any", 
+				"Aggregate", "Sum"];
 			
 			for each(var name in names)
 				Array.prototype.setPropertyIsEnumerable(name, false);

@@ -36,6 +36,17 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function Selector_Is_Only_Called_Once_Per_Move(): void {
+			var increment:int = 0;
+			var mapped:IEnumerator = [1].Select(function(x){return increment++}).GetEnumerator();
+			
+			mapped.MoveNext();
+			
+			assertThat(mapped.Current(), equalTo(0));
+			assertThat(mapped.Current(), equalTo(0));
+		}
+		
+		[Test]
 		public function Resetting_Select_Starts_Over()
 		{
 			var mapped:IEnumerable = [1,2].Select(function(x){return x*2});

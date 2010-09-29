@@ -55,10 +55,10 @@ package System.Linq
 					return new SelectEnumerator(source, selector) });
 		}
 		
-		public function SelectMany(collectionSelector:Function, resultSelector:Function):IEnumerable {
+		public function SelectMany(selector:Function, resultsSelector:Function = null):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new SelectManyEnumerator(source, collectionSelector, resultSelector) });
+					return new SelectManyEnumerator(source, selector, resultsSelector) });
 		}
 		
 		public function Take(count:int):IEnumerable {

@@ -25,8 +25,8 @@ package System.Linq
 			c.prototype.Select = function(selector:Function):IEnumerable {
 				return this.AsEnumerable().Select(selector);
 			};
-			c.prototype.SelectMany = function(collectionSelector:Function, resultSelector:Function):IEnumerable {
-				return this.AsEnumerable().SelectMany(collectionSelector, resultSelector);
+			c.prototype.SelectMany = function(function1:Function, function2:Function = null):IEnumerable {
+				return this.AsEnumerable().SelectMany(function1, function2);
 			}
 			c.prototype.Take = function(count:int):IEnumerable {
 				return this.AsEnumerable().Take(count);	

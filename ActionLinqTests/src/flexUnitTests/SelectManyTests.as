@@ -33,6 +33,14 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function When_CollectionSelector_Is_Not_Given_Selector_Is_Used():void {
+			var data:Array = [1,2,3];
+			var transposed:Array = data.SelectMany(function(i){return [i,i,i]}).ToArray();
+			
+			assertThat(transposed, array(1,1,1,2,2,2,3,3,3));
+		}
+		
+		[Test]
 		public function Reset_Causes_Everything_To_Back_To_The_Beginning():void {
 			
 			var result:IEnumerable = [1,4,7].SelectMany(

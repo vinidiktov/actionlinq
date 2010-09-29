@@ -8,12 +8,17 @@ package System.Linq
 		private var enumerator:IEnumerator;
 		private var collectionSelector:Function;
 		private var resultSelector:Function;
+		private var current:*
 		
-		public function SelectManyEnumerator(enumerable:IEnumerable, collectionSelector:Function, resultSelector:Function)
+		public function SelectManyEnumerator(enumerable:IEnumerable, selector:Function, resultsSelector:Function = null)
 		{
+			if(resultsSelector == null)
+				resultsSelector = function(x,y){return y};
+			
 			this.enumerator = enumerable.GetEnumerator();
-			this.collectionSelector = collectionSelector;
-			this.resultSelector = resultSelector;
+			
+			this.collectionSelector = selector;
+			this.resultSelector = resultsSelector;
 		}
 		
 		//foreach (TSource item in source)
@@ -42,22 +47,37 @@ package System.Linq
 				if(!collectionEnumerator.MoveNext())
 				{
 					collectionEnumerator = null;
-					return MoveNext();
+					
+					if(MoveNext())
+					{
+						setCurrent();
+						return true;
+					}
+					else
+					{
+						return false;
+					}
 				}
 			}
 			
+			setCurrent();
 			return true;
+		}
+		
+		private function setCurrent():void {
+			current = resultSelector(enumerator.Current(), collectionEnumerator.Current());	
 		}
 		
 		public function Current():*
 		{
-			return resultSelector(enumerator.Current(), collectionEnumerator.Current());
+			return current;
 		}
 		
 		public function Reset():void
 		{
 			enumerator.Reset();
 			collectionEnumerator = null;
+			current = null;
 		}
 	}
 }

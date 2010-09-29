@@ -7,6 +7,7 @@ package System.Linq
 	{
 		private var enumerator:IEnumerator;
 		private var selector:Function;
+		private var count:int = -1;
 		
 		public function SelectEnumerator(enumerable:IEnumerable, selector:Function)
 		{
@@ -16,12 +17,13 @@ package System.Linq
 		
 		public function MoveNext():Boolean
 		{
+			count++;
 			return enumerator.MoveNext();
 		}
 		
 		public function Current():*
 		{
-			return selector(enumerator.Current());
+			return selector(enumerator.Current(), count);
 		}
 		
 		public function Reset():void

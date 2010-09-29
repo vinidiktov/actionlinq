@@ -5,21 +5,35 @@ package flexUnitTests
 	
 	import flexunit.framework.*;
 	
+	import org.flexunit.assertThat;
+	import org.hamcrest.collection.array;
+	import org.hamcrest.object.equalTo;
+	
 	public class SelectTests extends EnumerableTestsBase
 	{
 		[Test]
-		public function Select_Maps_Values_To_Function()
+		public function Select_Maps_Values_To_Function():void
 		{
 			var mapped:IEnumerable = [1,2].Select(function(x){return x*2});
 			
 			var enumerator:IEnumerator = mapped.GetEnumerator();
 			
-			Assert.assertTrue(enumerator.MoveNext());
-			Assert.assertEquals(enumerator.Current(), 2);
-			Assert.assertTrue(enumerator.MoveNext());
-			Assert.assertEquals(enumerator.Current(), 4);
-			Assert.assertFalse(enumerator.MoveNext());
+			assertThat(enumerator.MoveNext(), equalTo(true));
+			assertThat(enumerator.Current(), equalTo(2));
+			assertThat(enumerator.MoveNext(), equalTo(true));
+			assertThat(enumerator.Current(), equalTo(4));
+			assertThat(enumerator.MoveNext(), equalTo(false));
 		}	
+		
+		[Test]
+		public function Select_With_Index_Passes_Index_Into_Function():void {
+			var mapped:Array = 
+				[1,2,3,4]
+				.Select(function(x,i) { return x * i })
+				.ToArray();
+			
+			assertThat(mapped, array(0, 2, 6, 12));
+		}
 		
 		[Test]
 		public function Resetting_Select_Starts_Over()
@@ -32,7 +46,7 @@ package flexUnitTests
 			enumerator.Reset();
 			enumerator.MoveNext();
 			
-			Assert.assertEquals(2, enumerator.Current());
+			assertThat(enumerator.Current(), equalTo(2));
 		}
 	}
 }

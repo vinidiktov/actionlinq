@@ -7,6 +7,7 @@ package System.Linq
 	{
 		private var enumerator:IEnumerator;
 		private var predicate:Function;
+		private var count:int = -1;
 		
 		public function WhereEnumerator(enumerable:IEnumerable, predicate:Function)
 		{
@@ -18,7 +19,7 @@ package System.Linq
 		{
 			while(enumerator.MoveNext())
 			{
-				if(predicate(enumerator.Current()))
+				if(predicate(enumerator.Current(), ++count))
 					return true;
 			}
 			
@@ -33,6 +34,7 @@ package System.Linq
 		public function Reset():void
 		{
 			enumerator.Reset();
+			count = -1;
 		}
 	}
 }

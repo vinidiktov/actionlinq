@@ -10,11 +10,11 @@ package System.Collection.Generic
 		
 		function Where(predicate:Function):IEnumerable;		
 		//* IEnumerable<TSource> Where<TSource>(Func<TSource, bool> predicate);
-		//IEnumerable<TSource> Where<TSource>(Func<TSource, int, bool> predicate);
+		//* IEnumerable<TSource> Where<TSource>(Func<TSource, int, bool> predicate);
 
 		function Select(selector:Function):IEnumerable;
 		//* IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
-		//IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
+		//* IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
 		
 		function SelectMany(collectionSelector:Function, resultSelector:Function):IEnumerable;
 		//IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, IEnumerable<TResult>> selector);		

@@ -9,6 +9,7 @@ package flexUnitTests
 	
 	import org.flexunit.assertThat;
 	import org.hamcrest.collection.array;
+	import org.hamcrest.object.equalTo;
 
 	public class WhereTests extends EnumerableTestsBase
 	{	
@@ -19,11 +20,21 @@ package flexUnitTests
 			var filtered:IEnumerable = data.Where(function(x){return x >= 4});
 			var enumerator:IEnumerator = filtered.GetEnumerator();
 			
-			Assert.assertEquals(true, enumerator.MoveNext());
-			Assert.assertEquals(4, enumerator.Current());
-			Assert.assertEquals(true, enumerator.MoveNext());
-			Assert.assertEquals(5, enumerator.Current());
-			Assert.assertEquals(false, enumerator.MoveNext());
+			assertThat(enumerator.MoveNext(), equalTo(true));
+			assertThat(enumerator.Current(), equalTo(4));
+			assertThat(enumerator.MoveNext(), equalTo(true));
+			assertThat(enumerator.Current(), equalTo(5));
+			assertThat(enumerator.MoveNext(), equalTo(false));
+		}
+		
+		[Test]
+		public function Where_With_Index_Passes_Index_If_Defined():void {
+			var data:Array = 
+				[1, 2, 3, 4, 5]
+				.Where(function(x,i) { return i  < 3 })
+				.ToArray();
+			
+			assertThat(data, array(1,2,3));
 		}
 		
 		[Test]
@@ -38,7 +49,7 @@ package flexUnitTests
 			enumerator.Reset();
 			enumerator.MoveNext();
 			
-			Assert.assertEquals(4, enumerator.Current());
+			assertThat(enumerator.Current(), equalTo(4));
 		}
 		
 	}

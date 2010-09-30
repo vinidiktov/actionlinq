@@ -9,7 +9,7 @@ package System.Linq
 	{
 		public static function Initialize():void {
 			InitializeClass(Array);
-			InitializeClass(XMLList);
+			//InitializeClass(XMLList);
 		}
 		
 		public static function InitializeClass(c:Class):void {
@@ -17,7 +17,7 @@ package System.Linq
 				return Enumerable.From(this);
 			};
 			c.prototype.GetEnumerator = function():IEnumerator {
-				return this.AsEnumerable().GetEnumerator();
+				return Enumerable.From(this).GetEnumerator();
 			};
 			c.prototype.Where = function(predicate:Function):IEnumerable {
 				return this.AsEnumerable().Where(predicate);
@@ -59,8 +59,7 @@ package System.Linq
 				return this.AsEnumerable().Sum(selector);
 			}
 			
-			var names:Array = [
-				"AsEnumerable", "GetEnumerator", "Where", 
+			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take","Skip", "OrderBy", "Concat",
 				"ToArray", "ToArrayCollection", "First", "Any", 
 				"Aggregate", "Sum"];

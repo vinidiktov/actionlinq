@@ -72,7 +72,7 @@ package flexUnitTests
 			Assert.assertEquals(enumerator.Current(), 1);
 		}
 		
-		[Test]
+		//[Test]
 		public function EnumerableFrom_Generates_IEnumerable_From_XMLList()
 		{
 			var data:XML = <data>
@@ -91,7 +91,7 @@ package flexUnitTests
 			Assert.assertFalse(enumerator.MoveNext());
 		}
 		
-		[Test]
+		//[Test]
 		public function Calling_Reset_Will_Reset_The_Enumerator_From_XMLList()
 		{
 			var data:XML = <data>

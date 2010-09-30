@@ -28,6 +28,24 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function Static_Predicate_Without_Indexer_Doesnt_Fail(): void
+		{
+			var data:Array = [1, 2, 3, 4, 5];
+			var filtered:IEnumerable = data.Where(GreaterOrEqualTo4);
+			var enumerator:IEnumerator = filtered.GetEnumerator();
+			
+			assertThat(enumerator.MoveNext(), equalTo(true));
+			assertThat(enumerator.Current(), equalTo(4));
+			assertThat(enumerator.MoveNext(), equalTo(true));
+			assertThat(enumerator.Current(), equalTo(5));
+			assertThat(enumerator.MoveNext(), equalTo(false));
+		}
+		
+		private function GreaterOrEqualTo4(i:int):Boolean {
+			return i >= 4;
+		}
+		
+		[Test]
 		public function Where_With_Index_Passes_Index_If_Defined():void {
 			var data:Array = 
 				[1, 2, 3, 4, 5]

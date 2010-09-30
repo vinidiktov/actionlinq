@@ -19,7 +19,11 @@ package System.Linq
 		{
 			while(enumerator.MoveNext())
 			{
-				if(predicate(enumerator.Current(), ++count))
+				var matched:Boolean = predicate.length == 1 ? 
+					predicate(enumerator.Current()) : 
+					predicate(enumerator.Current(), ++count);
+				
+				if(matched)
 					return true;
 			}
 			

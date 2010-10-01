@@ -8,7 +8,8 @@ package System.Linq
 		private var enumerator:IEnumerator;
 		private var collectionSelector:Function;
 		private var resultSelector:Function;
-		private var current:*
+		private var current:*;
+		private var count:int = -1;
 		
 		public function SelectManyEnumerator(enumerable:IEnumerable, selector:Function, resultsSelector:Function = null)
 		{
@@ -19,6 +20,8 @@ package System.Linq
 			
 			this.collectionSelector = selector;
 			this.resultSelector = resultsSelector;
+			
+			Reset();
 		}
 		
 		//foreach (TSource item in source)
@@ -36,7 +39,10 @@ package System.Linq
 					if(!enumerator.MoveNext())
 						return false;
 					
-					collectionEnumerator = this.collectionSelector(enumerator.Current()).GetEnumerator();
+					if(collectionSelector.length == 1)
+						collectionEnumerator = collectionSelector(enumerator.Current()).GetEnumerator();
+					else
+						collectionEnumerator = collectionSelector(enumerator.Current(), ++count).GetEnumerator();
 					
 					if(collectionEnumerator.MoveNext())
 						break;
@@ -78,6 +84,7 @@ package System.Linq
 			enumerator.Reset();
 			collectionEnumerator = null;
 			current = null;
+			count = -1;
 		}
 	}
 }

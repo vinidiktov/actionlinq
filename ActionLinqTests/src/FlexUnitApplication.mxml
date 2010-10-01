@@ -7,36 +7,12 @@
 					   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:flexui="flexunit.flexui.*" creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.WhereTests;
-			import flexUnitTests.ToArrayTests;
-			import flexUnitTests.TakeTests;
-			import flexUnitTests.SkipTests;
-			import flexUnitTests.SelectTests;
 			import flexUnitTests.SelectManyTests;
-			import flexUnitTests.OrderByTests;
-			import flexUnitTests.IntegrationTests;
-			import flexUnitTests.FirstTests;
-			import flexUnitTests.EnumerableTests;
-			import flexUnitTests.ConcatTests;
-			import flexUnitTests.AnyTests;
-			import flexUnitTests.AggregateTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(flexUnitTests.AggregateTests);
-				testsToRun.push(flexUnitTests.AnyTests);
-				testsToRun.push(flexUnitTests.ConcatTests);
-				testsToRun.push(flexUnitTests.EnumerableTests);
-				testsToRun.push(flexUnitTests.FirstTests);
-				testsToRun.push(flexUnitTests.IntegrationTests);
-				testsToRun.push(flexUnitTests.OrderByTests);
 				testsToRun.push(flexUnitTests.SelectManyTests);
-				testsToRun.push(flexUnitTests.SelectTests);
-				testsToRun.push(flexUnitTests.SkipTests);
-				testsToRun.push(flexUnitTests.TakeTests);
-				testsToRun.push(flexUnitTests.ToArrayTests);
-				testsToRun.push(flexUnitTests.WhereTests);
 				return testsToRun;
 			}
 			

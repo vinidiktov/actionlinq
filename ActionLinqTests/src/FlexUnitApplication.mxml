@@ -7,12 +7,12 @@
 					   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:flexui="flexunit.flexui.*" creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.SelectManyTests;
+			import flexUnitTests.TakeTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(flexUnitTests.SelectManyTests);
+				testsToRun.push(flexUnitTests.TakeTests);
 				return testsToRun;
 			}
 			

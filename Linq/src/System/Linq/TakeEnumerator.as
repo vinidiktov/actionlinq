@@ -6,30 +6,43 @@ package System.Linq
 	public class TakeEnumerator implements IEnumerator
 	{
 		private var enumerator:IEnumerator;
-		private var takeCount:int;
+		private var predicate:Function;
 		private var index = -1;
+		private var taking:Boolean = true;
+		private var current:*;
 		
-		public function TakeEnumerator(enumerable:IEnumerable, takeCount:int) {
+		public function TakeEnumerator(enumerable:IEnumerable, predicate:Function) {
 			this.enumerator = enumerable.GetEnumerator();
-			this.takeCount = takeCount;
+			this.predicate = predicate;
 		}
 		
 		public function MoveNext():Boolean {
 			
-			if(++index > (takeCount - 1))
-				return false;
+			if(taking && enumerator.MoveNext())
+			{
+				var possibleCurrent = enumerator.Current();
+				
+				taking = predicate.length == 1 ? predicate(possibleCurrent) : predicate(possibleCurrent, ++index);
+				
+				if(taking)
+					current = possibleCurrent;
+			}
+			else
+				taking = false;
 			
-			return enumerator.MoveNext();
+			return taking;
 		}
 		
 		public function Current():* {
-			return enumerator.Current();
+			return current;
 		}
 
 		public function Reset():void
 		{
 			enumerator.Reset();
 			index = -1;
+			taking = true;
+			current = null;
 		}
 	}
 }

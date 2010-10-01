@@ -25,6 +25,10 @@ package System.Collection.Generic
 		function Take(count:int):IEnumerable;
 		//* IEnumerable<TSource> Take<TSource>(int count);
 		
+		function TakeWhile(predicate:Function):IEnumerable;
+		//* IEnumerable<TSource> TakeWhile<TSource>(Func<TSource, bool> predicate);
+		//* IEnumerable<TSource> TakeWhile<TSource>(Func<TSource, int, bool> predicate);
+		
 		function Skip(count:int):IEnumerable; 
 		//* public static IEnumerable<TSource> Skip<TSource>(int count);
 

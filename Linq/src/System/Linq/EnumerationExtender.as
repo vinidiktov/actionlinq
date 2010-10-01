@@ -31,6 +31,9 @@ package System.Linq
 			c.prototype.Take = function(count:int):IEnumerable {
 				return this.AsEnumerable().Take(count);	
 			}
+			c.prototype.TakeWhile = function(predicate:Function) {
+				return this.AsEnumerable().TakeWhile(predicate);
+			}
 			c.prototype.Skip = function(count:int):IEnumerable {
 				return this.AsEnumerable().Skip(count);
 			}
@@ -61,7 +64,7 @@ package System.Linq
 			
 			var names:Array = [
 				"AsEnumerable", "GetEnumerator", "Where", 
-				"Select", "SelectMany", "Take","Skip", "OrderBy", "Concat",
+				"Select", "SelectMany", "Take", "TakeWhile", "Skip", "OrderBy", "Concat",
 				"ToArray", "ToArrayCollection", "First", "Any", 
 				"Aggregate", "Sum"];
 			

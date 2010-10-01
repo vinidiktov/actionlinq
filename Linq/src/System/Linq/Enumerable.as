@@ -62,9 +62,13 @@ package System.Linq
 		}
 		
 		public function Take(count:int):IEnumerable {
+			return TakeWhile(function(x:*,i:int){return i < count});
+		}
+		
+		public function TakeWhile(predicate:Function):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new TakeEnumerator(source, count) });
+					return new TakeEnumerator(source, predicate) });
 		}
 		
 		public function Skip(count:int):IEnumerable {

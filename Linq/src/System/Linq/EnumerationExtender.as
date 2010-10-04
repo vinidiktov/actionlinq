@@ -46,6 +46,9 @@ package System.Linq
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
 				return this.AsEnumerable().Concat(second);
 			}
+			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
+				return this.AsEnumerable().Zip(second, resultSelector);
+			}
 			c.prototype.ToArray = function():Array {
 				return this.AsEnumerable().ToArray();
 			}
@@ -68,7 +71,7 @@ package System.Linq
 			var names:Array = [
 				"AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "OrderBy", "Concat",
+				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip",
 				"ToArray", "ToArrayCollection", "First", "Any", 
 				"Aggregate", "Sum"];
 			

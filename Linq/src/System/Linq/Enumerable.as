@@ -93,6 +93,12 @@ package System.Linq
 					return new ConcatEnumerator(source, second) });
 		}
 		
+		public function Zip(second:IEnumerable, resultSelector:Function):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new ZipEnumerator(source, second, resultSelector) });
+		}
+		
 		public function ToArray():Array {
 			var result:Array = new Array();
 			var enumerator:IEnumerator = GetEnumerator();

@@ -9,6 +9,7 @@
     <classEntry path="System.Linq.XMLListEnumerator"/>
     <classEntry path="System.Linq.TakeEnumerator"/>
     <classEntry path="System.Linq.OrderByEnumerator"/>
+    <classEntry path="System.Linq.ZipEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -36,18 +36,42 @@ package System.Collection.Generic
 		//* IEnumerable<TSource> SkipWhile<TSource>(Func<TSource, bool> predicate);
 		//* IEnumerable<TSource> SkipWhile<TSource>(Func<TSource, int, bool> predicate);
 
+		// Join
+		// GroupJoin
+		
 		function OrderBy(keySelector:Function):IEnumerable;
 		//* IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector);
 		//IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector, IComparer<TKey> comparer);
 		
+		// OrderByDescending
+		// ThenBy
+		// ThenByDescending
+		// GroupBy
+		
 		function Concat(second:IEnumerable):IEnumerable;
-		//* public static IEnumerable<TSource> Concat<TSource>(IEnumerable<TSource> second);
+		//* IEnumerable<TSource> Concat<TSource>(IEnumerable<TSource> second);
+		
+		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;
+		//* IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector);
+
+		
+		// Union
+		// Intersect
+		// Except
+		// Reverse
+		// SequenceEqual
+		// AsEnumerable
 		
 		function ToArray():Array;
 		function ToArrayCollection():ArrayCollection;
 		//* public static TSource[] ToArray<TSource>();
 		
-		
+		// ToList
+		// ToDictionary
+		// ToLookup
+		// DefaultIfEmpty
+		// OfType
+		// Cast
 		
 		function First(predicate:Function=null):*;
 		//* public static TSource First<TSource>();
@@ -56,10 +80,24 @@ package System.Collection.Generic
 		//public static TSource FirstOrDefault<TSource>();
 		//public static TSource FirstOrDefault<TSource>(Func<TSource, bool> predicate);
 		
+		// Last
+		// LastOrDefault
+		// Single
+		// SingleOrDefault
+		// ElementAt
+		// ElementAtOrDefault
+		// Range
+		// Repeat
+		// Empty
+		
 		function Any(predicate:Function=null):Boolean;
 		//* public static bool Any<TSource>();
 		//* public static bool Any<TSource>(Func<TSource, bool> predicate);
 		
+		// All
+		// Count
+		// LongCount
+		// Contains
 		
 		function Aggregate(seed:*, aggregator:Function):*;
 		//public static TSource Aggregate<TSource>(Func<TSource, TSource, TSource> func);
@@ -70,5 +108,8 @@ package System.Collection.Generic
 		//* public static int Sum();
 		//* public static int Sum<TSource>(Func<TSource, int> selector);
 		
+		// Min
+		// Max
+		// Average
 	}
 }

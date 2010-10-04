@@ -6,33 +6,55 @@ package System.Linq
 	public class SkipEnumerator implements IEnumerator
 	{
 		private var enumerator:IEnumerator;
-		private var skipCount:int;
+		private var predicate:Function;
+		private var skipping:Boolean = true;
+		private var current:*;
 		private var index = -1;
 		
-		public function SkipEnumerator(enumerable:IEnumerable, skipCount:int) {
+		public function SkipEnumerator(enumerable:IEnumerable, predicate:Function) {
 			this.enumerator = enumerable.GetEnumerator();
-			this.skipCount = skipCount;
+			this.predicate = predicate;
 		}
 		
 		public function MoveNext():Boolean {
+			if(skipping)
+				return SkipThem();
 			
-			while(enumerator.MoveNext())
+			if(enumerator.MoveNext())
 			{
-				if(++index < skipCount)
-					continue;
-			
+				current = enumerator.Current();
 				return true;
 			}
 			
 			return false;
 		}
 		
+		public function SkipThem() {
+			skipping = false;
+			while(enumerator.MoveNext()) {
+				var possibleCurrent:* = enumerator.Current();
+				if(!evaluatePredicate(possibleCurrent)) {
+					current = possibleCurrent
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		private function evaluatePredicate(possibleCurrent:*):Boolean {
+			if(predicate.length == 1)
+				return predicate(possibleCurrent);
+			return predicate(possibleCurrent, ++index);
+		}
+		
 		public function Current():* {
-			return enumerator.Current();
+			return current;
 		}
 		
 		public function Reset():void {
 			enumerator.Reset();
+			skipping = true;
+			current = null;
 			index = -1;
 		}
 	}

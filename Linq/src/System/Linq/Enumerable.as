@@ -72,9 +72,13 @@ package System.Linq
 		}
 		
 		public function Skip(count:int):IEnumerable {
+			return SkipWhile(function(x:*,i:int){return i < count});
+		}
+		
+		public function SkipWhile(predicate:Function):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new SkipEnumerator(source, count) });
+					return new SkipEnumerator(source, predicate) });
 		}
 		
 		public function OrderBy(keySelector:Function):IEnumerable {

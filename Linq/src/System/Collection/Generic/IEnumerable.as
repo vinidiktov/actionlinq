@@ -30,7 +30,11 @@ package System.Collection.Generic
 		//* IEnumerable<TSource> TakeWhile<TSource>(Func<TSource, int, bool> predicate);
 		
 		function Skip(count:int):IEnumerable; 
-		//* public static IEnumerable<TSource> Skip<TSource>(int count);
+		//* IEnumerable<TSource> Skip<TSource>(int count);
+		
+		function SkipWhile(predicate:Function):IEnumerable;
+		//* IEnumerable<TSource> SkipWhile<TSource>(Func<TSource, bool> predicate);
+		//* IEnumerable<TSource> SkipWhile<TSource>(Func<TSource, int, bool> predicate);
 
 		function OrderBy(keySelector:Function):IEnumerable;
 		//* IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector);

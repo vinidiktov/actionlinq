@@ -28,6 +28,16 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function Where_with_static_predicate_and_no_index_does_not_fail(): void
+		{
+			var filtered:Array = [1, 2, 3, 4, 5].Where(greaterOrEqual4).ToArray();
+			
+			assertThat(filtered, array(4,5));
+		}
+		
+		private function greaterOrEqual4(x) { return x >= 4 }
+		
+		[Test]
 		public function Where_With_Index_Passes_Index_If_Defined():void {
 			var data:Array = 
 				[1, 2, 3, 4, 5]

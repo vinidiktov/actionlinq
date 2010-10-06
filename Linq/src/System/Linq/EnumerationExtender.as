@@ -9,7 +9,7 @@ package System.Linq
 	{
 		public static function Initialize():void {
 			InitializeClass(Array);
-			InitializeClass(XMLList);
+			//InitializeClass(XMLList);
 		}
 		
 		public static function InitializeClass(c:Class):void {

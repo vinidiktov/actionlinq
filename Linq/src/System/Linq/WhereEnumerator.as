@@ -19,7 +19,7 @@ package System.Linq
 		{
 			while(enumerator.MoveNext())
 			{
-				if(predicate(enumerator.Current(), ++count))
+				if(predicate.length == 1 ? predicate(enumerator.Current()) : predicate(enumerator.Current(), ++count))
 					return true;
 			}
 			

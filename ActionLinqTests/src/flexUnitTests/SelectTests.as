@@ -26,6 +26,15 @@ package flexUnitTests
 		}	
 		
 		[Test]
+		public function Select_with_static_function_and_no_index_does_not_fail():void {
+			var mapped:Array = [1,2].Select(Times2).ToArray();
+			
+			assertThat(mapped, array(2,4));
+		}
+		
+		private function Times2(x) { return x * 2 }
+		
+		[Test]
 		public function Select_With_Index_Passes_Index_Into_Function():void {
 			var mapped:Array = 
 				[1,2,3,4]

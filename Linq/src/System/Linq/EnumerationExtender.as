@@ -49,6 +49,9 @@ package System.Linq
 			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
 				return this.AsEnumerable().Zip(second, resultSelector);
 			}
+			c.prototype.Distinct = function():IEnumerable {
+				return this.AsEnumerable().Distinct();
+			}
 			c.prototype.ToArray = function():Array {
 				return this.AsEnumerable().ToArray();
 			}
@@ -71,7 +74,7 @@ package System.Linq
 			var names:Array = [
 				"AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip",
+				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct",
 				"ToArray", "ToArrayCollection", "First", "Any", 
 				"Aggregate", "Sum"];
 			

@@ -10,6 +10,8 @@
     <classEntry path="System.Linq.TakeEnumerator"/>
     <classEntry path="System.Linq.OrderByEnumerator"/>
     <classEntry path="System.Linq.ZipEnumerator"/>
+    <classEntry path="System.Linq.DistinctEnumerator"/>
+    <classEntry path="System.Collection.Generic.IEqualityComparer"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

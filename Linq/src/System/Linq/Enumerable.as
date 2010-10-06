@@ -99,6 +99,12 @@ package System.Linq
 					return new ZipEnumerator(source, second, resultSelector) });
 		}
 		
+		public function Distinct():IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new DistinctEnumerator(source) });
+		}
+		
 		public function ToArray():Array {
 			var result:Array = new Array();
 			var enumerator:IEnumerator = GetEnumerator();

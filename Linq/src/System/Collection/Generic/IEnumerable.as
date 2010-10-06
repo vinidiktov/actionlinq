@@ -54,6 +54,9 @@ package System.Collection.Generic
 		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;
 		//* IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector);
 
+		function Distinct():IEnumerable;
+		//* IEnumerable<TSource> Distinct<TSource>();
+		//IEnumerable<TSource> Distinct<TSource>(IEqualityComparer<TSource> comparer);
 		
 		// Union
 		// Intersect

@@ -80,7 +80,7 @@ package flexUnitTests
              				 <item>2</item>
              				 <item>3</item>
 				           </data>;
-			var enumerator:IEnumerator = data.item.GetEnumerator();
+			var enumerator:IEnumerator = Enumerable.From(data.item).GetEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);
@@ -99,7 +99,7 @@ package flexUnitTests
 							<item>2</item>
 							<item>3</item>
 						   </data>;
-			var enumerator:IEnumerator = data.item.GetEnumerator();
+			var enumerator:IEnumerator = Enumerable.From(data.item).GetEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();

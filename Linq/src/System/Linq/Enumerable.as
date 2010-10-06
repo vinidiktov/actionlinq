@@ -62,15 +62,23 @@ package System.Linq
 		}
 		
 		public function Take(count:int):IEnumerable {
+			return TakeWhile(function(x:*,i:int){return i < count});
+		}
+		
+		public function TakeWhile(predicate:Function):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new TakeEnumerator(source, count) });
+					return new TakeEnumerator(source, predicate) });
 		}
 		
 		public function Skip(count:int):IEnumerable {
+			return SkipWhile(function(x:*,i:int){return i < count});
+		}
+		
+		public function SkipWhile(predicate:Function):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new SkipEnumerator(source, count) });
+					return new SkipEnumerator(source, predicate) });
 		}
 		
 		public function OrderBy(keySelector:Function):IEnumerable {
@@ -83,6 +91,18 @@ package System.Linq
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new ConcatEnumerator(source, second) });
+		}
+		
+		public function Zip(second:IEnumerable, resultSelector:Function):IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new ZipEnumerator(source, second, resultSelector) });
+		}
+		
+		public function Distinct():IEnumerable {
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new DistinctEnumerator(source) });
 		}
 		
 		public function ToArray():Array {

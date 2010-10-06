@@ -20,10 +20,7 @@ package System.Linq
 		{
 			if(enumerator.MoveNext())
 			{
-				if(selector.length == 1)
-					current = selector(enumerator.Current());
-				else
-					current = selector(enumerator.Current(), ++count);
+				current = selector.length == 1 ? selector(enumerator.Current()) : selector(enumerator.Current(), ++count);
 				return true;
 			}
 			

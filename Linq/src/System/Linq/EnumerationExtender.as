@@ -31,14 +31,26 @@ package System.Linq
 			c.prototype.Take = function(count:int):IEnumerable {
 				return this.AsEnumerable().Take(count);	
 			}
+			c.prototype.TakeWhile = function(predicate:Function) {
+				return this.AsEnumerable().TakeWhile(predicate);
+			}
 			c.prototype.Skip = function(count:int):IEnumerable {
 				return this.AsEnumerable().Skip(count);
+			}
+			c.prototype.SkipWhile = function(predicate:Function):IEnumerable {
+				return this.AsEnumerable().SkipWhile(predicate);
 			}
 			c.prototype.OrderBy = function(keySelector:Function):IEnumerable {
 				return this.AsEnumerable().OrderBy(keySelector);
 			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
 				return this.AsEnumerable().Concat(second);
+			}
+			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
+				return this.AsEnumerable().Zip(second, resultSelector);
+			}
+			c.prototype.Distinct = function():IEnumerable {
+				return this.AsEnumerable().Distinct();
 			}
 			c.prototype.ToArray = function():Array {
 				return this.AsEnumerable().ToArray();
@@ -60,7 +72,8 @@ package System.Linq
 			}
 			
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
-				"Select", "SelectMany", "Take","Skip", "OrderBy", "Concat",
+				"Select", "SelectMany", "Take", "TakeWhile", 
+				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct",
 				"ToArray", "ToArrayCollection", "First", "Any", 
 				"Aggregate", "Sum"];
 			

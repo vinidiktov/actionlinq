@@ -26,22 +26,13 @@ package flexUnitTests
 		}	
 		
 		[Test]
-		public function static_selector_without_indexer_gets_called():void
-		{
-			var mapped:IEnumerable = [1,2].Select(timesTwo);
+		public function Select_with_static_function_and_no_index_does_not_fail():void {
+			var mapped:Array = [1,2].Select(Times2).ToArray();
 			
-			var enumerator:IEnumerator = mapped.GetEnumerator();
-			
-			assertThat(enumerator.MoveNext(), equalTo(true));
-			assertThat(enumerator.Current(), equalTo(2));
-			assertThat(enumerator.MoveNext(), equalTo(true));
-			assertThat(enumerator.Current(), equalTo(4));
-			assertThat(enumerator.MoveNext(), equalTo(false));
+			assertThat(mapped, array(2,4));
 		}
 		
-		private function timesTwo(i:int):int {
-			return i * 2;
-		}
+		private function Times2(x) { return x * 2 }
 		
 		[Test]
 		public function Select_With_Index_Passes_Index_Into_Function():void {

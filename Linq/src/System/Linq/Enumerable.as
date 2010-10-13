@@ -163,8 +163,9 @@ package System.Linq
 				selector = function(x:*):* { return x; };
 			
 			var extreme = null;
-			for each(var item in this) {
-				var selectedItem = selector(item);
+			var enumerator:IEnumerator = GetEnumerator();
+			while(enumerator.MoveNext()) {
+				var selectedItem = selector(enumerator.Current());
 				if(extreme == null || comparitor(selectedItem, extreme))
 					extreme = selectedItem;
 			}

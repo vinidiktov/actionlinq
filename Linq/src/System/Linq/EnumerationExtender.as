@@ -70,12 +70,18 @@ package System.Linq
 			c.prototype.Sum =  function(selector:Function=null):* {
 				return this.AsEnumerable().Sum(selector);
 			}
-			
+			c.prototype.Min = function(selector:Function=null):* {
+				return this.AsEnumerable().Min(selector);
+			}
+			c.prototype.Max = function(selector:Function=null):* {
+				return this.AsEnumerable().Max(selector);
+			}
+				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct",
 				"ToArray", "ToArrayCollection", "First", "Any", 
-				"Aggregate", "Sum"];
+				"Aggregate", "Sum", "Min", "Max"];
 			
 			for each(var name in names)
 				Array.prototype.setPropertyIsEnumerable(name, false);

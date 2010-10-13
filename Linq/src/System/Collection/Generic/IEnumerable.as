@@ -108,11 +108,17 @@ package System.Collection.Generic
 		//public static TResult Aggregate<TSource, TAccumulate, TResult>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector);
 		
 		function Sum(selector:Function=null):*;
-		//* public static int Sum();
-		//* public static int Sum<TSource>(Func<TSource, int> selector);
+		//* int Sum<TSource>();
+		//* int Sum<TSource, TSource>(Func<TSource, TSource> selector);
 		
-		// Min
-		// Max
+		function Min(selector:Function=null):*;
+		//* TSource Min<TSource>();
+		//* TSource Min<TSource, TResult>(Func<TSource, TResult> selector);
+		
+		function Max(selector:Function=null):*;
+		//* TSource Max<TSource>();
+		//* TSource Max<TSource, TResult>(Func<TSource, TResult> selector);
+		
 		// Average
 	}
 }

@@ -158,6 +158,35 @@ package System.Linq
 			return Aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
 		}
 		
+		private function ExtremeSelector(comparitor:Function, selector:Function=null):* {
+			if(selector == null)
+				selector = function(x:*):* { return x; };
+			
+			var extreme = null;
+			for each(var item in this) {
+				var selectedItem = selector(item);
+				if(extreme == null || comparitor(selectedItem, extreme))
+					extreme = selectedItem;
+			}
+			
+			if(extreme == null)
+				throw new RangeError("Sequence contains no elements");
+			
+			return extreme;
+		}
+		
+		public function Min(selector:Function=null):* {
+			return ExtremeSelector(
+				function(left:*, right:*):* { return left < right },
+				selector);
+		}
+		
+		public function Max(selector:Function=null):* {
+			return ExtremeSelector(
+				function(left:*, right:*):* { return left > right },
+				selector);
+		}
+		
 		private var currentEnumerator:IEnumerator;
 		
 		override flash_proxy function nextNameIndex (index:int):int {

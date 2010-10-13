@@ -3,6 +3,9 @@ package flexUnitTests
 	import System.Linq.Enumerable;
 	
 	import flexunit.framework.Assert;
+	
+	import org.flexunit.assertThat;
+	import org.hamcrest.object.equalTo;
 
 	public class AggregateTests extends EnumerableTestsBase
 	{		
@@ -13,7 +16,7 @@ package flexUnitTests
 			var product:int = data.Aggregate(1, 
 				function(accumulate:int, item:int) { return accumulate * item });
 			
-			Assert.assertEquals(product, 24);
+			assertThat(product, equalTo(24));
 		}
 		
 		[Test]
@@ -22,7 +25,7 @@ package flexUnitTests
 			var data:Array = [1,2,3,4];
 			var sum:int = data.Sum();
 			
-			Assert.assertEquals(sum, 10);
+			assertThat(sum, equalTo(10));
 		}
 		
 		[Test]
@@ -31,7 +34,57 @@ package flexUnitTests
 			var data:Array = ["a", "ab", "abc", "abcd"];
 			var sum:int = data.Sum(function(item:String) { return item.length });
 			
-			Assert.assertEquals(sum, 10);
+			assertThat(sum, equalTo(10));
+		}
+		
+		[Test]
+		public function Sum_With_Empty_Collection_Is_Zero()
+		{
+			assertThat([].Sum(), equalTo(0));
+		}
+		
+		[Test]
+		public function Min_Gets_The_Minimum_Value()
+		{
+			var min:int = [4,6,3,4,5,2,9].Min();
+			
+			assertThat(min, equalTo(2));
+		}
+		
+		[Test]
+		public function Min_With_Selector_Gets_The_Min_Of_The_Selected_Value()
+		{
+			var min:int = ["abcd", "ab", "abc", "abcde"].Min(function(item:String) { return item.length });
+			
+			assertThat(min, equalTo(2));
+		}
+		
+		[Test(expected="RangeError")]
+		public function Min_With_Empty_Collection_Throws_Exception()
+		{
+			var min = [].Min();
+		}
+		
+		[Test]
+		public function Max_Gets_The_Maximum_Value()
+		{
+			var max:int = [4,6,3,4,9,2,5].Max();
+			
+			assertThat(max, equalTo(9));
+		}
+		
+		[Test]
+		public function Max_With_Selector_Gets_The_Max_Of_The_Selected_Value()
+		{
+			var max:int = ["abcd", "ab", "abc", "abcde", "a"].Max(function(item:String) { return item.length });
+			
+			assertThat(max, equalTo(5));
+		}
+		
+		[Test(expected="RangeError")]
+		public function Max_With_Empty_Collection_Throws_Exception()
+		{
+			var max = [].Max();
 		}
 		
 	}

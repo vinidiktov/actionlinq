@@ -158,6 +158,20 @@ package System.Linq
 			return Aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
 		}
 		
+		public function Average(selector:Function=null):* {
+			if(selector == null)
+				selector = function(x) { return x; };
+			
+			var count:int = 0;
+			var sum:* = Aggregate(0.0, function(accumulator:*, item:*) 
+			{
+				count++;
+				return accumulator + selector(item) 
+			});
+			
+			return sum / count;
+		}
+		
 		private function ExtremeSelector(comparitor:Function, selector:Function=null):* {
 			if(selector == null)
 				selector = function(x:*):* { return x; };

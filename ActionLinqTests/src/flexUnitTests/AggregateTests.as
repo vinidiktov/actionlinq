@@ -87,5 +87,21 @@ package flexUnitTests
 			var max = [].Max();
 		}
 		
+		[Test]
+		public function Average_Gets_The_Average_Value()
+		{
+			var average:Number = [4,5,6].Average();
+			
+			assertThat(average, equalTo(5));
+		}
+		
+		[Test]
+		public function Average_With_Selector_Gets_Avarage_Of_Selected_Value():void {
+			var average:Number = ["a", "ab", "abc", "abcd"]
+				.Average(function(item:String):int { return item.length; });
+			
+			assertThat(average, equalTo(2.5));
+		}
+		
 	}
 }

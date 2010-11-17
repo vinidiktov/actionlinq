@@ -119,6 +119,8 @@ package System.Collection.Generic
 		//* TSource Max<TSource>();
 		//* TSource Max<TSource, TResult>(Func<TSource, TResult> selector);
 		
-		// Average
+		function Average(selector:Function=null):*;
+		//* TSource Average<TSource>();
+		//* TSource Average<TSource, TResult>(Func<TSource, TResult> selector);
 	}
 }

@@ -76,12 +76,18 @@ package System.Linq
 			c.prototype.Max = function(selector:Function=null):* {
 				return this.AsEnumerable().Max(selector);
 			}
+			c.prototype.Average = function(selector:Function=null):* {
+				return this.AsEnumerable().Average(selector);
+			}
+			c.prototype.Each = function(action:Function):* {
+				this.AsEnumerable().Each(action);
+			}
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct",
 				"ToArray", "ToArrayCollection", "First", "Any", 
-				"Aggregate", "Sum", "Min", "Max"];
+				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
 			for each(var name in names)
 				Array.prototype.setPropertyIsEnumerable(name, false);

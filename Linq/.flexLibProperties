@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<flexLibProperties includeAllClasses="true" version="3">
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
     <classEntry path="FlexUnitApplication.as"/>
     <classEntry path="System.Linq.ListEnumerator"/>
@@ -12,6 +12,7 @@
     <classEntry path="System.Linq.ZipEnumerator"/>
     <classEntry path="System.Linq.DistinctEnumerator"/>
     <classEntry path="System.Collection.Generic.IEqualityComparer"/>
+    <classEntry path="System.Linq.RangeEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

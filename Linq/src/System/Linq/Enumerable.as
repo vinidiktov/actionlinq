@@ -202,6 +202,28 @@ package System.Linq
 				selector);
 		}
 		
+		public static function Range(start:int, count:int=-1):IEnumerable {
+			if(count < 0)
+			{
+				count = start;
+				start = 0;
+			}
+			
+			return new Enumerable(null,
+				function(source:*):IEnumerator {
+					return new RangeEnumerator(start, count) });
+		}
+		
+		public static function Times(count:int, action:Function):void {
+			Range(count).Each(action);
+		}
+		
+		public function Each(action:Function):void {
+			var enumerator:IEnumerator = GetEnumerator();
+			while(enumerator.MoveNext())
+				action(enumerator.Current());
+		}
+		
 		private var currentEnumerator:IEnumerator;
 		
 		override flash_proxy function nextNameIndex (index:int):int {

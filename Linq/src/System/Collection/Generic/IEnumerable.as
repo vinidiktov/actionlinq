@@ -122,5 +122,7 @@ package System.Collection.Generic
 		function Average(selector:Function=null):*;
 		//* TSource Average<TSource>();
 		//* TSource Average<TSource, TResult>(Func<TSource, TResult> selector);
+		
+		function Each(action:Function):void;
 	}
 }

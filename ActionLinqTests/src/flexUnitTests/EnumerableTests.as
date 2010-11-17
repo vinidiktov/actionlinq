@@ -9,6 +9,7 @@ package flexUnitTests
 	import mx.collections.ArrayCollection;
 	
 	import org.flexunit.assertThat;
+	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 
 	public class EnumerableTests extends EnumerableTestsBase
@@ -160,5 +161,59 @@ package flexUnitTests
 			Assert.assertFalse(enumerator.MoveNext());
 		}
 		
+		[Test]
+		public function EnumerableRange_Returns_Enumerable_From_Inputs() {
+			var range:IEnumerable = Enumerable.Range(0, 5);
+			
+			assertThat(range.ToArray(), array(0, 1, 2, 3, 4));
+		}
+		
+		[Test]
+		public function EnumerableRange_With_Non_Zero_Start_Returns_Enumerable_From_Inputs() {
+			var range:IEnumerable = Enumerable.Range(5, 5);
+			
+			assertThat(range.ToArray(), array(5, 6, 7, 8, 9));
+		}
+		
+		[Test]
+		public function EnumerableRange_With_One_Parameter_Assumes_Zero_Start() {
+			var range:IEnumerable = Enumerable.Range(5);
+			
+			assertThat(range.ToArray(), array(0, 1, 2, 3, 4));
+		}
+		
+		[Test]
+		public function Each_Runs_An_Action_On_Each():void {
+			var count:int = 0;
+			var set:Array = [1, 2, 3, 4];
+			set.Each(function(){count++});
+			
+			assertThat(count, equalTo(4));
+		}
+		
+		[Test]
+		public function Each_Runs_An_Action_On_Each_With_Parameter():void {
+			var count:int = 0;
+			var set:Array = [1, 2, 3, 4];
+			set.Each(function(x){count+= x});
+			
+			assertThat(count, equalTo(10));
+		}
+		
+		[Test]
+		public function Times_Does_Something_N_Times():void {
+			var count:int = 0;
+			Enumerable.Times(4, function(){count++});
+			
+			assertThat(count, equalTo(4));
+		}
+		
+		[Test]
+		public function Times_Does_Something_N_Times_With_Parameter():void {
+			var count:int = 0;
+			Enumerable.Times(4, function(x){count+= x});
+			
+			assertThat(count, equalTo(6));
+		}
 	}
 }

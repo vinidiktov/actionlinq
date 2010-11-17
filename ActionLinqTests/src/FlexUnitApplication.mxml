@@ -10,11 +10,39 @@
 	<fx:Script>
 		<![CDATA[
 			import flexUnitTests.AggregateTests;
+			import flexUnitTests.AnyTests;
+			import flexUnitTests.ConcatTests;
+			import flexUnitTests.DistinctTests;
+			import flexUnitTests.EnumerableTests;
+			import flexUnitTests.FirstTests;
+			import flexUnitTests.IntegrationTests;
+			import flexUnitTests.OrderByTests;
+			import flexUnitTests.SelectManyTests;
+			import flexUnitTests.SelectTests;
+			import flexUnitTests.SkipTests;
+			import flexUnitTests.TakeTests;
+			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.WhereTests;
+			import flexUnitTests.ZipTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
 				testsToRun.push(flexUnitTests.AggregateTests);
+				testsToRun.push(flexUnitTests.AnyTests);
+				testsToRun.push(flexUnitTests.ConcatTests);
+				testsToRun.push(flexUnitTests.DistinctTests);
+				testsToRun.push(flexUnitTests.EnumerableTests);
+				testsToRun.push(flexUnitTests.FirstTests);
+				testsToRun.push(flexUnitTests.IntegrationTests);
+				testsToRun.push(flexUnitTests.OrderByTests);
+				testsToRun.push(flexUnitTests.SelectManyTests);
+				testsToRun.push(flexUnitTests.SelectTests);
+				testsToRun.push(flexUnitTests.SkipTests);
+				testsToRun.push(flexUnitTests.TakeTests);
+				testsToRun.push(flexUnitTests.ToArrayTests);
+				testsToRun.push(flexUnitTests.WhereTests);
+				testsToRun.push(flexUnitTests.ZipTests);
 				return testsToRun;
 			}
 			

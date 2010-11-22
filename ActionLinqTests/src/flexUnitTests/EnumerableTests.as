@@ -73,6 +73,38 @@ package flexUnitTests
 			Assert.assertEquals(enumerator.Current(), 1);
 		}
 		
+		[Test]
+		public function EnumerableFrom_Generates_IEnumerable_From_Vector()
+		{
+			var data:Vector.<int> = Vector.<int>([1,2,3]);
+			
+			var enumerable:IEnumerable = Enumerable.From(data);
+			var enumerator:IEnumerator = enumerable.GetEnumerator();
+			
+			Assert.assertTrue(enumerator.MoveNext());
+			Assert.assertEquals(enumerator.Current(), 1);
+			Assert.assertTrue(enumerator.MoveNext());
+			Assert.assertEquals(enumerator.Current(), 2);
+			Assert.assertTrue(enumerator.MoveNext());
+			Assert.assertEquals(enumerator.Current(), 3);
+			Assert.assertFalse(enumerator.MoveNext());
+		}
+		
+		[Test]
+		public function Calling_Reset_Will_Reset_The_Enumerator_From_Vector()
+		{
+			var data:Vector.<int> = Vector.<int>([1,2,3]);
+			var enumerable:IEnumerable = Enumerable.From(data);
+			var enumerator:IEnumerator = enumerable.GetEnumerator();
+			
+			enumerator.MoveNext();
+			enumerator.MoveNext();
+			enumerator.Reset();
+			enumerator.MoveNext();
+			
+			Assert.assertEquals(enumerator.Current(), 1);
+		}
+		
 		//[Test]
 		public function EnumerableFrom_Generates_IEnumerable_From_XMLList()
 		{

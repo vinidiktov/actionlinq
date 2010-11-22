@@ -9,21 +9,21 @@
 					   creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.AggregateTests;
-			import flexUnitTests.AnyTests;
-			import flexUnitTests.ConcatTests;
-			import flexUnitTests.DistinctTests;
-			import flexUnitTests.EnumerableTests;
-			import flexUnitTests.FirstTests;
-			import flexUnitTests.IntegrationTests;
-			import flexUnitTests.OrderByTests;
-			import flexUnitTests.SelectManyTests;
-			import flexUnitTests.SelectTests;
-			import flexUnitTests.SkipTests;
-			import flexUnitTests.TakeTests;
-			import flexUnitTests.ToArrayTests;
-			import flexUnitTests.WhereTests;
 			import flexUnitTests.ZipTests;
+			import flexUnitTests.WhereTests;
+			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.TakeTests;
+			import flexUnitTests.SkipTests;
+			import flexUnitTests.SelectTests;
+			import flexUnitTests.SelectManyTests;
+			import flexUnitTests.OrderByTests;
+			import flexUnitTests.IntegrationTests;
+			import flexUnitTests.FirstTests;
+			import flexUnitTests.EnumerableTests;
+			import flexUnitTests.DistinctTests;
+			import flexUnitTests.ConcatTests;
+			import flexUnitTests.AnyTests;
+			import flexUnitTests.AggregateTests;
 			
 			public function currentRunTestSuite():Array
 			{

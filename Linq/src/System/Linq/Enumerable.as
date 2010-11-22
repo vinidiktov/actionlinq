@@ -35,6 +35,10 @@ package System.Linq
 				return new Enumerable(obj as XMLList,
 					function(source:*):IEnumerator { return new XMLListEnumerator(obj as XMLList) });
 			
+			if("length" in obj)
+				return new Enumerable(obj as Vector,
+					function (source:*):IEnumerator { return new VectorEnumerator(obj) });
+			
 			return null;
 		}
 		

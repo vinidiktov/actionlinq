@@ -21,6 +21,7 @@
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.EnumerableTests;
 			import flexUnitTests.DistinctTests;
+			import flexUnitTests.CountTests;
 			import flexUnitTests.ConcatTests;
 			import flexUnitTests.AnyTests;
 			import flexUnitTests.AggregateTests;
@@ -31,6 +32,7 @@
 				testsToRun.push(flexUnitTests.AggregateTests);
 				testsToRun.push(flexUnitTests.AnyTests);
 				testsToRun.push(flexUnitTests.ConcatTests);
+				testsToRun.push(flexUnitTests.CountTests);
 				testsToRun.push(flexUnitTests.DistinctTests);
 				testsToRun.push(flexUnitTests.EnumerableTests);
 				testsToRun.push(flexUnitTests.FirstTests);

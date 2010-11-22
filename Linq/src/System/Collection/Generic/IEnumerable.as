@@ -98,7 +98,11 @@ package System.Collection.Generic
 		//* public static bool Any<TSource>(Func<TSource, bool> predicate);
 		
 		// All
-		// Count
+		
+		function Count(predicate:Function=null):int;
+		//* public static int Count<TSource>(Func<TSource, bool> predicate);
+		//* public static int Count<TSource>();
+		
 		// LongCount
 		// Contains
 		

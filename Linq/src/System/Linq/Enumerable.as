@@ -144,6 +144,20 @@ package System.Linq
 			return Where(predicate).GetEnumerator().MoveNext();
 		}
 		
+		public function Count(predicate:Function=null):int {
+			var enumerator:IEnumerator = predicate != null ? Where(predicate).GetEnumerator() : GetEnumerator();
+			
+			if("internalCount" in enumerator)
+				return (enumerator as Object).internalCount;
+			
+			var count:int = 0;
+			
+			while(enumerator.MoveNext())
+				count++;
+			
+			return count;
+		}
+		
 		public function Aggregate(seed:*, aggregator:Function):* {
 			var aggregate = seed;
 			var enumerator:IEnumerator = GetEnumerator();

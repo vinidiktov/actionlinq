@@ -27,5 +27,9 @@ package System.Linq
 		{
 			index = -1;
 		}
+		
+		public function get internalCount():int {
+			return xml.length();
+		}
 	}
 }

@@ -5,6 +5,7 @@ package flexUnitTests
 	import flexunit.framework.Assert;
 	
 	import mx.collections.ArrayCollection;
+	import mx.collections.IList;
 
 	public class ToArrayTests extends EnumerableTestsBase
 	{		
@@ -35,6 +36,15 @@ package flexUnitTests
 			Assert.assertEquals(converted.length, 2);
 			Assert.assertEquals(converted[0], 1);
 			Assert.assertEquals(converted[1], 2);
+		}
+		
+		[Test]
+		public function ToList_Converts_IEnumerable_To_List():void {
+			var converted:IList = [1,2].ToList();
+			
+			Assert.assertEquals(converted.length, 2);
+			Assert.assertEquals(converted.getItemAt(0), 1);
+			Assert.assertEquals(converted.getItemAt(1), 2);
 		}
 		
 	}

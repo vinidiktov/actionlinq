@@ -4,6 +4,7 @@ package System.Linq
 	import System.Collection.Generic.IEnumerator;
 	
 	import mx.collections.ArrayCollection;
+	import mx.collections.IList;
 
 	public class EnumerationExtender
 	{
@@ -58,6 +59,9 @@ package System.Linq
 			c.prototype.ToArrayCollection = function():ArrayCollection {
 				return this.AsEnumerable().ToArrayCollection();
 			}
+			c.prototype.ToList = function():IList {
+				return this.AsEnumerable().ToList();
+			}
 			c.prototype.First = function(predicate:Function=null):* {
 				return this.AsEnumerable().First(predicate);
 			}
@@ -89,7 +93,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct",
-				"ToArray", "ToArrayCollection", "First", "Any", "Count",
+				"ToArray", "ToArrayCollection", "ToList", "First", "Any", "Count",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
 			for each(var name in names)

@@ -3,6 +3,7 @@ package System.Collection.Generic
 	import System.Linq.*;
 	
 	import mx.collections.ArrayCollection;
+	import mx.collections.IList;
 
 	public interface IEnumerable
 	{
@@ -69,7 +70,9 @@ package System.Collection.Generic
 		function ToArrayCollection():ArrayCollection;
 		//* public static TSource[] ToArray<TSource>();
 		
-		// ToList
+		function ToList():IList;
+		//* public static IList<TSource> ToList<TSource>();
+		
 		// ToDictionary
 		// ToLookup
 		// DefaultIfEmpty

@@ -7,6 +7,7 @@ package System.Linq
 	import flash.utils.flash_proxy;
 	
 	import mx.collections.ArrayCollection;
+	import mx.collections.ArrayList;
 	import mx.collections.IList;
 	
 	public class Enumerable extends Proxy implements IEnumerable
@@ -110,23 +111,24 @@ package System.Linq
 		}
 		
 		public function ToArray():Array {
-			var result:Array = new Array();
-			var enumerator:IEnumerator = GetEnumerator();
-			
-			while(enumerator.MoveNext())
-				result.push(enumerator.Current());
-			
-			return result;	
+			return populateContainer(new Array(), function(al, item) { al.push(item) });
 		}
-		 
+		
 		public function ToArrayCollection():ArrayCollection {
-			var result:ArrayCollection = new ArrayCollection();
+			return populateContainer(new ArrayCollection(), function(al, item) { al.addItem(item) });	
+		}
+		
+		public function ToList():IList {
+			return populateContainer(new ArrayList(), function(al, item) { al.addItem(item) });	
+		}
+		
+		private function populateContainer(container:*, add:Function):* {
 			var enumerator:IEnumerator = GetEnumerator();
 			
 			while(enumerator.MoveNext())
-				result.addItem(enumerator.Current());
+				add(container, enumerator.Current());
 			
-			return result;	
+			return container;	
 		}
 		
 		public function First(predicate:Function=null):* {

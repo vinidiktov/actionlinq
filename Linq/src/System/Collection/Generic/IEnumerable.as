@@ -55,13 +55,13 @@ package System.Collection.Generic
 		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;
 		//* IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector);
 
-		function Distinct():IEnumerable;
+		function Distinct(comparer:IEqualityComparer=null):IEnumerable;
 		//* IEnumerable<TSource> Distinct<TSource>();
-		//IEnumerable<TSource> Distinct<TSource>(IEqualityComparer<TSource> comparer);
+		//* IEnumerable<TSource> Distinct<TSource>(IEqualityComparer<TSource> comparer);
 		
-		function Union(second:IEnumerable):IEnumerable;
+		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		//* IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second)
-		//IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second, IEqualityComparer<TSource> comparer)
+		//* IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second, IEqualityComparer<TSource> comparer)
 		
 		// Intersect
 		// Except

@@ -2,6 +2,7 @@ package System.Linq
 {
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
+	import System.Collection.Generic.IEqualityComparer;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
@@ -50,11 +51,11 @@ package System.Linq
 			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
 				return this.AsEnumerable().Zip(second, resultSelector);
 			}
-			c.prototype.Distinct = function():IEnumerable {
-				return this.AsEnumerable().Distinct();
+			c.prototype.Distinct = function(comparer:IEqualityComparer=null):IEnumerable {
+				return this.AsEnumerable().Distinct(comparer);
 			}
-			c.prototype.Union = function(second:IEnumerable):IEnumerable {
-				return this.AsEnumerable().Union(second);
+			c.prototype.Union = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
+				return this.AsEnumerable().Union(second, comparer);
 			}
 			c.prototype.ToArray = function():Array {
 				return this.AsEnumerable().ToArray();

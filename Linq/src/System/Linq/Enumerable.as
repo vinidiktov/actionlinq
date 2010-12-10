@@ -2,6 +2,7 @@ package System.Linq
 {
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
+	import System.Collection.Generic.IEqualityComparer;
 	
 	import flash.utils.Proxy;
 	import flash.utils.flash_proxy;
@@ -104,14 +105,14 @@ package System.Linq
 					return new ZipEnumerator(source, second, resultSelector) });
 		}
 		
-		public function Distinct():IEnumerable {
+		public function Distinct(comparer:IEqualityComparer=null):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new DistinctEnumerator(source) });
+					return new DistinctEnumerator(source, comparer) });
 		}
 		
-		public function Union(second:IEnumerable):IEnumerable {
-			return Concat(second).Distinct();
+		public function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
+			return Concat(second).Distinct(comparer);
 		}
 		
 		public function ToArray():Array {

@@ -53,6 +53,9 @@ package System.Linq
 			c.prototype.Distinct = function():IEnumerable {
 				return this.AsEnumerable().Distinct();
 			}
+			c.prototype.Union = function(second:IEnumerable):IEnumerable {
+				return this.AsEnumerable().Union(second);
+			}
 			c.prototype.ToArray = function():Array {
 				return this.AsEnumerable().ToArray();
 			}
@@ -92,7 +95,7 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct",
+				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
 				"ToArray", "ToArrayCollection", "ToList", "First", "Any", "Count",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			

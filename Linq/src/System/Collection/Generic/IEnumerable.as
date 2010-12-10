@@ -59,7 +59,10 @@ package System.Collection.Generic
 		//* IEnumerable<TSource> Distinct<TSource>();
 		//IEnumerable<TSource> Distinct<TSource>(IEqualityComparer<TSource> comparer);
 		
-		// Union
+		function Union(second:IEnumerable):IEnumerable;
+		//* IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second)
+		//IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second, IEqualityComparer<TSource> comparer)
+		
 		// Intersect
 		// Except
 		// Reverse

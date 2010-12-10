@@ -110,6 +110,10 @@ package System.Linq
 					return new DistinctEnumerator(source) });
 		}
 		
+		public function Union(second:IEnumerable):IEnumerable {
+			return Concat(second).Distinct();
+		}
+		
 		public function ToArray():Array {
 			return populateContainer(new Array(), function(al, item) { al.push(item) });
 		}

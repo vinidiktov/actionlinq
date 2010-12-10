@@ -9,12 +9,14 @@
 					   creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.UnionTests;
+			import org.flexunit.runner.Request;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(flexUnitTests.ToArrayTests);
+				
+				testsToRun.push(Request.methods(flexUnitTests.UnionTests,["Union_gets_setA_then_setB_if_not_exists"]));
 				return testsToRun;
 			}
 			

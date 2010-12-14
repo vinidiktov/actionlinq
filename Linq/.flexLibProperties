@@ -13,6 +13,7 @@
     <classEntry path="System.Linq.DistinctEnumerator"/>
     <classEntry path="System.Collection.Generic.IEqualityComparer"/>
     <classEntry path="System.Linq.RangeEnumerator"/>
+    <classEntry path="System.Linq.Option"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

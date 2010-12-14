@@ -69,6 +69,9 @@ package System.Linq
 			c.prototype.First = function(predicate:Function=null):* {
 				return this.AsEnumerable().First(predicate);
 			}
+			c.prototype.Last = function():* {
+				return this.AsEnumerable().Last();
+			}	
 			c.prototype.Any = function(predicate:Function=null):Boolean {
 				return this.AsEnumerable().Any(predicate);
 			}		
@@ -97,7 +100,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
-				"ToArray", "ToArrayCollection", "ToList", "First", "Any", "Count",
+				"ToArray", "ToArrayCollection", "ToList", "First", "Last", "Any", "Count",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
 			for each(var name in names)

@@ -144,6 +144,15 @@ package System.Linq
 			return filteredEnumerator.MoveNext() ? filteredEnumerator.Current() : null;
 		}
 		
+		public function Last():* {
+			var result:Option = Aggregate(Option.none(), function(acc, x) { return Option.some(x)});
+			
+			if(result.isNone)
+				throw new RangeError("Seqnence contains no elements");
+			
+			return result.value;
+		}
+		
 		public function Any(predicate:Function=null):Boolean {
 			if(predicate == null)
 				predicate = function(x) { return true; };

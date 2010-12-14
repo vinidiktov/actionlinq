@@ -140,15 +140,24 @@ package System.Linq
 		}
 		
 		public function First(predicate:Function=null):* {
+			var result:Option = FirstOrNone(predicate);
+			
+			if(result.isNone)
+				throw new RangeError("Seqnence contains no elements");
+				
+			return result.value; 
+		}
+		
+		public function FirstOrNone(predicate:Function=null):Option {
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
 			var filteredEnumerator:IEnumerator = Where(predicate).GetEnumerator();
 			
 			if(!filteredEnumerator.MoveNext())
-				throw new RangeError("Seqnence contains no elements");
-				
-			return filteredEnumerator.Current(); 
+				return none;
+			
+			return some(filteredEnumerator.Current()); 
 		}
 		
 		public function Last(predicate:Function=null):* {

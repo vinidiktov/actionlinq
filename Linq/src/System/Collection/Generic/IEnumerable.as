@@ -87,6 +87,7 @@ package System.Collection.Generic
 		//* public static TSource First<TSource>();
 		//* public static TSource First<TSource>(Func<TSource, bool> predicate);
 		
+		function FirstOrNone(predicate:Function=null):Option;
 		//public static TSource FirstOrDefault<TSource>();
 		//public static TSource FirstOrDefault<TSource>(Func<TSource, bool> predicate);
 		

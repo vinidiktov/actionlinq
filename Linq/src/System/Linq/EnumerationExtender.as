@@ -69,8 +69,8 @@ package System.Linq
 			c.prototype.First = function(predicate:Function=null):* {
 				return this.AsEnumerable().First(predicate);
 			}
-			c.prototype.Last = function():* {
-				return this.AsEnumerable().Last();
+			c.prototype.Last = function(predicate:Function=null):* {
+				return this.AsEnumerable().Last(predicate);
 			}	
 			c.prototype.Any = function(predicate:Function=null):Boolean {
 				return this.AsEnumerable().Any(predicate);

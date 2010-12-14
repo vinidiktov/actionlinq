@@ -148,8 +148,13 @@ package System.Linq
 			return filteredEnumerator.Current(); 
 		}
 		
-		public function Last():* {
-			var result:Option = Aggregate(Option.none(), function(acc, x) { return Option.some(x)});
+		public function Last(predicate:Function=null):* {
+			if(predicate == null)
+				predicate = function(x) { return true; };
+			
+			var result:Option = 
+				Where(predicate)
+				.Aggregate(Option.none(), function(acc, x) { return Option.some(x)});
 			
 			if(result.isNone)
 				throw new RangeError("Seqnence contains no elements");

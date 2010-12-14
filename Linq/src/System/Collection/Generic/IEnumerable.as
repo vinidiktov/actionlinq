@@ -89,7 +89,7 @@ package System.Collection.Generic
 		//public static TSource FirstOrDefault<TSource>();
 		//public static TSource FirstOrDefault<TSource>(Func<TSource, bool> predicate);
 		
-		function Last():*;
+		function Last(predicate:Function=null):*;
 		//public static TSource Last<TSource>()
 		//public static TSource Last<TSource>(Func<TSource, bool> predicate)
 		

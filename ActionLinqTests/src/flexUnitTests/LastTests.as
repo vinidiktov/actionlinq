@@ -18,5 +18,16 @@ package flexUnitTests
 			data.Last();
 		}
 		
+		[Test]
+		public function Last_returns_the_last_item_matching_a_predicate():void {
+			var last:int = [1,2,3,4,5].Last(function(x){return x == 4});
+			
+			assertThat(last, equalTo(4));
+		}
+		
+		[Test(expected="RangeError")]
+		public function Last_with_predicate_throws_when_sequence_is_empty():void{
+			var last:int = [1,2,3,4,5].Last(function(x){return x==6});
+		}
 	}
 }

@@ -3,6 +3,9 @@ package System.Linq
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
+	import System.Linq.Option.Option;
+	import System.Linq.Option.none;
+	import System.Linq.Option.some;
 	
 	import flash.utils.Proxy;
 	import flash.utils.flash_proxy;
@@ -154,7 +157,7 @@ package System.Linq
 			
 			var result:Option = 
 				Where(predicate)
-				.Aggregate(Option.none(), function(acc, x) { return Option.some(x)});
+				.Aggregate(none, function(acc, x) { return some(x)});
 			
 			if(result.isNone)
 				throw new RangeError("Seqnence contains no elements");

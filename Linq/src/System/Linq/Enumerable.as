@@ -141,7 +141,11 @@ package System.Linq
 				predicate = function(x) { return true; };
 			
 			var filteredEnumerator:IEnumerator = Where(predicate).GetEnumerator();
-			return filteredEnumerator.MoveNext() ? filteredEnumerator.Current() : null;
+			
+			if(!filteredEnumerator.MoveNext())
+				throw new RangeError("Seqnence contains no elements");
+				
+			return filteredEnumerator.Current(); 
 		}
 		
 		public function Last():* {

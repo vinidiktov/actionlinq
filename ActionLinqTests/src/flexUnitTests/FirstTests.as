@@ -23,7 +23,11 @@ package flexUnitTests
 			Assert.assertEquals(first, 1);
 		}
 
-		
+		[Test(expected="RangeError")]
+		public function First_throws_range_error_when_sequence_is_empty():void {
+			var data:Array = [];
+			data.First();
+		}
 		
 	}
 }

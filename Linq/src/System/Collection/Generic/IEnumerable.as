@@ -1,6 +1,7 @@
 package System.Collection.Generic
 {
 	import System.Linq.*;
+	import System.Linq.Option.Option;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
@@ -93,7 +94,9 @@ package System.Collection.Generic
 		//public static TSource Last<TSource>()
 		//public static TSource Last<TSource>(Func<TSource, bool> predicate)
 		
-		// LastOrDefault
+		function LastOrNone(predicate:Function=null):Option;
+		//* LastOrDefault
+		
 		// Single
 		// SingleOrDefault
 		// ElementAt

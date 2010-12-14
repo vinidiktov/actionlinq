@@ -3,6 +3,7 @@ package System.Linq
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
+	import System.Linq.Option.Option;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
@@ -71,7 +72,10 @@ package System.Linq
 			}
 			c.prototype.Last = function(predicate:Function=null):* {
 				return this.AsEnumerable().Last(predicate);
-			}	
+			}
+			c.prototype.LastOrNone = function(predicate:Function=null):Option {
+				return this.AsEnumerable().LastOrNone(predicate);
+			}
 			c.prototype.Any = function(predicate:Function=null):Boolean {
 				return this.AsEnumerable().Any(predicate);
 			}		
@@ -100,7 +104,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
-				"ToArray", "ToArrayCollection", "ToList", "First", "Last", "Any", "Count",
+				"ToArray", "ToArrayCollection", "ToList", "First", "Last", "LastOrNone", "Any", "Count",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
 			for each(var name in names)

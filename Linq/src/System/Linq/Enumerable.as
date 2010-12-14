@@ -152,17 +152,19 @@ package System.Linq
 		}
 		
 		public function Last(predicate:Function=null):* {
-			if(predicate == null)
-				predicate = function(x) { return true; };
-			
-			var result:Option = 
-				Where(predicate)
-				.Aggregate(none, function(acc, x) { return some(x)});
+			var result:Option = LastOrNone(predicate);
 			
 			if(result.isNone)
 				throw new RangeError("Seqnence contains no elements");
 			
 			return result.value;
+		}
+		
+		public function LastOrNone(predicate:Function=null):Option {
+			if(predicate == null)
+				predicate = function(x) { return true; };
+			
+			return Where(predicate).Aggregate(none, function(acc, x) { return some(x)});
 		}
 		
 		public function Any(predicate:Function=null):Boolean {

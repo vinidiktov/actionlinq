@@ -9,48 +9,12 @@
 					   creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.ToArrayTests;
 			import flexUnitTests.LastTests;
-			import flexUnitTests.EnumerableTests;
-			import flexUnitTests.UnionTests;
-			import flexUnitTests.SelectTests;
-			import flexUnitTests.SkipTests;
-			import flexUnitTests.OptionTests;
-			import flexUnitTests.IntegrationTests;
-			import flexUnitTests.SelectManyTests;
-			import flexUnitTests.ConcatTests;
-			import flexUnitTests.FirstTests;
-			import flexUnitTests.CountTests;
-			import flexUnitTests.AggregateTests;
-			import flexUnitTests.ZipTests;
-			import flexUnitTests.TakeTests;
-			import flexUnitTests.AnyTests;
-			import flexUnitTests.DistinctTests;
-			import flexUnitTests.WhereTests;
-			import flexUnitTests.OrderByTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(flexUnitTests.OrderByTests);
-				testsToRun.push(flexUnitTests.WhereTests);
-				testsToRun.push(flexUnitTests.DistinctTests);
-				testsToRun.push(flexUnitTests.AnyTests);
-				testsToRun.push(flexUnitTests.TakeTests);
-				testsToRun.push(flexUnitTests.ZipTests);
-				testsToRun.push(flexUnitTests.AggregateTests);
-				testsToRun.push(flexUnitTests.CountTests);
-				testsToRun.push(flexUnitTests.FirstTests);
-				testsToRun.push(flexUnitTests.ConcatTests);
-				testsToRun.push(flexUnitTests.SelectManyTests);
-				testsToRun.push(flexUnitTests.IntegrationTests);
-				testsToRun.push(flexUnitTests.OptionTests);
-				testsToRun.push(flexUnitTests.SkipTests);
-				testsToRun.push(flexUnitTests.SelectTests);
-				testsToRun.push(flexUnitTests.UnionTests);
-				testsToRun.push(flexUnitTests.EnumerableTests);
 				testsToRun.push(flexUnitTests.LastTests);
-				testsToRun.push(flexUnitTests.ToArrayTests);
 				return testsToRun;
 			}
 			

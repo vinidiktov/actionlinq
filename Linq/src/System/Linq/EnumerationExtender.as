@@ -103,8 +103,8 @@ package System.Linq
 			c.prototype.Contains = function(value:*, comparer:IEqualityComparer=null):Boolean {
 				return this.AsEnumerable().Contains(value, comparer);
 			}
-			c.prototype.Aggregate = function(seed:*, aggregator:Function):* {
-				return this.AsEnumerable().Aggregate(seed, aggregator);
+			c.prototype.Aggregate = function(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
+				return this.AsEnumerable().Aggregate(funcOrSeed, func, resultSelector);
 			}
 			c.prototype.Sum =  function(selector:Function=null):* {
 				return this.AsEnumerable().Sum(selector);

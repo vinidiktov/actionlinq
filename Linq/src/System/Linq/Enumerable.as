@@ -263,15 +263,32 @@ package System.Linq
 			return result.isSome;
 		}
 		
-		public function Aggregate(seed:*, aggregator:Function):* {
-			var aggregate = seed;
+		public function Aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
+			
 			var enumerator:IEnumerator = GetEnumerator();
+			
+			if(funcOrSeed is Function)
+			{
+				if(!enumerator.MoveNext())
+					throw new RangeError("Sequence contains no elements");
+					
+				var aggregate = enumerator.Current();
+				var aggregator:Function = funcOrSeed as Function;
+			}
+			else
+			{
+				var aggregate = funcOrSeed;
+				var aggregator = func;
+			}
+			
+			if(resultSelector == null)
+				resultSelector = function(x) { return x; };
 			
 			while(enumerator.MoveNext()) {
 				aggregate = aggregator(aggregate, enumerator.Current());
 			}
 			
-			return aggregate;
+			return resultSelector(aggregate);
 		}
 		
 		public function Sum(selector:Function=null):* {

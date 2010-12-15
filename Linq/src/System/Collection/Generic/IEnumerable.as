@@ -43,10 +43,7 @@ package System.Collection.Generic
 		
 		function ToArray():Array;
 		function ToArrayCollection():ArrayCollection;
-		//* public static TSource[] ToArray<TSource>();
-		
 		function ToList():IList;
-		//* public static IList<TSource> ToList<TSource>();
 		
 		// ToDictionary
 		// ToLookup
@@ -66,11 +63,7 @@ package System.Collection.Generic
 		function All(predicate:Function):Boolean;
 		function Count(predicate:Function=null):int;
 		function Contains(value:*, comparer:IEqualityComparer=null):Boolean;
-		function Aggregate(seed:*, aggregator:Function):*;
-		//public static TSource Aggregate<TSource>(Func<TSource, TSource, TSource> func);
-		//* public static TAccumulate Aggregate<TSource, TAccumulate>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func);
-		//public static TResult Aggregate<TSource, TAccumulate, TResult>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector);
-		
+		function Aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):*;
 		function Sum(selector:Function=null):*;
 		function Min(selector:Function=null):*;
 		function Max(selector:Function=null):*;

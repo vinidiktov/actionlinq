@@ -20,6 +20,33 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function Aggregte_without_seed_applies_accumulator_to_all_items():void {
+			var sentence:String = "the quick brown fox jumps over the lazy dog";
+			var words:Array = sentence.split(" ");
+			var reversed = words.Aggregate(function(workingSentance, next) { return next + " " + workingSentance });
+		
+			assertThat(reversed, equalTo("dog lazy the over jumps fox brown quick the"));
+		}
+		
+		[Test]
+		public function Aggregte_without_seed_applies_accumulator_to_all_items2():void {
+			var numbers:Array = [1,2,3,4,5];
+			var sum:int = numbers.Aggregate(function(sum, next) { return sum + next });
+			
+			assertThat(sum, equalTo(15));
+		}
+		
+		[Test]
+		public function Aggregate_with_result_selector_aggregagtes_and_selects():void {
+			var fruits:Array = [ "apple", "mango", "orange", "passionfruit", "grape" ];
+			var longestName:String = fruits.Aggregate("banana", 
+				function(longest:String, next:String) { return next.length > longest.length ? next : longest },
+				function(fruit:String) { return fruit.toUpperCase() });
+			
+			assertThat(longestName, equalTo("PASSIONFRUIT")); 
+		}
+		
+		[Test]
 		public function Sum_Will_Sum_The_Values_Of_A_Collection()
 		{
 			var data:Array = [1,2,3,4];

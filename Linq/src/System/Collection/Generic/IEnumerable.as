@@ -91,10 +91,6 @@ package System.Collection.Generic
 		function SingleOrNone(predicate:Function=null):Option;
 		function ElementAt(index:int):*;
 		function ElementAtOrNone(index:int):Option;
-		
-		
-		// Empty
-		
 		function Any(predicate:Function=null):Boolean;
 		
 		// All

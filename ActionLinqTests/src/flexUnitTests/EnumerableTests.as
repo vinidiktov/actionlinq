@@ -222,8 +222,15 @@ package flexUnitTests
 		}
 		
 		[Test(expected="RangeError")]
-		public function EnumerableRepeate_throws_RangeError_if_count_less_than_zero():void {
+		public function EnumerableRepeat_throws_RangeError_if_count_less_than_zero():void {
 			var repeat:IEnumerable = Enumerable.Repeat("test", -1);
+		}
+		
+		[Test]
+		public function EnumerableEmpty_returns_empty_enumerable():void {
+			var empty:IEnumerable = Enumerable.Empty();
+			
+			assertThat(empty.ToArray(), array());
 		}
 		
 		[Test]

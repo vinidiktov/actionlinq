@@ -321,6 +321,10 @@ package System.Linq
 					return new RepeatEnumerator(element, count) });
 		}
 		
+		public static function Empty():IEnumerable {
+			return From([]);
+		}
+		
 		public static function Times(count:int, action:Function):void {
 			Range(count).Each(action);
 		}

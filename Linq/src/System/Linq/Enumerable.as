@@ -311,6 +311,15 @@ package System.Linq
 				function(source:*):IEnumerator {
 					return new RangeEnumerator(start, count) });
 		}
+	
+		public static function Repeat(element:*, count:int):IEnumerable {
+			if(count < 0)
+				throw new RangeError("Count was less than zero");
+			
+			return new Enumerable(null,
+				function(source:*):IEnumerator {
+					return new RepeatEnumerator(element, count) });
+		}
 		
 		public static function Times(count:int, action:Function):void {
 			Range(count).Each(action);

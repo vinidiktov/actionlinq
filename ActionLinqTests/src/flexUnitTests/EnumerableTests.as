@@ -215,6 +215,18 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function EnumerableRepeat_with_item_repeats_n_times() {
+			var repeat:IEnumerable = Enumerable.Repeat("test", 3);
+			
+			assertThat(repeat.ToArray(), array("test", "test", "test"));
+		}
+		
+		[Test(expected="RangeError")]
+		public function EnumerableRepeate_throws_RangeError_if_count_less_than_zero():void {
+			var repeat:IEnumerable = Enumerable.Repeat("test", -1);
+		}
+		
+		[Test]
 		public function Each_Runs_An_Action_On_Each():void {
 			var count:int = 0;
 			var set:Array = [1, 2, 3, 4];

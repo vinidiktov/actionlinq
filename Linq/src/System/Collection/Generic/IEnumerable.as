@@ -93,8 +93,6 @@ package System.Collection.Generic
 		function ElementAtOrNone(index:int):Option;
 		
 		
-		// Range
-		// Repeat
 		// Empty
 		
 		function Any(predicate:Function=null):Boolean;

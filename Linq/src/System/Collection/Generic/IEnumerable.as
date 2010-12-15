@@ -89,22 +89,19 @@ package System.Collection.Generic
 		function LastOrNone(predicate:Function=null):Option;
 		function Single(predicate:Function=null):*;
 		function SingleOrNone(predicate:Function=null):Option;
+		function ElementAt(index:int):*;
+		function ElementAtOrNone(index:int):Option;
 		
-		// ElementAt
-		// ElementAtOrDefault
+		
 		// Range
 		// Repeat
 		// Empty
 		
 		function Any(predicate:Function=null):Boolean;
-		//* public static bool Any<TSource>();
-		//* public static bool Any<TSource>(Func<TSource, bool> predicate);
 		
 		// All
 		
 		function Count(predicate:Function=null):int;
-		//* public static int Count<TSource>(Func<TSource, bool> predicate);
-		//* public static int Count<TSource>();
 		
 		// LongCount
 		// Contains
@@ -115,21 +112,9 @@ package System.Collection.Generic
 		//public static TResult Aggregate<TSource, TAccumulate, TResult>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector);
 		
 		function Sum(selector:Function=null):*;
-		//* int Sum<TSource>();
-		//* int Sum<TSource, TSource>(Func<TSource, TSource> selector);
-		
 		function Min(selector:Function=null):*;
-		//* TSource Min<TSource>();
-		//* TSource Min<TSource, TResult>(Func<TSource, TResult> selector);
-		
 		function Max(selector:Function=null):*;
-		//* TSource Max<TSource>();
-		//* TSource Max<TSource, TResult>(Func<TSource, TResult> selector);
-		
 		function Average(selector:Function=null):*;
-		//* TSource Average<TSource>();
-		//* TSource Average<TSource, TResult>(Func<TSource, TResult> selector);
-		
 		function Each(action:Function):void;
 	}
 }

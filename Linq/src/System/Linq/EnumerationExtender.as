@@ -85,6 +85,12 @@ package System.Linq
 			c.prototype.SingleOrNone = function(predicate:Function=null):* {
 				return this.AsEnumerable().SingleOrNone(predicate);
 			}
+			c.prototype.ElementAt = function(index:int):* {
+				return this.AsEnumerable().ElementAt(index);
+			}
+			c.prototype.ElementAtOrNone = function(index:int):Option {
+				return this.AsEnumerable().ElementAtOrNone(index);
+			}
 			c.prototype.Any = function(predicate:Function=null):Boolean {
 				return this.AsEnumerable().Any(predicate);
 			}		
@@ -114,7 +120,8 @@ package System.Linq
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
 				"ToArray", "ToArrayCollection", "ToList", "First", "FirstOrNone", 
-				"Last", "LastOrNone", "Single", "SingleOrNone", "Any", "Count",
+				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
+				"Any", "Count",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
 			for each(var name in names)

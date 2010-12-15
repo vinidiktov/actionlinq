@@ -202,6 +202,21 @@ package System.Linq
 			return result;
 		}
 		
+		public function ElementAt(index:int):* {
+			var result:Option = ElementAtOrNone(index);
+			
+			if(result.isNone)
+				throw new RangeError("Index was out of range");
+			
+			return result.value;
+		}
+		
+		public function ElementAtOrNone(index:int):Option {
+			var count:int = 0;
+			return FirstOrNone(function(x) {return (count++ == index);});
+		}
+			
+		
 		public function Any(predicate:Function=null):Boolean {
 			if(predicate == null)
 				predicate = function(x) { return true; };

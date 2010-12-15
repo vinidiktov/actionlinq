@@ -94,6 +94,9 @@ package System.Linq
 			c.prototype.Any = function(predicate:Function=null):Boolean {
 				return this.AsEnumerable().Any(predicate);
 			}		
+			c.prototype.All = function(predicate:Function):Boolean {
+				return this.AsEnumerable().All(predicate);
+			}
 			c.prototype.Count = function(predicate:Function=null):int {
 				return this.AsEnumerable().Count(predicate);
 			}
@@ -121,7 +124,7 @@ package System.Linq
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
 				"ToArray", "ToArrayCollection", "ToList", "First", "FirstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
-				"Any", "Count",
+				"Any", "All", "Count",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
 			for each(var name in names)

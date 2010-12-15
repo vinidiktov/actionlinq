@@ -92,12 +92,8 @@ package System.Collection.Generic
 		function ElementAt(index:int):*;
 		function ElementAtOrNone(index:int):Option;
 		function Any(predicate:Function=null):Boolean;
-		
-		// All
-		
+		function All(predicate:Function):Boolean;
 		function Count(predicate:Function=null):int;
-		
-		// LongCount
 		// Contains
 		
 		function Aggregate(seed:*, aggregator:Function):*;

@@ -224,6 +224,20 @@ package System.Linq
 			return Where(predicate).GetEnumerator().MoveNext();
 		}
 		
+		public function All(predicate:Function):Boolean {
+			if(predicate == null)
+				throw new Error("Predicate was null");
+			
+			var enumerator:IEnumerator = GetEnumerator();
+			while(enumerator.MoveNext())
+			{
+				if(!predicate(enumerator.Current()))
+					return false;
+			}
+					
+			return true;
+		}
+		
 		public function Count(predicate:Function=null):int {
 			var enumerator:IEnumerator = predicate != null ? Where(predicate).GetEnumerator() : GetEnumerator();
 			

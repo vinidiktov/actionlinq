@@ -11,32 +11,12 @@ package System.Collection.Generic
 		function GetEnumerator():IEnumerator; 
 		
 		function Where(predicate:Function):IEnumerable;		
-		//* IEnumerable<TSource> Where<TSource>(Func<TSource, bool> predicate);
-		//* IEnumerable<TSource> Where<TSource>(Func<TSource, int, bool> predicate);
-
 		function Select(selector:Function):IEnumerable;
-		//* IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, TResult> selector);
-		//* IEnumerable<TResult> Select<TSource, TResult>(Func<TSource, int, TResult> selector);
-		
 		function SelectMany(selector:Function, resultsSelector:Function = null):IEnumerable;
-		//* IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, IEnumerable<TResult>> selector);		
-		//* IEnumerable<TResult> SelectMany<TSource, TResult>(Func<TSource, int, IEnumerable<TResult>> selector);
-		//* IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, int, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
-		//* IEnumerable<TResult> SelectMany<TSource, TCollection, TResult>(Func<TSource, IEnumerable<TCollection>> collectionSelector, Func<TSource, TCollection, TResult> resultSelector);
-
 		function Take(count:int):IEnumerable;
-		//* IEnumerable<TSource> Take<TSource>(int count);
-		
 		function TakeWhile(predicate:Function):IEnumerable;
-		//* IEnumerable<TSource> TakeWhile<TSource>(Func<TSource, bool> predicate);
-		//* IEnumerable<TSource> TakeWhile<TSource>(Func<TSource, int, bool> predicate);
-		
 		function Skip(count:int):IEnumerable; 
-		//* IEnumerable<TSource> Skip<TSource>(int count);
-		
 		function SkipWhile(predicate:Function):IEnumerable;
-		//* IEnumerable<TSource> SkipWhile<TSource>(Func<TSource, bool> predicate);
-		//* IEnumerable<TSource> SkipWhile<TSource>(Func<TSource, int, bool> predicate);
 
 		// Join
 		// GroupJoin
@@ -51,18 +31,9 @@ package System.Collection.Generic
 		// GroupBy
 		
 		function Concat(second:IEnumerable):IEnumerable;
-		//* IEnumerable<TSource> Concat<TSource>(IEnumerable<TSource> second);
-		
 		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;
-		//* IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector);
-
 		function Distinct(comparer:IEqualityComparer=null):IEnumerable;
-		//* IEnumerable<TSource> Distinct<TSource>();
-		//* IEnumerable<TSource> Distinct<TSource>(IEqualityComparer<TSource> comparer);
-		
 		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
-		//* IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second)
-		//* IEnumerable<TSource> Union<TSource>(IEnumerable<TSource> second, IEqualityComparer<TSource> comparer)
 		
 		// Intersect
 		// Except
@@ -94,8 +65,7 @@ package System.Collection.Generic
 		function Any(predicate:Function=null):Boolean;
 		function All(predicate:Function):Boolean;
 		function Count(predicate:Function=null):int;
-		// Contains
-		
+		function Contains(value:*, comparer:IEqualityComparer=null):Boolean;
 		function Aggregate(seed:*, aggregator:Function):*;
 		//public static TSource Aggregate<TSource>(Func<TSource, TSource, TSource> func);
 		//* public static TAccumulate Aggregate<TSource, TAccumulate>(TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func);

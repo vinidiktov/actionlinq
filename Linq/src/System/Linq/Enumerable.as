@@ -252,6 +252,17 @@ package System.Linq
 			return count;
 		}
 		
+		public function Contains(value:*, comparer:IEqualityComparer=null):Boolean {
+			if(comparer == null) {
+			    var result:Option = FirstOrNone(function(x) { return x == value });
+			}
+			else {
+				var result:Option = FirstOrNone(function(x) { return comparer.Equals(x, value) });
+			}
+			
+			return result.isSome;
+		}
+		
 		public function Aggregate(seed:*, aggregator:Function):* {
 			var aggregate = seed;
 			var enumerator:IEnumerator = GetEnumerator();

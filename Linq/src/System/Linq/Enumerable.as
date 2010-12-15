@@ -176,6 +176,32 @@ package System.Linq
 			return Where(predicate).Aggregate(none, function(acc, x) { return some(x)});
 		}
 		
+		public function Single(predicate:Function=null):* {
+			var result:Option = SingleOrNone(predicate);
+			
+			if(result.isNone)
+				throw new RangeError("Sequence does not contain one element");
+			
+			return result.value;
+		}
+		
+		public function SingleOrNone(predicate:Function=null):Option {
+			if(predicate == null)
+				predicate = function(x) { return true; };
+			
+			var enumerator:IEnumerator = Where(predicate).GetEnumerator();
+			
+			if(!enumerator.MoveNext())
+				return none;
+			
+			var result:Option = some(enumerator.Current());
+			
+			if(enumerator.MoveNext())
+				return none;
+			
+			return result;
+		}
+		
 		public function Any(predicate:Function=null):Boolean {
 			if(predicate == null)
 				predicate = function(x) { return true; };

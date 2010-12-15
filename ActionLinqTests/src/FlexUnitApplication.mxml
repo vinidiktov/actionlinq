@@ -9,12 +9,12 @@
 					   creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.FirstTests;
+			import flexUnitTests.SingleTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(flexUnitTests.FirstTests);
+				testsToRun.push(flexUnitTests.SingleTests);
 				return testsToRun;
 			}
 			

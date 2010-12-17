@@ -29,6 +29,7 @@
 			import flexUnitTests.CountTests;
 			import flexUnitTests.ContainsTests;
 			import flexUnitTests.ConcatTests;
+			import flexUnitTests.CastTests;
 			import flexUnitTests.AnyTests;
 			import flexUnitTests.AllTests;
 			import flexUnitTests.AggregateTests;
@@ -39,6 +40,7 @@
 				testsToRun.push(flexUnitTests.AggregateTests);
 				testsToRun.push(flexUnitTests.AllTests);
 				testsToRun.push(flexUnitTests.AnyTests);
+				testsToRun.push(flexUnitTests.CastTests);
 				testsToRun.push(flexUnitTests.ConcatTests);
 				testsToRun.push(flexUnitTests.ContainsTests);
 				testsToRun.push(flexUnitTests.CountTests);

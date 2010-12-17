@@ -49,7 +49,18 @@ package System.Collection.Generic
 		// ToLookup
 		// DefaultIfEmpty
 		// OfType
-		// Cast
+		
+		
+		/**
+		 * Converts the elements of an IEnumerable to the specified type.
+		 * 
+		 * @return An IEnumerable that contains each element of the source sequence converted to the specified type.
+		 * 
+		 * @param type The type to convert the elements of source to.
+		 * 
+		 * @see Select
+		 */ 
+		function cast(type:Class):IEnumerable;
 		
 		function First(predicate:Function=null):*;
 		function FirstOrNone(predicate:Function=null):Option;

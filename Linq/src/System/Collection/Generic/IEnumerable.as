@@ -47,7 +47,16 @@ package System.Collection.Generic
 		
 		// ToDictionary
 		// ToLookup
-		// DefaultIfEmpty
+		
+		/**
+		 * Returns the elements of the specified sequence or the none if the sequence is empty.
+		 * 
+		 * @return None if source is empty; otherwise some IEnumerable
+		 * 
+		 * @see Any
+		 * 
+		 */ 
+		function noneIfEmpty():Option;
 		
 		/**
 		 * Filters the elements of an IEnumerable based on a specified type.

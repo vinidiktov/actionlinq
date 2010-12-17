@@ -67,6 +67,9 @@ package System.Linq
 			c.prototype.ToList = function():IList {
 				return this.AsEnumerable().ToList();
 			}
+			c.prototype.noneIfEmpty = function():Option {
+				return this.AsEnumerable().noneIfEmpty();
+			}
 			c.prototype.ofType = function(type:Class):IEnumerable {
 				return this.AsEnumerable().ofType(type);
 			}
@@ -131,7 +134,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
-				"ToArray", "ToArrayCollection", "ToList", "ofType", "cast", "First", "FirstOrNone", 
+				"ToArray", "ToArrayCollection", "ToList", "noneIfEmpty", "ofType", "cast", "First", "FirstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];

@@ -3,6 +3,7 @@ package flexUnitTests
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Linq.Enumerable;
+	import System.Linq.Option.Option;
 	
 	import flexunit.framework.Assert;
 	
@@ -265,6 +266,20 @@ package flexUnitTests
 			Enumerable.Times(4, function(x){count+= x});
 			
 			assertThat(count, equalTo(6));
+		}
+		
+		[Test]
+		public function noneIfEmpty_is_some_if_it_is_not_empty():void {
+			var result:Option = [1,2,3].noneIfEmpty();
+			
+			assertThat(result.value.ToArray(), array(1,2,3));
+		}
+		
+		[Test]
+		public function noneIfEmpty_is_none_if_it_is_empty():void {
+			var result:Option = [].noneIfEmpty();
+			
+			assertThat(result.isNone);
 		}
 	}
 }

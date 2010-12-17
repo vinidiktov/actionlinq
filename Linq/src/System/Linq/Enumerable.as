@@ -139,6 +139,10 @@ package System.Linq
 			return container;	
 		}
 		
+		public function noneIfEmpty():Option {
+			return Any() ? some(this) : none;
+		}
+		
 		public function ofType(type:Class):IEnumerable {
 			return Where(function(x){ return x is type });
 		}

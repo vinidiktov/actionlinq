@@ -139,6 +139,10 @@ package System.Linq
 			return container;	
 		}
 		
+		public function ofType(type:Class):IEnumerable {
+			return Where(function(x){ return x is type });
+		}
+		
 		public function cast(type:Class):IEnumerable {
 			return Select(function(x) { return type(x) });
 		}

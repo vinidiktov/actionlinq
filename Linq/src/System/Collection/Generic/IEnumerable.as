@@ -48,8 +48,18 @@ package System.Collection.Generic
 		// ToDictionary
 		// ToLookup
 		// DefaultIfEmpty
-		// OfType
 		
+		/**
+		 * Filters the elements of an IEnumerable based on a specified type.
+		 * 
+		 * @return An IEnumerable that contains elements from the input sequence of type TResult.
+		 * 
+		 * @param The type to filter the elements of the sequence on.
+		 * 
+		 * @see cast
+		 * @see Where
+		 */ 
+		function ofType(type:Class):IEnumerable;
 		
 		/**
 		 * Converts the elements of an IEnumerable to the specified type.
@@ -59,6 +69,7 @@ package System.Collection.Generic
 		 * @param type The type to convert the elements of source to.
 		 * 
 		 * @see Select
+		 * @see ofType
 		 */ 
 		function cast(type:Class):IEnumerable;
 		

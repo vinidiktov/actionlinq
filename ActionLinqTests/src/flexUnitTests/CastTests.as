@@ -22,6 +22,12 @@ package flexUnitTests
 			var castedData = ["1", "2", "3"].cast(TestModel).ToArray();
 		}
 		
+		[Test]
+		public function ofType_filters_sequence_based_on_type():void {
+			var ints:Array = [1, "2", 3, "4"].ofType(int).ToArray();
+			
+			assertThat(ints, array(1,3));
+		}
 		
 	}
 }

@@ -77,6 +77,8 @@ package System.Collection.Generic
 		 * 
 		 * @param type The type to convert the elements of source to.
 		 * 
+		 * @throws TypeError
+		 * 
 		 * @see Select
 		 * @see ofType
 		 */ 
@@ -149,6 +151,8 @@ package System.Collection.Generic
 		 * @param func An accumulator function to be invoked on each element.
 		 * @param resultSelector A function to transform the final accumulator value into the result value.
 		 * 
+		 * @throws RangeError
+		 * 
 		 * @see Sum
 		 * @see Min
 		 * @see Max
@@ -163,6 +167,8 @@ package System.Collection.Generic
 		 * 
 		 * @param selector A transform function to apply to each element.
 		 * 
+		 * @throws RangeError
+		 * 
 		 * @see Aggregate
 		 * @see Average
 		 */
@@ -174,6 +180,8 @@ package System.Collection.Generic
 		 * @return The minimum value in the sequence.
 		 * 
 		 * @param selector A transform function to apply to each element.
+		 * 
+		 * @throws RangeError
 		 * 
 		 * @see Aggregate
 		 * @see Max
@@ -187,6 +195,8 @@ package System.Collection.Generic
 		 * 
 		 * @param selector A transform function to apply to each element.
 		 * 
+		 * @throws RangeError
+		 * 
 		 * @see Aggregate
 		 * @see Min
 		 */
@@ -198,6 +208,8 @@ package System.Collection.Generic
 		 * @return The average value in the sequence.
 		 * 
 		 * @param selector A transform function to apply to each element.
+		 * 
+		 * @throws RangeError
 		 * 
 		 * @see Aggregate
 		 * @see Sum

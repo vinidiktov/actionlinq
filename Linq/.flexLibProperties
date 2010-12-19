@@ -17,6 +17,9 @@
     <classEntry path="System.Linq.RepeatEnumerator"/>
     <classEntry path="System.Collection.Generic.IGrouping"/>
     <classEntry path="System.Linq.Grouping"/>
+    <classEntry path="System.Collection.Generic.ILookup"/>
+    <classEntry path="System.Linq.Lookup"/>
+    <classEntry path="System.Linq.GroupingEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

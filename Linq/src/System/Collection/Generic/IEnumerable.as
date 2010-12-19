@@ -149,8 +149,57 @@ package System.Collection.Generic
 		 */ 
 		function cast(type:Class):IEnumerable;
 		
-		function First(predicate:Function=null):*;
-		function FirstOrNone(predicate:Function=null):Option;
+		/**
+		 * Returns the first element in a sequence that (optionally) satisfies a specified condition.
+		 * 
+		 * <p>first can be called in any of two overloads:
+		 * <ul>
+		 *   <li>first():*</li>
+		 *   <li>first(predicate:Function):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return The first element in the sequence that passes the test in the specified predicate function.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 * 
+		 * @throws RangeError when sequence is empty
+		 * @throws RangeError when no element satisfies the condition in the predicate
+		 *
+		 * @see firstOrNone
+		 * @see last
+		 * @see lastOrNone
+		 * @see single
+		 * @see singleOrNone
+		 * @see elementAt
+		 * @see elementAtOrNone
+		 */
+		function first(predicate:Function=null):*;
+		
+		/**
+		 * Returns the first element of the sequence that (optionally) satisfies a condition or none if no such element is found.
+		 * 
+		 * <p>firstOrNone can be called in any of two overloads:
+		 * <ul>
+		 *   <li>firstOrNone():*</li>
+		 *   <li>firstOrNone(predicate:Function):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return The first element in the sequence that passes the test in the specified predicate function.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 *
+		 * @see first
+		 * @see last
+		 * @see lastOrNone
+		 * @see single
+		 * @see singleOrNone
+		 * @see elementAt
+		 * @see elementAtOrNone
+		 */
+		function firstOrNone(predicate:Function=null):Option;
+		
 		function Last(predicate:Function=null):*;
 		function LastOrNone(predicate:Function=null):Option;
 		function Single(predicate:Function=null):*;

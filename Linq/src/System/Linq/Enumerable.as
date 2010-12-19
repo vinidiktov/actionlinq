@@ -217,8 +217,8 @@ package System.Linq
 			return Select(function(x) { return type(x) });
 		}
 		
-		public function First(predicate:Function=null):* {
-			var result:Option = FirstOrNone(predicate);
+		public function first(predicate:Function=null):* {
+			var result:Option = firstOrNone(predicate);
 			
 			if(result.isNone)
 				throw new RangeError("Seqnence contains no elements");
@@ -226,7 +226,7 @@ package System.Linq
 			return result.value; 
 		}
 		
-		public function FirstOrNone(predicate:Function=null):Option {
+		public function firstOrNone(predicate:Function=null):Option {
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
@@ -291,7 +291,7 @@ package System.Linq
 		
 		public function ElementAtOrNone(index:int):Option {
 			var count:int = 0;
-			return FirstOrNone(function(x) {return (count++ == index);});
+			return firstOrNone(function(x) {return (count++ == index);});
 		}
 			
 		
@@ -332,10 +332,10 @@ package System.Linq
 		
 		public function Contains(value:*, comparer:IEqualityComparer=null):Boolean {
 			if(comparer == null) {
-			    var result:Option = FirstOrNone(function(x) { return x == value });
+			    var result:Option = firstOrNone(function(x) { return x == value });
 			}
 			else {
-				var result:Option = FirstOrNone(function(x) { return comparer.Equals(x, value) });
+				var result:Option = firstOrNone(function(x) { return comparer.Equals(x, value) });
 			}
 			
 			return result.isSome;

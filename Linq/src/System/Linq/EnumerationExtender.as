@@ -87,11 +87,11 @@ package System.Linq
 			c.prototype.cast = function(type:Class):IEnumerable {
 				return this.AsEnumerable().cast(type);
 			}
-			c.prototype.First = function(predicate:Function=null):* {
-				return this.AsEnumerable().First(predicate);
+			c.prototype.first = function(predicate:Function=null):* {
+				return this.AsEnumerable().first(predicate);
 			}
-			c.prototype.FirstOrNone = function(predicate:Function=null):Option {
-				return this.AsEnumerable().FirstOrNone(predicate);
+			c.prototype.firstOrNone = function(predicate:Function=null):Option {
+				return this.AsEnumerable().firstOrNone(predicate);
 			}
 			c.prototype.Last = function(predicate:Function=null):* {
 				return this.AsEnumerable().Last(predicate);
@@ -145,7 +145,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "reverseEnumerate", "sequenceEqual",
-				"toArray", "toArrayCollection", "toList", "toDictionary", "noneIfEmpty", "ofType", "cast", "First", "FirstOrNone", 
+				"toArray", "toArrayCollection", "toList", "toDictionary", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];

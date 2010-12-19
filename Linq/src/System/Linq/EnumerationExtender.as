@@ -72,8 +72,8 @@ package System.Linq
 			c.prototype.toArrayCollection = function():ArrayCollection {
 				return this.AsEnumerable().toArrayCollection();
 			}
-			c.prototype.ToList = function():IList {
-				return this.AsEnumerable().ToList();
+			c.prototype.toList = function():IList {
+				return this.AsEnumerable().toList();
 			}
 			c.prototype.toDictionary = function(keySelector:Function, elementSelector:Function=null):Dictionary {
 				return this.AsEnumerable().toDictionary(keySelector, elementSelector);
@@ -145,7 +145,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "reverseEnumerate", "sequenceEqual",
-				"toArray", "toArrayCollection", "ToList", "toDictionary", "noneIfEmpty", "ofType", "cast", "First", "FirstOrNone", 
+				"toArray", "toArrayCollection", "toList", "toDictionary", "noneIfEmpty", "ofType", "cast", "First", "FirstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];

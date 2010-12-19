@@ -152,7 +152,7 @@ package System.Linq
 			return populateContainer(new ArrayCollection(), function(al, item) { al.addItem(item) });	
 		}
 		
-		public function ToList():IList {
+		public function toList():IList {
 			return populateContainer(new ArrayList(), function(al, item) { al.addItem(item) });	
 		}
 		

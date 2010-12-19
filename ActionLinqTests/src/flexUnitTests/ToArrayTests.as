@@ -44,8 +44,8 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function ToList_converts_IEnumerable_to_IList():void {
-			var converted:IList = [1,2].ToList();
+		public function toList_converts_IEnumerable_to_IList():void {
+			var converted:IList = [1,2].toList();
 			
 			assertThat(converted.length, equalTo(2));
 			assertThat(converted.getItemAt(0), equalTo(1));

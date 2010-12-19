@@ -82,7 +82,16 @@ package System.Collection.Generic
 		 */
 		function toArrayCollection():ArrayCollection;
 		
-		function ToList():IList;
+		/**
+		 * Creates a List from a IEnumerable
+		 * 
+		 * @return A list that contains the elements from the input sequence.
+		 * 
+		 * @see toArrayCollection
+		 * @see toArray
+		 * @see toDictionary
+		 */
+		function toList():IList;
 		
 		/**
 		 * Creates a Dictionary from an IEnumerable according to specified key selector and element selector functions.
@@ -98,6 +107,7 @@ package System.Collection.Generic
 		 * 
 		 * @see toList
 		 * @see toArray
+		 * @see toArrayCollection
 		 */ 
 		function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary;
 		

@@ -2,49 +2,87 @@ package flexUnitTests
 {
 	import System.Linq.*;
 	
+	import flash.utils.Dictionary;
+	
 	import flexunit.framework.Assert;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
+	
+	import org.flexunit.assertThat;
+	import org.hamcrest.object.equalTo;
 
 	public class ToArrayTests extends EnumerableTestsBase
 	{		
 		[Test]
-		public function ToArray_Converts_IEnumerable_To_Array():void
+		public function ToArray_converts_IEnumerable_to_Array():void
 		{
 			var converted:Array = [1,2].ToArray();
 			
-			Assert.assertEquals(converted.length, 2);
-			Assert.assertEquals(converted[0], 1);
-			Assert.assertEquals(converted[1], 2);
+			assertThat(converted.length, equalTo(2));
+			assertThat(converted[0], equalTo(1));
+			assertThat(converted[1], equalTo(2));
 		}
 		
 		[Test]
-		public function ToArray_On_Where_Returns_Array()
+		public function ToArray_on_where_returns_Array()
 		{
 			var filtered:Array = [1,2,3,4,5].Where(function(x){return x >= 4}).ToArray();
 			
-			Assert.assertEquals(filtered.length, 2);
-			Assert.assertEquals(filtered[0], 4);
-			Assert.assertEquals(filtered[1], 5);
+			assertThat(filtered.length, equalTo(2));
+			assertThat(filtered[0], equalTo(4));
+			assertThat(filtered[1], equalTo(5));
 		}
 		
 		[Test]
-		public function ToArrayCollection_Converts_IEnumerable_To_Array():void{
+		public function ToArrayCollection_converts_IEnumerable_to_ArrayCollection():void{
 			var converted:ArrayCollection = [1,2].ToArrayCollection();
 			
-			Assert.assertEquals(converted.length, 2);
-			Assert.assertEquals(converted[0], 1);
-			Assert.assertEquals(converted[1], 2);
+			assertThat(converted.length, equalTo(2));
+			assertThat(converted[0], equalTo(1));
+			assertThat(converted[1], equalTo(2));
 		}
 		
 		[Test]
-		public function ToList_Converts_IEnumerable_To_List():void {
+		public function ToList_converts_IEnumerable_to_IList():void {
 			var converted:IList = [1,2].ToList();
 			
-			Assert.assertEquals(converted.length, 2);
-			Assert.assertEquals(converted.getItemAt(0), 1);
-			Assert.assertEquals(converted.getItemAt(1), 2);
+			assertThat(converted.length, equalTo(2));
+			assertThat(converted.getItemAt(0), equalTo(1));
+			assertThat(converted.getItemAt(1), equalTo(2));
+		}
+		
+		[Test]
+		public function toDictionary_converts_to_Dictionary():void {
+			var dictionary:Dictionary = [1, 2].toDictionary(function(x) { return x.toString()});
+			
+			assertThat(dictionary.length(), equalTo(2));
+			assertThat(dictionary["1"], equalTo(1));
+			assertThat(dictionary["2"], equalTo(2));
+		}
+		
+		[Test]
+		public function toDictionary_with_elementSelector_converts_to_Dictionary():void {
+			var dictionary:Dictionary = [1, 2].toDictionary(function(x) { return x }, function(x) { return x * 2 });
+			
+			assertThat(dictionary.length(), equalTo(2));
+			assertThat(dictionary[1], equalTo(2));
+			assertThat(dictionary[2], equalTo(4));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function toDictionary_throws_exception_if_keySelector_is_null():void {
+			var dictionary:Dictionary = [1,2].toDictionary(null);
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function toDictionary_throws_exception_when_keySelector_produces_a_key_that_is_null():void {
+			var dictionary:Dictionary = [1].toDictionary(function(x){return null});
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function toDictionary_throws_exception_when_keySelector_produces_duplicate_keys_for_two_elements():void {
+			var dictionary:Dictionary = [1, 2].toDictionary(function(x){return 5});
 		}
 		
 	}

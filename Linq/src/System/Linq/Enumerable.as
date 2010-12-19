@@ -7,6 +7,7 @@ package System.Linq
 	import System.Linq.Option.none;
 	import System.Linq.Option.some;
 	
+	import flash.utils.Dictionary;
 	import flash.utils.Proxy;
 	import flash.utils.flash_proxy;
 	
@@ -128,6 +129,46 @@ package System.Linq
 		
 		public function ToList():IList {
 			return populateContainer(new ArrayList(), function(al, item) { al.addItem(item) });	
+		}
+		
+		private function addLengthToDictionary(dictionary:Dictionary):Dictionary {
+			
+			dictionary.length = function():uint { 
+				var length:uint = 0;
+				for(var item:* in dictionary)
+					if(item != "length")
+						length++;
+				return length;
+			};
+				
+			dictionary.setPropertyIsEnumerable("length", false);
+			
+			return dictionary;
+		}
+		
+		public function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary {
+			if(keySelector == null)
+				throw new ArgumentError("keySelector was null");
+			
+			if(elementSelector == null)
+				elementSelector = function(x) { return x; };
+					
+			var result:Dictionary = new Dictionary();
+			
+			for each(var item in this)
+			{
+				var key:* = keySelector(item);
+				
+				if(key == null)
+					throw new ArgumentError("keySelector for [" + item.toString() + "] returned null");
+				
+				if(key in result)
+					throw new ArgumentError("keySelector for [" + item.toString() + "] returned a duplicate key");
+				
+				result[key] = elementSelector(item);
+			}
+			
+			return addLengthToDictionary(result);
 		}
 		
 		private function populateContainer(container:*, add:Function):* {

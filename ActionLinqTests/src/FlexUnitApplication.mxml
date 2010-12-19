@@ -13,9 +13,11 @@
 			import flexUnitTests.WhereTests;
 			import flexUnitTests.UnionTests;
 			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.Testing123;
 			import flexUnitTests.TakeTests;
 			import flexUnitTests.SkipTests;
 			import flexUnitTests.SingleTests;
+			import flexUnitTests.SimpleTest;
 			import flexUnitTests.SelectTests;
 			import flexUnitTests.SelectManyTests;
 			import flexUnitTests.OrderByTests;
@@ -54,9 +56,11 @@
 				testsToRun.push(flexUnitTests.OrderByTests);
 				testsToRun.push(flexUnitTests.SelectManyTests);
 				testsToRun.push(flexUnitTests.SelectTests);
+				testsToRun.push(flexUnitTests.SimpleTest);
 				testsToRun.push(flexUnitTests.SingleTests);
 				testsToRun.push(flexUnitTests.SkipTests);
 				testsToRun.push(flexUnitTests.TakeTests);
+				testsToRun.push(flexUnitTests.Testing123);
 				testsToRun.push(flexUnitTests.ToArrayTests);
 				testsToRun.push(flexUnitTests.UnionTests);
 				testsToRun.push(flexUnitTests.WhereTests);

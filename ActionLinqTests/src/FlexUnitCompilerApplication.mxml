@@ -8,82 +8,84 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 					   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
-			import flexUnitTests.CastTests;
 			import flexUnitTests.ContainsTests;
-			import flexUnitTests.AllTests;
-			import flexUnitTests.ElementAtTests;
-			import flexUnitTests.LastTests;
-			import flexUnitTests.UnionTests;
-			import flexUnitTests.CountTests;
-			import flexUnitTests.DistinctTests;
-			import flexUnitTests.ZipTests;
-			import flexUnitTests.OrderByTests;
-			import flexUnitTests.TakeTests;
-			import flexUnitTests.SelectManyTests;
-			import flexUnitTests.AnyTests;
-			import flexUnitTests.ConcatTests;
-			import flexUnitTests.IntegrationTests;
-			import flexUnitTests.SkipTests;
-			import flexUnitTests.AggregateTests;
-			import flexUnitTests.EnumerableTests;
-			import flexUnitTests.FirstTests;
-			import flexUnitTests.SelectTests;
 			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.AggregateTests;
+			import flexUnitTests.UnionTests;
+			import flexUnitTests.TakeTests;
+			import flexUnitTests.ElementAtTests;
+			import flexUnitTests.SelectTests;
 			import flexUnitTests.WhereTests;
+			import flexUnitTests.SkipTests;
+			import flexUnitTests.OrderByTests;
+			import flexUnitTests.DistinctTests;
+			import flexUnitTests.Testing123;
+			import flexUnitTests.EnumerableTests;
+			import flexUnitTests.LastTests;
+			import flexUnitTests.AllTests;
+			import flexUnitTests.CastTests;
+			import flexUnitTests.CountTests;
+			import flexUnitTests.FirstTests;
+			import flexUnitTests.IntegrationTests;
+			import flexUnitTests.SimpleTest;
+			import flexUnitTests.ConcatTests;
+			import flexUnitTests.OptionTests;
+			import flexUnitTests.ZipTests;
+			import flexUnitTests.AnyTests;
+			import flexUnitTests.SelectManyTests;
+			import flexUnitTests.SingleTests;
 			
-			private var flexUnitTests_DistinctTests_obj:flexUnitTests.DistinctTests;
-			
-			
-			private var flexUnitTests_ZipTests_obj:flexUnitTests.ZipTests;
-			
-			
-			private var flexUnitTests_OrderByTests_obj:flexUnitTests.OrderByTests;
-			
-			
-			private var flexUnitTests_TakeTests_obj:flexUnitTests.TakeTests;
-			
-			
-			
-			
+			private var flexUnitTests_SingleTests_obj:flexUnitTests.SingleTests;
 			
 			private var flexUnitTests_SelectManyTests_obj:flexUnitTests.SelectManyTests;
 			
-			
 			private var flexUnitTests_AnyTests_obj:flexUnitTests.AnyTests;
 			
+			private var flexUnitTests_ZipTests_obj:flexUnitTests.ZipTests;
+			
+			private var flexUnitTests_OptionTests_obj:flexUnitTests.OptionTests;
 			
 			private var flexUnitTests_ConcatTests_obj:flexUnitTests.ConcatTests;
 			
+			private var flexUnitTests_SimpleTest_obj:flexUnitTests.SimpleTest;
 			
 			private var flexUnitTests_IntegrationTests_obj:flexUnitTests.IntegrationTests;
 			
-			
-			private var flexUnitTests_SkipTests_obj:flexUnitTests.SkipTests;
-			
-			
-			private var flexUnitTests_AggregateTests_obj:flexUnitTests.AggregateTests;
-			
-			
-			private var flexUnitTests_EnumerableTests_obj:flexUnitTests.EnumerableTests;
-			private var flexUnitTests_WhereTests_obj:flexUnitTests.WhereTests;
-			private var flexUnitTests_SelectTests_obj:flexUnitTests.SelectTests;
-			private var flexUnitTests_ToArrayTests_obj:flexUnitTests.ToArrayTests;
 			private var flexUnitTests_FirstTests_obj:flexUnitTests.FirstTests;
 			
 			private var flexUnitTests_CountTests_obj:flexUnitTests.CountTests;
 			
-			private var flexUnitTests_UnionTests_obj:flexUnitTests.UnionTests;
-			
-			private var flexUnitTests_LastTests_obj:flexUnitTests.LastTests;
-			
-			private var flexUnitTests_ElementAtTests_obj:flexUnitTests.ElementAtTests;
+			private var flexUnitTests_CastTests_obj:flexUnitTests.CastTests;
 			
 			private var flexUnitTests_AllTests_obj:flexUnitTests.AllTests;
 			
+			private var flexUnitTests_LastTests_obj:flexUnitTests.LastTests;
+			
+			private var flexUnitTests_EnumerableTests_obj:flexUnitTests.EnumerableTests;
+			
+			private var flexUnitTests_Testing123_obj:flexUnitTests.Testing123;
+			
+			private var flexUnitTests_DistinctTests_obj:flexUnitTests.DistinctTests;
+			
+			private var flexUnitTests_OrderByTests_obj:flexUnitTests.OrderByTests;
+			
+			private var flexUnitTests_SkipTests_obj:flexUnitTests.SkipTests;
+			
+			private var flexUnitTests_WhereTests_obj:flexUnitTests.WhereTests;
+			
+			private var flexUnitTests_SelectTests_obj:flexUnitTests.SelectTests;
+			
+			private var flexUnitTests_ElementAtTests_obj:flexUnitTests.ElementAtTests;
+			
+			private var flexUnitTests_TakeTests_obj:flexUnitTests.TakeTests;
+			
+			private var flexUnitTests_UnionTests_obj:flexUnitTests.UnionTests;
+			
+			private var flexUnitTests_AggregateTests_obj:flexUnitTests.AggregateTests;
+			
+			private var flexUnitTests_ToArrayTests_obj:flexUnitTests.ToArrayTests;
+			
 			private var flexUnitTests_ContainsTests_obj:flexUnitTests.ContainsTests;
-			
-			private var flexUnitTests_CastTests_obj:flexUnitTests.CastTests;
-			
 		]]>
 	</fx:Script>
 	<fx:Declarations>

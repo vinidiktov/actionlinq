@@ -3,6 +3,8 @@ package System.Collection.Generic
 	import System.Linq.*;
 	import System.Linq.Option.Option;
 	
+	import flash.utils.Dictionary;
+	
 	import mx.collections.ArrayCollection;
 	import mx.collections.IList;
 
@@ -45,7 +47,25 @@ package System.Collection.Generic
 		function ToArrayCollection():ArrayCollection;
 		function ToList():IList;
 		
-		// ToDictionary
+		
+		/**
+		 * Creates a Dictionary from an IEnumerable according to specified key selector and element selector functions.
+		 * 
+		 * @return A Dictionary that contains values selected from the input sequence.
+		 * 
+		 * @param keySelector A function to extract a key from each element.
+		 * @param elementSelector A transform function to produce a result element value from each element.
+		 * 
+		 * @throws ArgumentError if keySelector is null
+		 * @throws ArgumentError if keySelector returns a null key
+		 * @throws ArgumentError if keySelector returns a duplicate key
+		 * 
+		 * @see toList
+		 * @see toArray
+		 */ 
+		function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary;
+		
+		
 		// ToLookup
 		
 		/**
@@ -54,7 +74,6 @@ package System.Collection.Generic
 		 * @return None if source is empty; otherwise some IEnumerable
 		 * 
 		 * @see Any
-		 * 
 		 */ 
 		function noneIfEmpty():Option;
 		

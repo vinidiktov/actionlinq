@@ -11,7 +11,7 @@ package flexUnitTests
 		public function reverse_enumerates_collections_in_reverse():void {
 			var reverse:IEnumerable = [1,2,3,4,5].reverseEnumerate();
 			
-			assertThat(reverse.ToArray(), array(5,4,3,2,1));
+			assertThat(reverse.toArray(), array(5,4,3,2,1));
 		}
 		
 		

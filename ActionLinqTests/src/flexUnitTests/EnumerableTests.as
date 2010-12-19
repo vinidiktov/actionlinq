@@ -198,28 +198,28 @@ package flexUnitTests
 		public function EnumerableRange_Returns_Enumerable_From_Inputs() {
 			var range:IEnumerable = Enumerable.Range(0, 5);
 			
-			assertThat(range.ToArray(), array(0, 1, 2, 3, 4));
+			assertThat(range.toArray(), array(0, 1, 2, 3, 4));
 		}
 		
 		[Test]
 		public function EnumerableRange_With_Non_Zero_Start_Returns_Enumerable_From_Inputs() {
 			var range:IEnumerable = Enumerable.Range(5, 5);
 			
-			assertThat(range.ToArray(), array(5, 6, 7, 8, 9));
+			assertThat(range.toArray(), array(5, 6, 7, 8, 9));
 		}
 		
 		[Test]
 		public function EnumerableRange_With_One_Parameter_Assumes_Zero_Start() {
 			var range:IEnumerable = Enumerable.Range(5);
 			
-			assertThat(range.ToArray(), array(0, 1, 2, 3, 4));
+			assertThat(range.toArray(), array(0, 1, 2, 3, 4));
 		}
 		
 		[Test]
 		public function EnumerableRepeat_with_item_repeats_n_times() {
 			var repeat:IEnumerable = Enumerable.Repeat("test", 3);
 			
-			assertThat(repeat.ToArray(), array("test", "test", "test"));
+			assertThat(repeat.toArray(), array("test", "test", "test"));
 		}
 		
 		[Test(expected="RangeError")]
@@ -231,7 +231,7 @@ package flexUnitTests
 		public function EnumerableEmpty_returns_empty_enumerable():void {
 			var empty:IEnumerable = Enumerable.Empty();
 			
-			assertThat(empty.ToArray(), array());
+			assertThat(empty.toArray(), array());
 		}
 		
 		[Test]
@@ -272,7 +272,7 @@ package flexUnitTests
 		public function noneIfEmpty_is_some_if_it_is_not_empty():void {
 			var result:Option = [1,2,3].noneIfEmpty();
 			
-			assertThat(result.value.ToArray(), array(1,2,3));
+			assertThat(result.value.toArray(), array(1,2,3));
 		}
 		
 		[Test]

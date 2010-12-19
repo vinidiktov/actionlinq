@@ -60,7 +60,17 @@ package System.Collection.Generic
 		 */ 
 		function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean;
 		
-		function ToArray():Array;
+		/**
+		 * Creates an array from a IEnumerable
+		 * 
+		 * @return An array that contains the elements from the input sequence.
+		 * 
+		 * @see toArrayCollection
+		 * @see toList
+		 * @see toDictionary
+		 */
+		function toArray():Array;
+		
 		function ToArrayCollection():ArrayCollection;
 		function ToList():IList;
 		

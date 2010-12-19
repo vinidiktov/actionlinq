@@ -30,7 +30,7 @@ package flexUnitTests
 		[Test]
 		public function Where_with_static_predicate_and_no_index_does_not_fail(): void
 		{
-			var filtered:Array = [1, 2, 3, 4, 5].Where(greaterOrEqual4).ToArray();
+			var filtered:Array = [1, 2, 3, 4, 5].Where(greaterOrEqual4).toArray();
 			
 			assertThat(filtered, array(4,5));
 		}
@@ -42,7 +42,7 @@ package flexUnitTests
 			var data:Array = 
 				[1, 2, 3, 4, 5]
 				.Where(function(x,i) { return i  < 3 })
-				.ToArray();
+				.toArray();
 			
 			assertThat(data, array(1,2,3));
 		}

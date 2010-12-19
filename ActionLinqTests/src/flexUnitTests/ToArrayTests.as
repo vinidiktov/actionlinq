@@ -15,9 +15,9 @@ package flexUnitTests
 	public class ToArrayTests extends EnumerableTestsBase
 	{		
 		[Test]
-		public function ToArray_converts_IEnumerable_to_Array():void
+		public function toArray_converts_IEnumerable_to_Array():void
 		{
-			var converted:Array = [1,2].ToArray();
+			var converted:Array = [1,2].toArray();
 			
 			assertThat(converted.length, equalTo(2));
 			assertThat(converted[0], equalTo(1));
@@ -25,9 +25,9 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function ToArray_on_where_returns_Array()
+		public function toArray_on_where_returns_Array()
 		{
-			var filtered:Array = [1,2,3,4,5].Where(function(x){return x >= 4}).ToArray();
+			var filtered:Array = [1,2,3,4,5].Where(function(x){return x >= 4}).toArray();
 			
 			assertThat(filtered.length, equalTo(2));
 			assertThat(filtered[0], equalTo(4));

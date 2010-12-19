@@ -9,7 +9,7 @@ package flexUnitTests
 	{		
 		[Test]
 		public function cast_casts_items_to_new_type():void {
-			var ints:Array = ["1", "2", "3"].cast(int).ToArray();
+			var ints:Array = ["1", "2", "3"].cast(int).toArray();
 			
 			assertThat(ints, array(1,2,3));
 			assertThat(ints[0] is int);
@@ -19,12 +19,12 @@ package flexUnitTests
 		
 		[Test(expected="TypeError")]
 		public function cast_thows_TypeError_when_cannot_cast():void {
-			var castedData = ["1", "2", "3"].cast(TestModel).ToArray();
+			var castedData = ["1", "2", "3"].cast(TestModel).toArray();
 		}
 		
 		[Test]
 		public function ofType_filters_sequence_based_on_type():void {
-			var ints:Array = [1, "2", 3, "4"].ofType(int).ToArray();
+			var ints:Array = [1, "2", 3, "4"].ofType(int).toArray();
 			
 			assertThat(ints, array(1,3));
 		}

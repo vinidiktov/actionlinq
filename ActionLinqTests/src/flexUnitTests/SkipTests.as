@@ -29,14 +29,14 @@ package flexUnitTests
 		[Test]
 		public function SkipWhile_With_Predicate_Skips_Until_Predicate_Is_False()
 		{
-			var result:Array = [1,2,3,1,2,3].SkipWhile(function(x) { return x < 3 }).ToArray();
+			var result:Array = [1,2,3,1,2,3].SkipWhile(function(x) { return x < 3 }).toArray();
 			
 			assertThat(result, array(3,1,2,3));
 		}
 		
 		[Test]
 		public function SkipWhile_With_Static_Predicate_And_No_Index_Does_Not_Fail():void {
-			var result:Array = [1,2,3,1,2,3].SkipWhile(lessThan3).ToArray();
+			var result:Array = [1,2,3,1,2,3].SkipWhile(lessThan3).toArray();
 			
 			assertThat(result, array(3,1,2,3));
 		}
@@ -45,7 +45,7 @@ package flexUnitTests
 		
 		[Test]
 		public function SkipWhile_With_Index_Passes_The_Index() {
-			var result:Array = [1,2,3,1,2,3].SkipWhile(function(x,i) { return i < 3 }).ToArray();
+			var result:Array = [1,2,3,1,2,3].SkipWhile(function(x,i) { return i < 3 }).toArray();
 			
 			assertThat(result, array(1,2,3));
 		}

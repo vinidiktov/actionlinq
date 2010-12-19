@@ -16,7 +16,7 @@ package flexUnitTests
 			
 			var union:IEnumerable = setA.Union(Enumerable.From(setB));
 			
-			assertThat(union.ToArray(), array(0,2,4,5,6,7,1,3));
+			assertThat(union.toArray(), array(0,2,4,5,6,7,1,3));
 		}
 		
 		[Test]
@@ -29,7 +29,7 @@ package flexUnitTests
 				new TestModel("cara", 34, 123454321),
 				new TestModel("eli", 0, 345676543) ];
 			
-			var union:Array = setA.Union(Enumerable.From(setB), new ModelComparator()).ToArray();
+			var union:Array = setA.Union(Enumerable.From(setB), new ModelComparator()).toArray();
 			
 			assertThat(union.length, equalTo(3));
 			assertThat(union[0].name, equalTo("brian"));

@@ -40,7 +40,7 @@ package flexUnitTests
 				new TestModel("cara", 34, 123454321), 
 				new TestModel("maia", 4, 234565432)];
 			
-			var distinct:Array = data.Distinct(new ModelComparator()).ToArray();
+			var distinct:Array = data.Distinct(new ModelComparator()).toArray();
 			
 			assertThat(distinct.length, equalTo(2));
 			assertThat(distinct[0].name, equalTo("brian"));

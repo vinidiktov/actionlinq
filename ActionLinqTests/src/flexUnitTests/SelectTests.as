@@ -27,7 +27,7 @@ package flexUnitTests
 		
 		[Test]
 		public function Select_with_static_function_and_no_index_does_not_fail():void {
-			var mapped:Array = [1,2].Select(Times2).ToArray();
+			var mapped:Array = [1,2].Select(Times2).toArray();
 			
 			assertThat(mapped, array(2,4));
 		}
@@ -39,7 +39,7 @@ package flexUnitTests
 			var mapped:Array = 
 				[1,2,3,4]
 				.Select(function(x,i) { return x * i })
-				.ToArray();
+				.toArray();
 			
 			assertThat(mapped, array(0, 2, 6, 12));
 		}

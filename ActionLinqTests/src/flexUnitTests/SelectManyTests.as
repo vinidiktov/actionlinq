@@ -17,7 +17,7 @@ package flexUnitTests
 				function(x) { return [2,5,8].AsEnumerable() },
 				function(x, y) { return x + y });
 			
-			assertThat(result.ToArray(), array(3,6,9,6,9,12,9,12,15));
+			assertThat(result.toArray(), array(3,6,9,6,9,12,9,12,15));
 		}
 		
 		[Test]
@@ -26,7 +26,7 @@ package flexUnitTests
 				getSecondSet,
 				function(x, y) { return x + y });
 			
-			assertThat(result.ToArray(), array(3,6,9,6,9,12,9,12,15));
+			assertThat(result.toArray(), array(3,6,9,6,9,12,9,12,15));
 		}
 		
 		private function getSecondSet(x:int):IEnumerable {
@@ -42,12 +42,12 @@ package flexUnitTests
 				function(x) { return x%2 ? dataB : Enumerable.From([]) },
 				function(x, y) { return x + y });
 			
-			assertThat(result.ToArray(), array(3,6,9,9,12,15));
+			assertThat(result.toArray(), array(3,6,9,9,12,15));
 		}
 		
 		[Test]
 		public function CollectionSelector_Receives_Index_If_Function_Takes_It():void {
-			var result:Array = [1, 2, 3, 4].SelectMany(function(x, i) { return [i]}).ToArray();
+			var result:Array = [1, 2, 3, 4].SelectMany(function(x, i) { return [i]}).toArray();
 			
 			assertThat(result, array(0,1,2,3));
 		}
@@ -55,7 +55,7 @@ package flexUnitTests
 		[Test]
 		public function When_ResultsSelector_Is_Not_Given_Selector_Is_Used():void {
 			var data:Array = [1,2,3];
-			var transposed:Array = data.SelectMany(function(i){return [i,i,i]}).ToArray();
+			var transposed:Array = data.SelectMany(function(i){return [i,i,i]}).toArray();
 			
 			assertThat(transposed, array(1,1,1,2,2,2,3,3,3));
 		}
@@ -63,7 +63,7 @@ package flexUnitTests
 		[Test]
 		public function With_Static_Collection_Selector_And_No_Results_Selector_No_Errors():void {
 			var data:Array = [1,2,3];
-			var transposed:Array = data.SelectMany(tripleSize).ToArray();
+			var transposed:Array = data.SelectMany(tripleSize).toArray();
 			
 			assertThat(transposed, array(1,1,1,2,2,2,3,3,3));
 		}

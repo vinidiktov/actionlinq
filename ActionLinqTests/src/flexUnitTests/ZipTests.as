@@ -29,7 +29,7 @@ package flexUnitTests
 		public function Left_Has_More_Than_Right_Bound_To_Right_Count():void {
 			var result:Array = [1,2,3,4,5]
 				.Zip(['a', 'b'].AsEnumerable(), function(f,s) { return f + s})
-				.ToArray();
+				.toArray();
 			
 			assertThat(result, array("1a", "2b"));
 		}
@@ -38,7 +38,7 @@ package flexUnitTests
 		public function Right_Has_More_Than_Left_Bound_To_Left_Count():void {
 			var result:Array = [1,2]
 				.Zip(['a', 'b', 'c', 'd', 'e'].AsEnumerable(), function(f,s) { return f + s})
-				.ToArray();
+				.toArray();
 			
 			assertThat(result, array("1a", "2b"));
 		}

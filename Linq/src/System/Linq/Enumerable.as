@@ -120,7 +120,7 @@ package System.Linq
 		}
 		
 		public function reverseEnumerate():IEnumerable {
-			return Enumerable.From(ToArray().reverse());
+			return Enumerable.From(toArray().reverse());
 		}
 		
 		public function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
@@ -144,7 +144,7 @@ package System.Linq
 			return !secondEnumerator.MoveNext();
 		}
 		
-		public function ToArray():Array {
+		public function toArray():Array {
 			return populateContainer(new Array(), function(al, item) { al.push(item) });
 		}
 		

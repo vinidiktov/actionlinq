@@ -22,21 +22,21 @@ package flexUnitTests
 		
 		[Test]
 		public function TakeWhile_Pulls_Until_Predicate_Fails():void {
-			var result = [1, 2, 3, 1, 2, 3].TakeWhile(function(x) {return x < 3}).ToArray();
+			var result = [1, 2, 3, 1, 2, 3].TakeWhile(function(x) {return x < 3}).toArray();
 			
 			assertThat(result, array(1,2));
 		}
 		
 		[Test]
 		public function TakeWhile_With_Indexer_Sends_Index():void {
-			var result = [1, 2, 3, 1, 2, 3].TakeWhile(function(x,i) {return i < 3}).ToArray();
+			var result = [1, 2, 3, 1, 2, 3].TakeWhile(function(x,i) {return i < 3}).toArray();
 			
 			assertThat(result, array(1,2,3));
 		}
 		
 		[Test]
 		public function TakeWhile_With_Static_Predicate_And_No_Indexer_Succeeds():void {
-			var result = [1, 2, 3, 1, 2, 3].TakeWhile(lessThan3).ToArray();
+			var result = [1, 2, 3, 1, 2, 3].TakeWhile(lessThan3).toArray();
 			
 			assertThat(result, array(1,2));
 		}

@@ -19,7 +19,7 @@ package System.Linq
 			if(sortedEnumerator != null)
 				return sortedEnumerator;
 			
-			var sortedArray:Array = enumerator.ToArray();
+			var sortedArray:Array = enumerator.toArray();
 			sortedArray.sort(sortFunction);
 			sortedEnumerator = Enumerable.From(sortedArray).GetEnumerator();
 			return sortedEnumerator;

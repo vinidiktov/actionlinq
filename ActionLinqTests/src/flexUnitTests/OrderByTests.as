@@ -14,7 +14,7 @@ package flexUnitTests
 			var ordered:IEnumerable = ["red", "green", "blue", "purple"]
 				.OrderBy(function(item:String):int { return item.length; });
 			
-			assertThat(ordered.ToArray(), array("red", "blue", "green", "purple"));
+			assertThat(ordered.toArray(), array("red", "blue", "green", "purple"));
 		}
 		
 		[Test]

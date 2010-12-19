@@ -148,7 +148,7 @@ package System.Linq
 			return populateContainer(new Array(), function(al, item) { al.push(item) });
 		}
 		
-		public function ToArrayCollection():ArrayCollection {
+		public function toArrayCollection():ArrayCollection {
 			return populateContainer(new ArrayCollection(), function(al, item) { al.addItem(item) });	
 		}
 		

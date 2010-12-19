@@ -71,7 +71,17 @@ package System.Collection.Generic
 		 */
 		function toArray():Array;
 		
-		function ToArrayCollection():ArrayCollection;
+		/**
+		 * Creates an ArrayCollection from a IEnumerable
+		 * 
+		 * @return An ArrayCollection that contains the elements from the input sequence.
+		 * 
+		 * @see toArray
+		 * @see toList
+		 * @see toDictionary
+		 */
+		function toArrayCollection():ArrayCollection;
+		
 		function ToList():IList;
 		
 		/**

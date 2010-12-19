@@ -35,8 +35,8 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function ToArrayCollection_converts_IEnumerable_to_ArrayCollection():void{
-			var converted:ArrayCollection = [1,2].ToArrayCollection();
+		public function toArrayCollection_converts_IEnumerable_to_ArrayCollection():void{
+			var converted:ArrayCollection = [1,2].toArrayCollection();
 			
 			assertThat(converted.length, equalTo(2));
 			assertThat(converted[0], equalTo(1));

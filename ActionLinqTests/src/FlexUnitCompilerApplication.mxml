@@ -19,7 +19,6 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			import flexUnitTests.SkipTests;
 			import flexUnitTests.OrderByTests;
 			import flexUnitTests.DistinctTests;
-			import flexUnitTests.Testing123;
 			import flexUnitTests.EnumerableTests;
 			import flexUnitTests.LastTests;
 			import flexUnitTests.AllTests;
@@ -27,7 +26,6 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			import flexUnitTests.CountTests;
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.IntegrationTests;
-			import flexUnitTests.SimpleTest;
 			import flexUnitTests.ConcatTests;
 			import flexUnitTests.OptionTests;
 			import flexUnitTests.ZipTests;
@@ -47,8 +45,6 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			
 			private var flexUnitTests_ConcatTests_obj:flexUnitTests.ConcatTests;
 			
-			private var flexUnitTests_SimpleTest_obj:flexUnitTests.SimpleTest;
-			
 			private var flexUnitTests_IntegrationTests_obj:flexUnitTests.IntegrationTests;
 			
 			private var flexUnitTests_FirstTests_obj:flexUnitTests.FirstTests;
@@ -62,8 +58,6 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			private var flexUnitTests_LastTests_obj:flexUnitTests.LastTests;
 			
 			private var flexUnitTests_EnumerableTests_obj:flexUnitTests.EnumerableTests;
-			
-			private var flexUnitTests_Testing123_obj:flexUnitTests.Testing123;
 			
 			private var flexUnitTests_DistinctTests_obj:flexUnitTests.DistinctTests;
 			

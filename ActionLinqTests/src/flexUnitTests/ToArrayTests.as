@@ -12,11 +12,16 @@ package flexUnitTests
 	import org.flexunit.assertThat;
 	import org.hamcrest.object.equalTo;
 
-	public class ToArrayTests extends EnumerableTestsBase
+	public dynamic class ToArrayTests extends EnumerableTestsBase
 	{		
+		public function ToArrayTests() {
+			this.foo = 1;
+		}
+		
 		[Test]
 		public function toArray_converts_IEnumerable_to_Array():void
 		{
+			assertThat(this.foo, equalTo(1));
 			var converted:Array = [1,2].toArray();
 			
 			assertThat(converted.length, equalTo(2));

@@ -60,6 +60,9 @@ package System.Linq
 			c.prototype.Union = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
 				return this.AsEnumerable().Union(second, comparer);
 			}
+			c.prototype.reverseEnumerate = function():IEnumerable {
+				return this.AsEnumerable().reverseEnumerate();
+			}
 			c.prototype.sequenceEqual = function(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
 				return this.AsEnumerable().sequenceEqual(second, comparer);
 			}
@@ -141,14 +144,13 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "sequenceEqual",
+				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "reverseEnumerate", "sequenceEqual",
 				"ToArray", "ToArrayCollection", "ToList", "toDictionary", "noneIfEmpty", "ofType", "cast", "First", "FirstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
 			
-			for each(var name in names)
-				Array.prototype.setPropertyIsEnumerable(name, false);
+			Enumerable.From(names).Each(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
 		}
 	}
 }

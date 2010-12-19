@@ -119,6 +119,10 @@ package System.Linq
 			return Concat(second).Distinct(comparer);
 		}
 		
+		public function reverseEnumerate():IEnumerable {
+			return Enumerable.From(ToArray().reverse());
+		}
+		
 		public function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
 			if(second == null)
 				throw new ArgumentError("second was null");

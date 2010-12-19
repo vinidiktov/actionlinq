@@ -39,7 +39,14 @@ package System.Collection.Generic
 		
 		// Intersect
 		// Except
-		// Reverse
+		
+		/**
+		 * Inverts the order of the elements in a sequence.
+		 * 
+		 * @return A sequence whose elements correspond to those of the input sequence in reverse order.
+		 * 
+		 */
+		function reverseEnumerate():IEnumerable;
 		
 		/**
 		 * Determines whether two sequences are equal by comparing their elements by using an optional IEqualityComparer

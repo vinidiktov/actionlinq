@@ -19,6 +19,7 @@
 			import flexUnitTests.SingleTests;
 			import flexUnitTests.SelectTests;
 			import flexUnitTests.SelectManyTests;
+			import flexUnitTests.ReverseTests;
 			import flexUnitTests.OrderByTests;
 			import flexUnitTests.OptionTests;
 			import flexUnitTests.LastTests;
@@ -53,6 +54,7 @@
 				testsToRun.push(flexUnitTests.LastTests);
 				testsToRun.push(flexUnitTests.OptionTests);
 				testsToRun.push(flexUnitTests.OrderByTests);
+				testsToRun.push(flexUnitTests.ReverseTests);
 				testsToRun.push(flexUnitTests.SelectManyTests);
 				testsToRun.push(flexUnitTests.SelectTests);
 				testsToRun.push(flexUnitTests.SingleTests);

@@ -9,6 +9,7 @@
 					   creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
+			import flexUnitTests.sequenceEqualsTests;
 			import flexUnitTests.ZipTests;
 			import flexUnitTests.WhereTests;
 			import flexUnitTests.UnionTests;
@@ -61,6 +62,7 @@
 				testsToRun.push(flexUnitTests.UnionTests);
 				testsToRun.push(flexUnitTests.WhereTests);
 				testsToRun.push(flexUnitTests.ZipTests);
+				testsToRun.push(flexUnitTests.sequenceEqualsTests);
 				return testsToRun;
 			}
 			

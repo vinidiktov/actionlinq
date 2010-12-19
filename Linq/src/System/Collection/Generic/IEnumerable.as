@@ -40,13 +40,22 @@ package System.Collection.Generic
 		// Intersect
 		// Except
 		// Reverse
-		// SequenceEqual
-		// AsEnumerable
+		
+		/**
+		 * Determines whether two sequences are equal by comparing their elements by using an optional IEqualityComparer
+		 * 
+		 * @return [code]true[/code] if the two source sequences are of equal length and their corresponding elements compare equal according to comparer; otherwise, [code]false[/code].
+		 * 
+		 * @param second An IEnumerable to compare to the sequence.
+		 * @param comparer an IEqualityComparer to use to compare elements
+		 * 
+		 * @throws ArgumentError if second is null
+		 */ 
+		function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean;
 		
 		function ToArray():Array;
 		function ToArrayCollection():ArrayCollection;
 		function ToList():IList;
-		
 		
 		/**
 		 * Creates a Dictionary from an IEnumerable according to specified key selector and element selector functions.

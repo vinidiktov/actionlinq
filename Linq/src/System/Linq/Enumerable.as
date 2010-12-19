@@ -119,6 +119,27 @@ package System.Linq
 			return Concat(second).Distinct(comparer);
 		}
 		
+		public function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
+			if(second == null)
+				throw new ArgumentError("second was null");
+			
+			var compare:Function = comparer != null ? comparer.Equals : function(f,s) { return f == s };
+			
+			var firstEnumerator:IEnumerator = GetEnumerator();
+			var secondEnumerator:IEnumerator = second.GetEnumerator();
+			
+			while(firstEnumerator.MoveNext())
+			{
+				if(!secondEnumerator.MoveNext())
+					return false;
+				
+				if(!compare(firstEnumerator.Current(),secondEnumerator.Current()))
+					return false;
+			}
+			
+			return !secondEnumerator.MoveNext();
+		}
+		
 		public function ToArray():Array {
 			return populateContainer(new Array(), function(al, item) { al.push(item) });
 		}

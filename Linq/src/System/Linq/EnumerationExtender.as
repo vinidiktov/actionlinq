@@ -60,6 +60,9 @@ package System.Linq
 			c.prototype.Union = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
 				return this.AsEnumerable().Union(second, comparer);
 			}
+			c.prototype.sequenceEqual = function(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
+				return this.AsEnumerable().sequenceEqual(second, comparer);
+			}
 			c.prototype.ToArray = function():Array {
 				return this.AsEnumerable().ToArray();
 			}
@@ -138,7 +141,7 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union",
+				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "sequenceEqual",
 				"ToArray", "ToArrayCollection", "ToList", "toDictionary", "noneIfEmpty", "ofType", "cast", "First", "FirstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",

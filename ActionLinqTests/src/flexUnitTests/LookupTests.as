@@ -10,7 +10,7 @@ package flexUnitTests
 	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 
-	public class LookupTests
+	public class LookupTests extends EnumerableTestsBase
 	{		
 		[Test]
 		public function Lookup_is_an_IEnumerable_of_IGroupings():void {
@@ -92,6 +92,45 @@ package flexUnitTests
 			assertThat(group111.toArray(), array(2,4));
 			assertThat(group222.key, equalTo("222"));
 			assertThat(group222.toArray(), array(6,8));
+		}
+		
+		[Test]
+		public function toLookup_translates_collection_to_lookup():void {
+			var lookup:ILookup = ["one", "two", "three", "four"]
+				.toLookup(function(x:String):int { return x.length });
+			
+			assertThat(lookup.lookup(3).toArray(), array("one", "two"));
+			assertThat(lookup.lookup(4).toArray(), array("four"));
+			assertThat(lookup.lookup(5).toArray(), array("three"));
+		}
+		
+		[Test]
+		public function toLookup_with_elementSelector_translates_collection_to_lookup():void {
+			var data:Array = [
+				{ Company: "Coho Vineyard", Weight: 25.2, TrackingNumber: 89453312 },
+				{ Company: "Lucerne Publishing", Weight: 18.7, TrackingNumber: 89112755 },
+				{ Company: "Wingtip Toys", Weight: 6.0, TrackingNumber: 299456122 },
+				{ Company: "Contoso Pharmaceuticals", Weight: 9.3, TrackingNumber: 670053128 },
+				{ Company: "Wide World Importers", Weight: 33.8, TrackingNumber: 4665518773 }
+				];
+			
+			var lookup:Lookup = data.toLookup(function(x) { return x.Company.charAt(0) }, function(x) { return x.Company + " " + x.TrackingNumber });
+			
+			assertThat(lookup.lookup("C").toArray()[0], equalTo("Coho Vineyard 89453312"));
+			assertThat(lookup.lookup("C").toArray()[1], equalTo("Contoso Pharmaceuticals 670053128"));
+			assertThat(lookup.lookup("L").toArray()[0], equalTo("Lucerne Publishing 89112755"));
+			assertThat(lookup.lookup("W").toArray()[0], equalTo("Wingtip Toys 299456122"));
+			assertThat(lookup.lookup("W").toArray()[1], equalTo("Wide World Importers 4665518773"));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function toLookup_throws_ArgumentError_when_keySelector_is_null():void {
+			var lookup:ILookup = [1,2,3].toLookup(null);
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function toLookup_throws_ArgumentError_when_keySelector_returns_null():void {
+			var lookup:ILookup = [1,2,3].toLookup(function(x) { return null; });
 		}
 	}
 }

@@ -3,6 +3,7 @@ package System.Linq
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
+	import System.Collection.Generic.ILookup;
 	import System.Linq.Option.Option;
 	import System.Linq.Option.none;
 	import System.Linq.Option.some;
@@ -171,12 +172,14 @@ package System.Linq
 			return dictionary;
 		}
 		
+		private function identity(x) { return x; }
+		
 		public function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary {
 			if(keySelector == null)
 				throw new ArgumentError("keySelector was null");
 			
 			if(elementSelector == null)
-				elementSelector = function(x) { return x; };
+				elementSelector = identity;
 					
 			var result:Dictionary = new Dictionary();
 			
@@ -194,6 +197,20 @@ package System.Linq
 			}
 			
 			return addLengthToDictionary(result);
+		}
+		
+		public function toLookup(keySelector:Function, elementSelector:Function=null):ILookup {
+			if(keySelector == null)
+				throw new ArgumentError("keySelector was null");
+			
+			if(elementSelector == null)
+				elementSelector = identity;
+			
+			var result:Lookup = new Lookup();
+			
+			Each(function(x:*):void { result.add(keySelector(x), elementSelector(x)) });
+			
+			return result;
 		}
 		
 		private function populateContainer(container:*, add:Function):* {
@@ -360,7 +377,7 @@ package System.Linq
 			}
 			
 			if(resultSelector == null)
-				resultSelector = function(x) { return x; };
+				resultSelector = identity;
 			
 			while(enumerator.MoveNext()) {
 				aggregate = aggregator(aggregate, enumerator.Current());
@@ -371,14 +388,14 @@ package System.Linq
 		
 		public function Sum(selector:Function=null):* {
 			if(selector == null)
-				selector = function(x) { return x; };
+				selector = identity;
 			
 			return Aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
 		}
 		
 		public function Average(selector:Function=null):* {
 			if(selector == null)
-				selector = function(x) { return x; };
+				selector = identity;
 			
 			var count:int = 0;
 			var sum:* = Aggregate(0.0, function(accumulator:*, item:*) 
@@ -392,7 +409,7 @@ package System.Linq
 		
 		private function ExtremeSelector(comparitor:Function, selector:Function=null):* {
 			if(selector == null)
-				selector = function(x:*):* { return x; };
+				selector = identity;
 			
 			var extreme = null;
 			var enumerator:IEnumerator = GetEnumerator();

@@ -3,6 +3,7 @@ package System.Linq
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
+	import System.Collection.Generic.ILookup;
 	import System.Linq.Option.Option;
 	
 	import flash.utils.Dictionary;
@@ -78,6 +79,9 @@ package System.Linq
 			c.prototype.toDictionary = function(keySelector:Function, elementSelector:Function=null):Dictionary {
 				return this.AsEnumerable().toDictionary(keySelector, elementSelector);
 			}
+			c.prototype.toLookup = function(keySelector:Function, elementSelector:Function=null):ILookup {
+				return this.AsEnumerable().toLookup(keySelector, elementSelector);
+			}
 			c.prototype.noneIfEmpty = function():Option {
 				return this.AsEnumerable().noneIfEmpty();
 			}
@@ -145,7 +149,7 @@ package System.Linq
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "reverseEnumerate", "sequenceEqual",
-				"toArray", "toArrayCollection", "toList", "toDictionary", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
+				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",
 				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];

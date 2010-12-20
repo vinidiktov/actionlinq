@@ -111,8 +111,22 @@ package System.Collection.Generic
 		 */ 
 		function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary;
 		
-		
-		// ToLookup
+		/**
+		 * Creates a Lookup from an IEnumerable according to specified key selector and (optional) element selector functions.
+		 * 
+		 * @return A Lookup that contains values selected from the input sequence.
+		 * 
+		 * @param keySelector A function to extract a key from each element.
+		 * @param elementSelector A transform function to produce a result element value from each element.
+		 * 
+		 * @throws ArgumentError if keySelector is null
+		 * @throws ArgumentError if keySelector returns a null key
+		 * 
+		 * @see toArray
+		 * @see ToDictionary
+		 * @see toArrayCollection
+		 */
+		function toLookup(keySelector:Function, elementSelector:Function=null):ILookup;
 		
 		/**
 		 * Returns the elements of the specified sequence or the none if the sequence is empty.

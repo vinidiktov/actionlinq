@@ -20,6 +20,7 @@
     <classEntry path="System.Collection.Generic.ILookup"/>
     <classEntry path="System.Linq.Lookup"/>
     <classEntry path="System.Linq.GroupingEnumerator"/>
+    <classEntry path="System.Linq.IntersectEnumerator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

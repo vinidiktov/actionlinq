@@ -25,6 +25,7 @@
 			import flexUnitTests.LookupTests;
 			import flexUnitTests.LastTests;
 			import flexUnitTests.JoinTests;
+			import flexUnitTests.IntersectTests;
 			import flexUnitTests.IntegrationTests;
 			import flexUnitTests.GroupingTests;
 			import flexUnitTests.FirstTests;
@@ -55,6 +56,7 @@
 				testsToRun.push(flexUnitTests.FirstTests);
 				testsToRun.push(flexUnitTests.GroupingTests);
 				testsToRun.push(flexUnitTests.IntegrationTests);
+				testsToRun.push(flexUnitTests.IntersectTests);
 				testsToRun.push(flexUnitTests.JoinTests);
 				testsToRun.push(flexUnitTests.LastTests);
 				testsToRun.push(flexUnitTests.LookupTests);

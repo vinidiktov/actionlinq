@@ -50,14 +50,27 @@ package System.Collection.Generic
 		function Distinct(comparer:IEqualityComparer=null):IEnumerable;
 		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		
-		// Intersect
+		/**
+		 * Produces the set intersection of two sequences by using the optional IEqualityComparer to compare values.
+		 * 
+		 * @return A sequence that contains the elements that form the set intersection of two sequences.
+		 * 
+		 * @param second An IEnumerable whose distinct elements that also appear in the first sequence will be returned.
+		 * @param comparer An IEqualityComparer to compare values.
+		 * 
+		 * @throws ArgumentError if second is null
+		 * 
+		 * @see union
+		 * @see except
+		 */
+		function intersect(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
+		
 		// Except
 		
 		/**
 		 * Inverts the order of the elements in a sequence.
 		 * 
 		 * @return A sequence whose elements correspond to those of the input sequence in reverse order.
-		 * 
 		 */
 		function reverse():IEnumerable;
 		

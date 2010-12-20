@@ -274,8 +274,8 @@ package System.Linq
 			return some(filteredEnumerator.Current()); 
 		}
 		
-		public function Last(predicate:Function=null):* {
-			var result:Option = LastOrNone(predicate);
+		public function last(predicate:Function=null):* {
+			var result:Option = lastOrNone(predicate);
 			
 			if(result.isNone)
 				throw new RangeError("Seqnence contains no elements");
@@ -283,7 +283,7 @@ package System.Linq
 			return result.value;
 		}
 		
-		public function LastOrNone(predicate:Function=null):Option {
+		public function lastOrNone(predicate:Function=null):Option {
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			

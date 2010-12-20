@@ -240,8 +240,57 @@ package System.Collection.Generic
 		 */
 		function firstOrNone(predicate:Function=null):Option;
 		
-		function Last(predicate:Function=null):*;
-		function LastOrNone(predicate:Function=null):Option;
+		/**
+		 * Returns the last element in a sequence that (optionally) satisfies a specified condition.
+		 * 
+		 * <p>first can be called in any of two overloads:
+		 * <ul>
+		 *   <li>last():*</li>
+		 *   <li>last(predicate:Function):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return The last element in the sequence that passes the test in the specified predicate function.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 * 
+		 * @throws RangeError when sequence is empty
+		 * @throws RangeError when no element satisfies the condition in the predicate
+		 *
+		 * @see first
+		 * @see firstOrNone
+		 * @see lastOrNone
+		 * @see single
+		 * @see singleOrNone
+		 * @see elementAt
+		 * @see elementAtOrNone
+		 */
+		function last(predicate:Function=null):*;
+		
+		/**
+		 * Returns the last element of the sequence that (optionally) satisfies a condition or none if no such element is found.
+		 * 
+		 * <p>lastOrNone can be called in any of two overloads:
+		 * <ul>
+		 *   <li>lastOrNone():*</li>
+		 *   <li>lastOrNone(predicate:Function):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return The last element in the sequence that passes the test in the specified predicate function.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 *
+		 * @see first
+		 * @see firstOrNone
+		 * @see last
+		 * @see single
+		 * @see singleOrNone
+		 * @see elementAt
+		 * @see elementAtOrNone
+		 */
+		function lastOrNone(predicate:Function=null):Option;
+		
 		function Single(predicate:Function=null):*;
 		function SingleOrNone(predicate:Function=null):Option;
 		function ElementAt(index:int):*;

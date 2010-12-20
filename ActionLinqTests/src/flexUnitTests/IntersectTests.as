@@ -25,9 +25,9 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function intersect_with_comparer_returns_the_intersection_of_more_complex_types():void {
+		public function except_with_comparer_returns_the_exception_of_more_complex_types():void {
 			var first:Array = [
-				new TestModel("brian", 33, 123454321), 
+				new TestModel("brian", 33, 77777), 
 				new TestModel("cara", 34, 123454321), 
 				new TestModel("maia", 4, 234565432)];
 			

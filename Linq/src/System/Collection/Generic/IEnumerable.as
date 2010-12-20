@@ -65,7 +65,20 @@ package System.Collection.Generic
 		 */
 		function intersect(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		
-		// Except
+		/**
+		 * Produces the set difference of two sequences by using the optional IEqualityComparer to compare values.
+		 * 
+		 * @return A sequence that contains the set difference of the elements of two sequences.
+		 * 
+		 * @param second An IEnumerable whose elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.
+		 * @param comparer An IEqualityComparer to compare values.
+		 * 
+		 * @throws ArgumentError if second is null
+		 * 
+		 * @see union
+		 * @see intersect
+		 */
+		function except(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		
 		/**
 		 * Inverts the order of the elements in a sequence.

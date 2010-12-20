@@ -6,36 +6,40 @@ package System.Linq
 	
 	public class IntersectEnumerator implements IEnumerator
 	{
-		private var first:IEnumerable;
-		private var second:IEnumerator;
-		private var firstCache:Array = null;
+		private var first:IEnumerator;
+		private var second:IEnumerable;
+		private var secondCache:Array = null;
 		private var comparer:IEqualityComparer = null;
 		private var current:* = null;
+		private var invert:Boolean;
 		
 		
-		public function IntersectEnumerator(first:IEnumerable, second:IEnumerable, comparer:IEqualityComparer)
+		public function IntersectEnumerator(first:IEnumerable, second:IEnumerable, comparer:IEqualityComparer, invert:Boolean=false)
 		{
-			this.first = first;
-			this.second = second.GetEnumerator();
+			this.first = first.GetEnumerator();
+			this.second = second;
 			this.comparer = comparer;
+			this.invert = invert;
 		}
 		
-		private function populateFirstCache():void {
-			if(firstCache != null)
+		private function populateSecondCache():void {
+			if(secondCache != null)
 				return;
 			
-			firstCache = first.toArray();
+			secondCache = second.toArray();
 		}
 		
 		public function MoveNext():Boolean
 		{
-			populateFirstCache();
+			populateSecondCache();
 			
-			while(second.MoveNext())
+			while(first.MoveNext())
 			{
-				var possibleCurrent:* = second.Current();
+				var possibleCurrent:* = first.Current();
 				
-				if(inFirst(possibleCurrent))
+				var inBoth:Boolean = inSecond(possibleCurrent);
+				
+				if(invert ? !inBoth : inBoth)
 				{
 					current = possibleCurrent;
 					return true;
@@ -45,11 +49,11 @@ package System.Linq
 			return false;
 		}
 		
-		private function inFirst(item:*):Boolean {
+		private function inSecond(item:*):Boolean {
 			if(comparer == null)
-				return firstCache.indexOf(item) >= 0;
+				return secondCache.indexOf(item) >= 0;
 			
-			for each(var firstItem:* in firstCache)
+			for each(var firstItem:* in secondCache)
 			  if(comparer.Equals(firstItem, item))
 			  	return true;
 			
@@ -63,8 +67,8 @@ package System.Linq
 		
 		public function Reset():void
 		{
-			second.Reset();
-			firstCache = null;
+			first.Reset();
+			secondCache = null;
 			current = null;
 		}
 	}

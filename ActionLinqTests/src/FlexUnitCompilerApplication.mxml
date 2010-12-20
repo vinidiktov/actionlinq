@@ -8,6 +8,7 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 					   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
+			import flexUnitTests.ExceptTests;
 			import flexUnitTests.IntersectTests;
 			import flexUnitTests.JoinTests;
 			import flexUnitTests.LookupTests;
@@ -98,6 +99,8 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			private var flexUnitTests_JoinTests_obj:flexUnitTests.JoinTests;
 			
 			private var flexUnitTests_IntersectTests_obj:flexUnitTests.IntersectTests;
+			
+			private var flexUnitTests_ExceptTests_obj:flexUnitTests.ExceptTests;
 		]]>
 	</fx:Script>
 	<fx:Declarations>

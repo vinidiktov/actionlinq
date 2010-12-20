@@ -139,6 +139,14 @@ package System.Linq
 					return new IntersectEnumerator(source, second, comparer) });
 		}
 		
+		public function except(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
+			if(second == null) throw new ArgumentError("second was null");
+			
+			return new Enumerable(this,
+				function(source:*):IEnumerator {
+					return new IntersectEnumerator(source, second, comparer, true) });
+		}
+		
 		public function reverse():IEnumerable {
 			return Enumerable.From(toArray().reverse());
 		}

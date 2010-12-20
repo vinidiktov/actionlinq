@@ -8,6 +8,7 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 					   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
+			import flexUnitTests.JoinTests;
 			import flexUnitTests.LookupTests;
 			import flexUnitTests.GroupingTests;
 			import flexUnitTests.ReverseTests;
@@ -92,6 +93,8 @@ Please click on the "Refresh" icon in "FlexUnit Results" view to regenerate this
 			private var flexUnitTests_GroupingTests_obj:flexUnitTests.GroupingTests;
 			
 			private var flexUnitTests_LookupTests_obj:flexUnitTests.LookupTests;
+			
+			private var flexUnitTests_JoinTests_obj:flexUnitTests.JoinTests;
 		]]>
 	</fx:Script>
 	<fx:Declarations>

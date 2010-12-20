@@ -92,6 +92,17 @@ package System.Linq
 					return new SkipEnumerator(source, predicate) });
 		}
 		
+		public function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function) {
+			if(inner == null) throw new ArgumentError("inner was null");
+			if(outerKeySelector == null) throw new ArgumentError("outerKeySelector was null");
+			if(innerKeySelector == null) throw new ArgumentError("innerKeySelector was null");
+			if(resultSelector == null) throw new ArgumentError("resultSelector was null");
+			
+			var innerLookup:ILookup = inner.toLookup(innerKeySelector);
+			
+			return SelectMany(function(outerItem) { return innerLookup.lookup(outerKeySelector(outerItem)) }, resultSelector);
+		}
+		
 		public function OrderBy(keySelector:Function):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
@@ -120,7 +131,7 @@ package System.Linq
 			return Concat(second).Distinct(comparer);
 		}
 		
-		public function reverseEnumerate():IEnumerable {
+		public function reverse():IEnumerable {
 			return Enumerable.From(toArray().reverse());
 		}
 		

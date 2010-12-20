@@ -46,6 +46,9 @@ package System.Linq
 			c.prototype.SkipWhile = function(predicate:Function):IEnumerable {
 				return this.AsEnumerable().SkipWhile(predicate);
 			}
+			c.prototype.joinEnumerables = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
+				return this.AsEnumerable().join(inner, outerKeySelector, innerKeySelector, resultSelector);
+			}
 			c.prototype.OrderBy = function(keySelector:Function):IEnumerable {
 				return this.AsEnumerable().OrderBy(keySelector);
 			}
@@ -62,7 +65,7 @@ package System.Linq
 				return this.AsEnumerable().Union(second, comparer);
 			}
 			c.prototype.reverseEnumerate = function():IEnumerable {
-				return this.AsEnumerable().reverseEnumerate();
+				return this.AsEnumerable().reverse();
 			}
 			c.prototype.sequenceEqual = function(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
 				return this.AsEnumerable().sequenceEqual(second, comparer);
@@ -148,7 +151,7 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "OrderBy", "Concat", "Zip", "Distinct", "Union", "reverseEnumerate", "sequenceEqual",
+				"Skip", "SkipWhile", "joinEnumerables", "OrderBy", "Concat", "Zip", "Distinct", "Union", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"Last", "LastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",

@@ -20,7 +20,20 @@ package System.Collection.Generic
 		function Skip(count:int):IEnumerable; 
 		function SkipWhile(predicate:Function):IEnumerable;
 
-		// Join
+		/**
+		 * Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.
+		 * 
+		 * @return An IEnumerable that has elements of type TResult that are obtained by performing an inner join on two sequences.
+		 * 
+		 * @param inner The sequence to join to the first sequence.
+		 * @param outerKeySelector A function to extract the join key from each element of the first sequence.
+		 * @param innerKeySelector A function to extract the join key from each element of the second sequence.
+		 * @param resultSelector A function to create a result element from two matching elements.
+		 * 
+		 * @throws ArgumentError when inner or outerKeySelector or innerKeySelector or resultSelector is null.
+		 */
+		function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function);
+		
 		// GroupJoin
 		
 		function OrderBy(keySelector:Function):IEnumerable;
@@ -46,7 +59,7 @@ package System.Collection.Generic
 		 * @return A sequence whose elements correspond to those of the input sequence in reverse order.
 		 * 
 		 */
-		function reverseEnumerate():IEnumerable;
+		function reverse():IEnumerable;
 		
 		/**
 		 * Determines whether two sequences are equal by comparing their elements by using an optional IEqualityComparer

@@ -9,12 +9,68 @@
 					   creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
+			import flexUnitTests.sequenceEqualsTests;
+			import flexUnitTests.ZipTests;
+			import flexUnitTests.WhereTests;
+			import flexUnitTests.UnionTests;
+			import flexUnitTests.ToArrayTests;
+			import flexUnitTests.TakeTests;
+			import flexUnitTests.SkipTests;
+			import flexUnitTests.SingleTests;
+			import flexUnitTests.SelectTests;
+			import flexUnitTests.SelectManyTests;
+			import flexUnitTests.ReverseTests;
+			import flexUnitTests.OrderByTests;
+			import flexUnitTests.OptionTests;
 			import flexUnitTests.LookupTests;
+			import flexUnitTests.LastTests;
+			import flexUnitTests.JoinTests;
+			import flexUnitTests.IntegrationTests;
+			import flexUnitTests.GroupingTests;
+			import flexUnitTests.FirstTests;
+			import flexUnitTests.EnumerableTests;
+			import flexUnitTests.ElementAtTests;
+			import flexUnitTests.DistinctTests;
+			import flexUnitTests.CountTests;
+			import flexUnitTests.ContainsTests;
+			import flexUnitTests.ConcatTests;
+			import flexUnitTests.CastTests;
+			import flexUnitTests.AnyTests;
+			import flexUnitTests.AllTests;
+			import flexUnitTests.AggregateTests;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
+				testsToRun.push(flexUnitTests.AggregateTests);
+				testsToRun.push(flexUnitTests.AllTests);
+				testsToRun.push(flexUnitTests.AnyTests);
+				testsToRun.push(flexUnitTests.CastTests);
+				testsToRun.push(flexUnitTests.ConcatTests);
+				testsToRun.push(flexUnitTests.ContainsTests);
+				testsToRun.push(flexUnitTests.CountTests);
+				testsToRun.push(flexUnitTests.DistinctTests);
+				testsToRun.push(flexUnitTests.ElementAtTests);
+				testsToRun.push(flexUnitTests.EnumerableTests);
+				testsToRun.push(flexUnitTests.FirstTests);
+				testsToRun.push(flexUnitTests.GroupingTests);
+				testsToRun.push(flexUnitTests.IntegrationTests);
+				testsToRun.push(flexUnitTests.JoinTests);
+				testsToRun.push(flexUnitTests.LastTests);
 				testsToRun.push(flexUnitTests.LookupTests);
+				testsToRun.push(flexUnitTests.OptionTests);
+				testsToRun.push(flexUnitTests.OrderByTests);
+				testsToRun.push(flexUnitTests.ReverseTests);
+				testsToRun.push(flexUnitTests.SelectManyTests);
+				testsToRun.push(flexUnitTests.SelectTests);
+				testsToRun.push(flexUnitTests.SingleTests);
+				testsToRun.push(flexUnitTests.SkipTests);
+				testsToRun.push(flexUnitTests.TakeTests);
+				testsToRun.push(flexUnitTests.ToArrayTests);
+				testsToRun.push(flexUnitTests.UnionTests);
+				testsToRun.push(flexUnitTests.WhereTests);
+				testsToRun.push(flexUnitTests.ZipTests);
+				testsToRun.push(flexUnitTests.sequenceEqualsTests);
 				return testsToRun;
 			}
 			

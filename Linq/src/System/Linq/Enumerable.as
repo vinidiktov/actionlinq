@@ -114,7 +114,7 @@ package System.Linq
 			return Select(function(x:*):* { return resultSelector(x, lookup.lookup(outerKeySelector(x))) });
 		}
 		
-		public function OrderBy(keySelector:Function):IOrderedEnumerable {
+		public function orderBy(keySelector:Function):IOrderedEnumerable {
 			return new OrderedEnumerable(this, keySelector);
 		}
 		

@@ -36,7 +36,7 @@ package System.Collection.Generic
 		
 		function groupJoin(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable;
 		
-		function OrderBy(keySelector:Function):IOrderedEnumerable;
+		function orderBy(keySelector:Function):IOrderedEnumerable;
 		//* IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector);
 		//IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector, IComparer<TKey> comparer);
 		

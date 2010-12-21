@@ -53,8 +53,8 @@ package System.Linq
 			c.prototype.groupJoin = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
 				return this.AsEnumerable().groupJoin(inner, outerKeySelector, innerKeySelector, resultSelector);
 			}
-			c.prototype.OrderBy = function(keySelector:Function):IOrderedEnumerable {
-				return this.AsEnumerable().OrderBy(keySelector);
+			c.prototype.orderBy = function(keySelector:Function):IOrderedEnumerable {
+				return this.AsEnumerable().orderBy(keySelector);
 			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
 				return this.AsEnumerable().Concat(second);
@@ -161,7 +161,7 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "OrderBy", "Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
+				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",

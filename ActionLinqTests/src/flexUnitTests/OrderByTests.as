@@ -156,5 +156,28 @@ package flexUnitTests
 				.thenByDescending(null);
 		}
 		
+		[Test]
+		public function thenBy_many_times_will_sort_with_multiple_criteria():void {
+			var data:Array = [
+				new TestModel("brian", 33, 1),
+				new TestModel("cara", 2, 8),
+				new TestModel("maia", 88, 3),
+				new TestModel("brian", 34, 6),
+				new TestModel("cara", 3, 2),
+				new TestModel("maia", 1, 7),
+				new TestModel("brian", 33, 5),
+				new TestModel("cara", 2, 4),
+				new TestModel("maia", 88, 9)];
+			
+			var ordered = data
+							.orderBy(function(x) { return x.name })
+							.thenBy(function(x) { return x.age })
+							.thenBy(function(x) { return x.soc })
+							.Select(function(x) { return x.name + " " + x.age + " " + x.soc })
+							.toArray();
+			
+			assertThat(ordered, array("brian 33 1", "brian 33 5", "brian 34 6", "cara 2 4", "cara 2 8", "cara 3 2", "maia 1 7", "maia 88 3", "maia 88 9"));		
+		}
+		
 	}
 }

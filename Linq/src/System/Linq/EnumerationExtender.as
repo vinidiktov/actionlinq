@@ -66,8 +66,8 @@ package System.Linq
 			c.prototype.concatEnumerable = function(second:IEnumerable):IEnumerable {
 				return this.asEnumerable().concat(second);
 			}
-			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
-				return this.asEnumerable().Zip(second, resultSelector);
+			c.prototype.zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
+				return this.asEnumerable().zip(second, resultSelector);
 			}
 			c.prototype.Distinct = function(comparer:IEqualityComparer=null):IEnumerable {
 				return this.asEnumerable().Distinct(comparer);
@@ -169,7 +169,7 @@ package System.Linq
 			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
 								"selectMany", "take", "takeWhile", "skip", "skipWhile", 
 								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", 
-								"groupBy", "concatEnumerable", "Zip", "Distinct", "Union", "intersect", 
+								"groupBy", "concatEnumerable", "zip", "Distinct", "Union", "intersect", 
 								"except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",

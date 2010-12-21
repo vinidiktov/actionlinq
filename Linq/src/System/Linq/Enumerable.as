@@ -157,7 +157,10 @@ package System.Linq
 					return new ConcatEnumerator(source, second) });
 		}
 		
-		public function Zip(second:IEnumerable, resultSelector:Function):IEnumerable {
+		public function zip(second:IEnumerable, resultSelector:Function):IEnumerable {
+			throwIfArgumentIsNull(second, "second");
+			throwIfArgumentIsNull(resultSelector, "resultSelector");
+			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new ZipEnumerator(source, second, resultSelector) });

@@ -244,8 +244,18 @@ package System.Collection.Generic
 		 */
 		function concat(second:IEnumerable):IEnumerable;
 		
+		/**
+		 * Merges two sequences by using the specified predicate function.
+		 * 
+		 * @return An IEnumerable that contains merged elements of two input sequences.
+		 * 
+		 * @param second The second sequence to merge.
+		 * @param resultSelector A function that specifies how to merge the elements from the two sequences.
+		 * 
+		 * @throw ArgumentException if second or resultSelector is null
+		 */
+		function zip(second:IEnumerable, resultSelector:Function):IEnumerable;
 		
-		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;
 		function Distinct(comparer:IEqualityComparer=null):IEnumerable;
 		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		

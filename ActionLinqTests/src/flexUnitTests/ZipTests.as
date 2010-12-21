@@ -2,6 +2,7 @@ package flexUnitTests
 {
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
+	import System.Linq.Enumerable;
 	
 	import org.flexunit.assertThat;
 	import org.hamcrest.collection.array;
@@ -10,11 +11,11 @@ package flexUnitTests
 	public class ZipTests extends EnumerableTestsBase
 	{		
 		[Test]
-		public function Zip_Will_Combine_Two_Enumerables():void {
+		public function zip_will_combine_two_enumerables():void {
 			var first:IEnumerable = [1,2,3].asEnumerable();
 			var second:IEnumerable = ['a','b','c'].asEnumerable();
 			
-			var enumerator:IEnumerator = first.Zip(second, function(f,s) { return f + s }).getEnumerator();
+			var enumerator:IEnumerator = first.zip(second, function(f,s) { return f + s }).getEnumerator();
 			
 			assertThat(enumerator.MoveNext(), equalTo(true))
 			assertThat(enumerator.Current(), equalTo("1a"))
@@ -26,29 +27,29 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function Left_Has_More_Than_Right_Bound_To_Right_Count():void {
+		public function left_has_more_than_right_bound_to_right_count():void {
 			var result:Array = [1,2,3,4,5]
-				.Zip(['a', 'b'].asEnumerable(), function(f,s) { return f + s})
+				.zip(['a', 'b'].asEnumerable(), function(f,s) { return f + s})
 				.toArray();
 			
 			assertThat(result, array("1a", "2b"));
 		}
 		
 		[Test]
-		public function Right_Has_More_Than_Left_Bound_To_Left_Count():void {
+		public function right_has_more_than_left_bound_to_left_count():void {
 			var result:Array = [1,2]
-				.Zip(['a', 'b', 'c', 'd', 'e'].asEnumerable(), function(f,s) { return f + s})
+				.zip(['a', 'b', 'c', 'd', 'e'].asEnumerable(), function(f,s) { return f + s})
 				.toArray();
 			
 			assertThat(result, array("1a", "2b"));
 		}
 		
 		[Test]
-		public function Reset_Zip_Will_Start_From_Scratch():void {
+		public function reset_zip_will_start_from_scratch():void {
 			var first:IEnumerable = [1,2,3].asEnumerable();
 			var second:IEnumerable = ['a','b','c'].asEnumerable();
 			
-			var enumerator:IEnumerator = first.Zip(second, function(f,s) { return f + s }).getEnumerator();
+			var enumerator:IEnumerator = first.zip(second, function(f,s) { return f + s }).getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();
@@ -56,6 +57,16 @@ package flexUnitTests
 			enumerator.MoveNext();
 			
 			assertThat(enumerator.Current(), equalTo("1a"));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function zip_throws_ArgumentError_when_second_is_null():void {
+			var result = Enumerable.Empty().zip(null, function(x,s){return x});
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function zip_throws_ArgumentError_when_resultSelector_is_null():void {
+			var result = Enumerable.Empty().zip(Enumerable.Empty(), null);
 		}
 		
 	}

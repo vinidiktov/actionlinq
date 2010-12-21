@@ -63,8 +63,8 @@ package System.Collection.Generic
 		 * @throws ArgumentError when keySelector is null
 		 * 
 		 * @see orderByDescending
-		 * @see thenBy
-		 * @see thenByDescending
+		 * @see IOrderedEnumerable.thenBy
+		 * @see IOrderedEnumerable.thenByDescending
 		 */
 		function orderBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
 		
@@ -79,13 +79,11 @@ package System.Collection.Generic
 		 * @throws ArgumentError when keySelector is null
 		 * 
 		 * @see orderBy
-		 * @see thenBy
-		 * @see thenByDescending
+		 * @see IOrderedEnumerable.thenBy
+		 * @see IOrderedEnumerable.thenByDescending
 		 */
 		function orderByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
 		
-		// ThenBy
-		// ThenByDescending
 		// GroupBy
 		
 		function Concat(second:IEnumerable):IEnumerable;

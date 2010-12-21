@@ -123,13 +123,13 @@ package System.Linq
 		public function orderBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
 			throwIfArgumentIsNull(keySelector, "keySelector");
 			
-			return new OrderedEnumerable(this, keySelector, comparer);
+			return new OrderedEnumerable(this, keySelector, [], comparer);
 		}
 		
 		public function orderByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
 			throwIfArgumentIsNull(keySelector, "keySelector");
 			
-			return new OrderedEnumerable(this, keySelector, comparer, true);
+			return new OrderedEnumerable(this, keySelector, [], comparer, true);
 		}
 		
 		public function Concat(second:IEnumerable):IEnumerable {

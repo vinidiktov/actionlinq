@@ -4,6 +4,8 @@ package flexUnitTests
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IOrderedEnumerable;
 	
+	import flash.sampler.NewObjectSample;
+	
 	import org.flexunit.assertThat;
 	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
@@ -80,6 +82,42 @@ package flexUnitTests
 		[Test(expected="ArgumentError")]
 		public function orderByDescending_throws_ArgumentError_when_keySelector_is_null():void {
 			var ordered = [].orderByDescending(null);
+		}
+		
+		[Test]
+		public function thenBy_uses_second_criteria_for_sorting():void {
+			var data:Array = ["one", "two", "three", "four", "five", "six"];
+			var ordered:Array = data
+							.orderBy(function(x:String) { return x.length })
+							.thenBy(function(x:String) { return x })
+							.toArray();
+							
+			assertThat(ordered, array("one", "six", "two", "five", "four", "three"));
+		}
+		
+		[Test]
+		public function thenBy_uses_second_criteria_with_comparator_for_sorting():void {
+			var data:Array = [
+				new TestModel("brian", 33, 12345),
+				new TestModel("cara", 34, 23456),
+				new TestModel("maia", 3, 34567),
+			    new TestModel("eli", 0, 45678)];
+			
+			var ordered:Array = 
+				data
+				.orderBy(function(item) { return item.name.length })
+				.thenBy(function(item) { return item }, new ModelComparator())
+				.Select(function(item) { return item.name})
+				.toArray();
+			
+			assertThat(ordered, array("eli", "maia", "cara", "brian"));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function thenBy_throws_ArgumentError_when_keySelector_is_null():void {
+			var ordered = [3,4,5]
+							.orderBy(function(x) { return x })
+							.thenBy(null);
 		}
 		
 	}

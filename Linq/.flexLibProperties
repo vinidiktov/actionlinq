@@ -24,6 +24,7 @@
     <classEntry path="System.Collection.Generic.IOrderedEnumerable"/>
     <classEntry path="System.Collection.Generic.IComparer"/>
     <classEntry path="System.Linq.OrderedEnumerable"/>
+    <classEntry path="System.Linq.DefaultComparer"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

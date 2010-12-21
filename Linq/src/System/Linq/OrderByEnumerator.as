@@ -6,17 +6,17 @@ package System.Linq
 	
 	public class OrderByEnumerator implements IEnumerator
 	{
+		
+		
 		private var enumerator:IEnumerable;
-		private var keySelector:Function;
-		private var comparer:IComparer;
+		private var comparisons:Array;
 		private var sortedEnumerator:IEnumerator;
 		private var descending:Boolean;
 		
-		public function OrderByEnumerator(enumerator:IEnumerable, keySelector:Function, comparer:IComparer, descending:Boolean)
+		public function OrderByEnumerator(enumerator:IEnumerable, comparisons:Array, descending:Boolean)
 		{
 			this.enumerator = enumerator;
-			this.keySelector = keySelector;
-			this.comparer = comparer;
+			this.comparisons = comparisons;
 			this.descending = descending;
 		}
 		
@@ -31,25 +31,14 @@ package System.Linq
 		}
 		
 		function sortFunction(a:*, b:*):Number {
-			var aKey:* = keySelector(a);
-			var bKey:* = keySelector(b);
-			
-			var compared = compare(aKey, bKey);
-			
-			return compared * (descending ? -1 : 1);
-		}
-		
-		private function compare(x:*, y:*):int {
-			if(comparer != null)
-				return comparer.compare(x, y);
-			
-			if(x > y) {
-				return 1;
-			} else if(x < y) {
-				return -1;
-			} else  {
-				return 0;
+			for each(var compare in comparisons)
+			{
+				var result = compare(a, b);
+				if(result != 0)
+					return result;
 			}
+			
+			return 0;
 		}
 		
 		public function MoveNext():Boolean

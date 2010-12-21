@@ -20,7 +20,12 @@ package System.Collection.Generic
 		/**
 		 * Filters a sequence of values based on a predicate.
 		 * 
-		 * Predicates are of the form function(element:*):Boolean;
+		 * <p>predicate can be of two prototypes
+		 * <ul>
+		 *   <li>function(element:*):Boolean</li>
+		 *   <li>function(element:*, index:int):Boolean</li>
+		 * </ul>
+		 * </p>
 		 * 
 		 * @return An IEnumerable that contains elements from the input sequence that satisfy the condition.
 		 * 
@@ -78,8 +83,41 @@ package System.Collection.Generic
 		 */
 		function selectMany(collectionSelector:Function, resultSelector:Function = null):IEnumerable;
 		
-		function Take(count:int):IEnumerable;
-		function TakeWhile(predicate:Function):IEnumerable;
+		/**
+		 * Returns a specified number of contiguous elements from the start of a sequence.
+		 * 
+		 * @return An IEnumerable that contains the specified number of elements from the start of the input sequence.
+		 * 
+		 * @param count The number of elements to return.
+		 * 
+		 * @see takeWhile
+		 * @see skip
+		 * @see skipWhile
+		 */
+		function take(count:int):IEnumerable;
+		
+		/**
+		 * Returns elements from a sequence as long as a specified condition is true. The element's index is used in the logic of the predicate function.
+		 * 
+		 * <p>predicate can be of two prototypes
+		 * <ul>
+		 *   <li>function(element:*):Boolean</li>
+		 *   <li>function(element:*, index:int):Boolean</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return An IEnumerable that contains elements from the input sequence that occur before the element at which the test no longer passes.
+		 * 
+		 * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
+		 * 
+		 * @throws ArgumentError when predicate is null
+		 * 
+		 * @see take
+		 * @see skip
+		 * @see skipWhile
+		 */
+		function takeWhile(predicate:Function):IEnumerable;
+		
 		function Skip(count:int):IEnumerable; 
 		function SkipWhile(predicate:Function):IEnumerable;
 

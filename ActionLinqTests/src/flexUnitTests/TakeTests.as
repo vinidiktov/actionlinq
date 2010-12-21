@@ -10,8 +10,8 @@ package flexUnitTests
 	public class TakeTests extends EnumerableTestsBase
 	{		
 		[Test]
-		public function Take_Pulls_First_N_Items():void {
-			var enumerator:IEnumerator = [2,3,4,5].Take(2).getEnumerator();
+		public function take_pulls_first_n_items():void {
+			var enumerator:IEnumerator = [2,3,4,5].take(2).getEnumerator();
 			
 			assertThat(enumerator.MoveNext(), equalTo(true));
 			assertThat(enumerator.Current(), equalTo(2));
@@ -21,22 +21,22 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function TakeWhile_Pulls_Until_Predicate_Fails():void {
-			var result = [1, 2, 3, 1, 2, 3].TakeWhile(function(x) {return x < 3}).toArray();
+		public function takeWhile_pulls_until_predicate_fails():void {
+			var result = [1, 2, 3, 1, 2, 3].takeWhile(function(x) {return x < 3}).toArray();
 			
 			assertThat(result, array(1,2));
 		}
 		
 		[Test]
-		public function TakeWhile_With_Indexer_Sends_Index():void {
-			var result = [1, 2, 3, 1, 2, 3].TakeWhile(function(x,i) {return i < 3}).toArray();
+		public function takeWhile_with_indexer_sends_index():void {
+			var result = [1, 2, 3, 1, 2, 3].takeWhile(function(x,i) {return i < 3}).toArray();
 			
 			assertThat(result, array(1,2,3));
 		}
 		
 		[Test]
-		public function TakeWhile_With_Static_Predicate_And_No_Indexer_Succeeds():void {
-			var result = [1, 2, 3, 1, 2, 3].TakeWhile(lessThan3).toArray();
+		public function takewhile_with_static_predicate_and_no_indexer_succeeds():void {
+			var result = [1, 2, 3, 1, 2, 3].takeWhile(lessThan3).toArray();
 			
 			assertThat(result, array(1,2));
 		}
@@ -46,14 +46,19 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function Resetting_Take_Causes_Enumerator_To_Go_Back_To_Beginning():void {
-			var enumerator:IEnumerator = [2,3,4,5].Take(2).getEnumerator();
+		public function resetting_take_causes_enumerator_to_go_back_to_beginning():void {
+			var enumerator:IEnumerator = [2,3,4,5].take(2).getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.Reset();
 			enumerator.MoveNext();
 			
 			assertThat(enumerator.Current(), equalTo(2));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function takeWhile_throws_ArgumentError_when_predicate_is_null():void {
+			var result = [].takeWhile(null);
 		}
 		
 	}

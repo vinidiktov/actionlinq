@@ -36,11 +36,11 @@ package System.Linq
 			c.prototype.selectMany = function(function1:Function, function2:Function = null):IEnumerable {
 				return this.asEnumerable().selectMany(function1, function2);
 			}
-			c.prototype.Take = function(count:int):IEnumerable {
-				return this.asEnumerable().Take(count);	
+			c.prototype.take = function(count:int):IEnumerable {
+				return this.asEnumerable().take(count);	
 			}
-			c.prototype.TakeWhile = function(predicate:Function) {
-				return this.asEnumerable().TakeWhile(predicate);
+			c.prototype.takeWhile = function(predicate:Function) {
+				return this.asEnumerable().takeWhile(predicate);
 			}
 			c.prototype.Skip = function(count:int):IEnumerable {
 				return this.asEnumerable().Skip(count);
@@ -167,7 +167,7 @@ package System.Linq
 			}
 				
 			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
-								"selectMany", "Take", "TakeWhile", 
+								"selectMany", "take", "takeWhile", 
 				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
 				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 

@@ -80,11 +80,13 @@ package System.Linq
 					return new SelectManyEnumerator(source, collectionSelector, resultsSelector) });
 		}
 		
-		public function Take(count:int):IEnumerable {
-			return TakeWhile(function(x:*,i:int){return i < count});
+		public function take(count:int):IEnumerable {
+			return takeWhile(function(x:*,i:int){return i < count});
 		}
 		
-		public function TakeWhile(predicate:Function):IEnumerable {
+		public function takeWhile(predicate:Function):IEnumerable {
+			throwIfArgumentIsNull(predicate, "predicate");
+			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new TakeEnumerator(source, predicate) });

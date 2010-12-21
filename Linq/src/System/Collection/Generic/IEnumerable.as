@@ -232,8 +232,19 @@ package System.Collection.Generic
 		 * @see toLookup
 		 */
 		function groupBy(keySelector:Function, elementSelector:Function=null, resultSelector:Function=null):IEnumerable;
+	
+		/**
+		 * Concatenates two sequences.
+		 * 
+		 * @return An IEnumerable that contains the concatenated elements of the two input sequences.
+		 * 
+		 * @param second The sequence to concatenate to the first sequence.
+		 * 
+		 * @throw ArgumentException when second is null
+		 */
+		function concat(second:IEnumerable):IEnumerable;
 		
-		function Concat(second:IEnumerable):IEnumerable;
+		
 		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;
 		function Distinct(comparer:IEqualityComparer=null):IEnumerable;
 		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;

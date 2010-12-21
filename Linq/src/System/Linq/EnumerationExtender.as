@@ -63,8 +63,8 @@ package System.Linq
 			c.prototype.groupBy = function(keySelector:Function, elementSelector:Function=null, resultSelector:Function=null):IEnumerable {
 				return this.asEnumerable().groupBy(keySelector, elementSelector, resultSelector);
 			}
-			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
-				return this.asEnumerable().Concat(second);
+			c.prototype.concatEnumerable = function(second:IEnumerable):IEnumerable {
+				return this.asEnumerable().concat(second);
 			}
 			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
 				return this.asEnumerable().Zip(second, resultSelector);
@@ -168,8 +168,9 @@ package System.Linq
 				
 			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
 								"selectMany", "take", "takeWhile", "skip", "skipWhile", 
-								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
-				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
+								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", 
+								"groupBy", "concatEnumerable", "Zip", "Distinct", "Union", "intersect", 
+								"except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",

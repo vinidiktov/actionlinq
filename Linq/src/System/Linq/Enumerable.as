@@ -149,7 +149,9 @@ package System.Linq
 			return toLookup(keySelector, elementSelector).select(function(x) { return resultSelector(x.key, x) });
 		}
 		
-		public function Concat(second:IEnumerable):IEnumerable {
+		public function concat(second:IEnumerable):IEnumerable {
+			throwIfArgumentIsNull(second, "second");
+			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new ConcatEnumerator(source, second) });
@@ -168,7 +170,7 @@ package System.Linq
 		}
 		
 		public function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-			return Concat(second).Distinct(comparer);
+			return concat(second).Distinct(comparer);
 		}
 		
 		public function intersect(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {

@@ -10,12 +10,14 @@ package System.Linq
 		private var keySelector:Function;
 		private var comparer:IComparer;
 		private var sortedEnumerator:IEnumerator;
+		private var descending:Boolean;
 		
-		public function OrderByEnumerator(enumerator:IEnumerable, keySelector:Function, comparer:IComparer)
+		public function OrderByEnumerator(enumerator:IEnumerable, keySelector:Function, comparer:IComparer, descending:Boolean)
 		{
 			this.enumerator = enumerator;
 			this.keySelector = keySelector;
 			this.comparer = comparer;
+			this.descending = descending;
 		}
 		
 		private function getSortedEnumerator():IEnumerator {
@@ -23,7 +25,7 @@ package System.Linq
 				return sortedEnumerator;
 			
 			var sortedArray:Array = enumerator.toArray();
-			sortedArray.sort(comparer != null ? comparer.compare : sortFunction);
+			sortedArray.sort(sortFunction);
 			sortedEnumerator = Enumerable.From(sortedArray).GetEnumerator();
 			return sortedEnumerator;
 		}
@@ -32,9 +34,18 @@ package System.Linq
 			var aKey:* = keySelector(a);
 			var bKey:* = keySelector(b);
 			
-			if(aKey > bKey) {
+			var compared = compare(aKey, bKey);
+			
+			return compared * (descending ? -1 : 1);
+		}
+		
+		private function compare(x:*, y:*):int {
+			if(comparer != null)
+				return comparer.compare(x, y);
+			
+			if(x > y) {
 				return 1;
-			} else if(aKey < bKey) {
+			} else if(x < y) {
 				return -1;
 			} else  {
 				return 0;

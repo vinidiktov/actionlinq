@@ -126,6 +126,12 @@ package System.Linq
 			return new OrderedEnumerable(this, keySelector, comparer);
 		}
 		
+		public function orderByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
+			throwIfArgumentIsNull(keySelector, "keySelector");
+			
+			return new OrderedEnumerable(this, keySelector, comparer, true);
+		}
+		
 		public function Concat(second:IEnumerable):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {

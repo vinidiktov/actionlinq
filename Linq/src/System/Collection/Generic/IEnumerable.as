@@ -68,7 +68,22 @@ package System.Collection.Generic
 		 */
 		function orderBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
 		
-		// OrderByDescending
+		/**
+		 * Sorts the elements of a sequence in descending order by using an optional comparer.
+		 * 
+		 * @return An IOrderedEnumerable whose elements are sorted in descending order according to a key.
+		 * 
+		 * @param keySelector A function to extract a key from an element.
+		 * @param comparer An IComparer to compare keys.
+		 * 
+		 * @throws ArgumentError when keySelector is null
+		 * 
+		 * @see orderBy
+		 * @see thenBy
+		 * @see thenByDescending
+		 */
+		function orderByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
+		
 		// ThenBy
 		// ThenByDescending
 		// GroupBy

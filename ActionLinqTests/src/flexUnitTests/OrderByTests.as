@@ -53,6 +53,34 @@ package flexUnitTests
 			var ordered = [].orderBy(null);
 		}
 		
+		[Test]
+		public function orderByDescending_sorts_given_the_keySelector_descended():void {
+			var ordered:IOrderedEnumerable = ["red", "green", "blue", "purple"]
+				.orderByDescending(function(item:String):int { return item.length; });
+			
+			assertThat(ordered.toArray(), array("purple", "green", "blue", "red"));
+		}
+		
+		[Test]
+		public function orderByDescending_with_comparator_orders_descended_with_comparator():void {
+			var data:Array = [
+				new TestModel("brian", 33, 12345),
+				new TestModel("cara", 34, 23456),
+				new TestModel("maia", 3, 34567) ];
+			
+			var ordered:Array = 
+				data
+				.orderByDescending(function(item) { return item; }, new ModelComparator())
+				.Select(function(item) { return item.name})
+				.toArray();
+			
+			assertThat(ordered, array("cara", "brian", "maia"));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function orderByDescending_throws_ArgumentError_when_keySelector_is_null():void {
+			var ordered = [].orderByDescending(null);
+		}
 		
 	}
 }

@@ -32,6 +32,27 @@ package flexUnitTests
 			assertThat(orderedEnumerator.Current(), equalTo("red"));
 		}
 		
+		[Test]
+		public function orderBy_with_comparator_orders_with_comparator():void {
+			var data:Array = [
+				new TestModel("brian", 33, 12345),
+				new TestModel("cara", 34, 23456),
+				new TestModel("maia", 3, 34567) ];
+			
+			var ordered:Array = 
+				data
+				.orderBy(function(item) { return item; }, new ModelComparator())
+				.Select(function(item) { return item.name})
+				.toArray();
+			
+			assertThat(ordered, array("maia", "brian", "cara"));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function orderBy_throws_ArgumentError_when_keySelector_is_null():void {
+			var ordered = [].orderBy(null);
+		}
+		
 		
 	}
 }

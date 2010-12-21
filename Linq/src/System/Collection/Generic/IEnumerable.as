@@ -31,14 +31,42 @@ package System.Collection.Generic
 		 * @param resultSelector A function to create a result element from two matching elements.
 		 * 
 		 * @throws ArgumentError when inner or outerKeySelector or innerKeySelector or resultSelector is null.
+		 * 
+		 * @see groupJoin
 		 */
 		function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable;
 		
+		/**
+		 * Correlates the elements of two sequences based on equality of keys and groups the results. The default equality comparer is used to compare keys.
+		 * 
+		 * @return An IEnumerable that contains elements =that are obtained by performing a grouped join on two sequences.
+		 * 
+		 * @param inner The sequence to join to the first sequence.
+		 * @param outerKeySelector A function to extract the join key from each element of the first sequence.
+		 * @param innerKeySelector A function to extract the join key from each element of the second sequence.
+		 * @param resultSelector A function to create a result element from two matching elements.
+		 * 
+		 * @throws ArgumentError when inner or outerKeySelector or innerKeySelector or resultSelector is null.
+		 * 
+		 * @see join
+		 */
 		function groupJoin(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable;
 		
-		function orderBy(keySelector:Function):IOrderedEnumerable;
-		//* IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector);
-		//IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector, IComparer<TKey> comparer);
+		/**
+		 * Sorts the elements of a sequence in ascending order by using an optional comparer.
+		 * 
+		 * @return An IOrderedEnumerable whose elements are sorted according to a key.
+		 * 
+		 * @param keySelector A function to extract a key from an element.
+		 * @param comparer An IComparer to compare keys.
+		 * 
+		 * @throws ArgumentError when keySelector is null
+		 * 
+		 * @see orderByDescending
+		 * @see thenBy
+		 * @see thenByDescending
+		 */
+		function orderBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
 		
 		// OrderByDescending
 		// ThenBy

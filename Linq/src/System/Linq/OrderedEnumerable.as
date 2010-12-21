@@ -6,9 +6,9 @@ package System.Linq
 
 	public class OrderedEnumerable extends Enumerable implements IOrderedEnumerable
 	{
-		public function OrderedEnumerable(source:*, keySelector:Function)
+		public function OrderedEnumerable(source:*, keySelector:Function, comparer:IComparer)
 		{
-			super(source, function(source:*):IEnumerator { return new OrderByEnumerator(source, keySelector) });
+			super(source, function(source:*):IEnumerator { return new OrderByEnumerator(source, keySelector, comparer) });
 		}
 		
 		public function createOrderedEnumerable(keySelector:Function, comparer:IComparer, descending:Boolean):IOrderedEnumerable {

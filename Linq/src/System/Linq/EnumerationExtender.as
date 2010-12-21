@@ -1,5 +1,6 @@
 package System.Linq
 {
+	import System.Collection.Generic.IComparer;
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
@@ -53,8 +54,8 @@ package System.Linq
 			c.prototype.groupJoin = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
 				return this.AsEnumerable().groupJoin(inner, outerKeySelector, innerKeySelector, resultSelector);
 			}
-			c.prototype.orderBy = function(keySelector:Function):IOrderedEnumerable {
-				return this.AsEnumerable().orderBy(keySelector);
+			c.prototype.orderBy = function(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
+				return this.AsEnumerable().orderBy(keySelector, comparer);
 			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
 				return this.AsEnumerable().Concat(second);

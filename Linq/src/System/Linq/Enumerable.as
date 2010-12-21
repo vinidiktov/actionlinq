@@ -1,5 +1,6 @@
 package System.Linq
 {
+	import System.Collection.Generic.IComparer;
 	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
@@ -93,11 +94,16 @@ package System.Linq
 					return new SkipEnumerator(source, predicate) });
 		}
 		
+		private function throwIfArgumentIsNull(test:*, name:String):void {
+			if(test == null)
+				throw new ArgumentError(name + " was null");
+		}
+		
 		public function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
-			if(inner == null) throw new ArgumentError("inner was null");
-			if(outerKeySelector == null) throw new ArgumentError("outerKeySelector was null");
-			if(innerKeySelector == null) throw new ArgumentError("innerKeySelector was null");
-			if(resultSelector == null) throw new ArgumentError("resultSelector was null");
+			throwIfArgumentIsNull(inner, "inner");
+			throwIfArgumentIsNull(outerKeySelector, "outerKeySelector");
+			throwIfArgumentIsNull(innerKeySelector, "innerKeySelector");
+			throwIfArgumentIsNull(resultSelector, "resultSelector");
 			
 			var innerLookup:ILookup = inner.toLookup(innerKeySelector);
 			
@@ -105,17 +111,19 @@ package System.Linq
 		}
 		
 		public function groupJoin(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
-			if(inner == null) throw new ArgumentError("inner was null");
-			if(outerKeySelector == null) throw new ArgumentError("outerKeySelector was null");
-			if(innerKeySelector == null) throw new ArgumentError("innerKeySelector was null");
-			if(resultSelector == null) throw new ArgumentError("resultSelector was null");
+			throwIfArgumentIsNull(inner, "inner");
+			throwIfArgumentIsNull(outerKeySelector, "outerKeySelector");
+			throwIfArgumentIsNull(innerKeySelector, "innerKeySelector");
+			throwIfArgumentIsNull(resultSelector, "resultSelector");
 			
 			var lookup:ILookup = inner.toLookup(innerKeySelector);
 			return Select(function(x:*):* { return resultSelector(x, lookup.lookup(outerKeySelector(x))) });
 		}
 		
-		public function orderBy(keySelector:Function):IOrderedEnumerable {
-			return new OrderedEnumerable(this, keySelector);
+		public function orderBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
+			throwIfArgumentIsNull(keySelector, "keySelector");
+			
+			return new OrderedEnumerable(this, keySelector, comparer);
 		}
 		
 		public function Concat(second:IEnumerable):IEnumerable {
@@ -141,7 +149,7 @@ package System.Linq
 		}
 		
 		public function intersect(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-			if(second == null) throw new ArgumentError("second was null");
+			throwIfArgumentIsNull(second, "second");
 			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
@@ -149,7 +157,7 @@ package System.Linq
 		}
 		
 		public function except(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-			if(second == null) throw new ArgumentError("second was null");
+			throwIfArgumentIsNull(second, "second");
 			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
@@ -161,8 +169,7 @@ package System.Linq
 		}
 		
 		public function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
-			if(second == null)
-				throw new ArgumentError("second was null");
+			throwIfArgumentIsNull(second, "second");
 			
 			var compare:Function = comparer != null ? comparer.Equals : function(f,s) { return f == s };
 			
@@ -211,8 +218,7 @@ package System.Linq
 		private function identity(x) { return x; }
 		
 		public function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary {
-			if(keySelector == null)
-				throw new ArgumentError("keySelector was null");
+			throwIfArgumentIsNull(keySelector, "keySelector");
 			
 			if(elementSelector == null)
 				elementSelector = identity;
@@ -236,8 +242,7 @@ package System.Linq
 		}
 		
 		public function toLookup(keySelector:Function, elementSelector:Function=null):ILookup {
-			if(keySelector == null)
-				throw new ArgumentError("keySelector was null");
+			throwIfArgumentIsNull(keySelector, "keySelector");
 			
 			if(elementSelector == null)
 				elementSelector = identity;
@@ -356,8 +361,7 @@ package System.Linq
 		}
 		
 		public function All(predicate:Function):Boolean {
-			if(predicate == null)
-				throw new Error("Predicate was null");
+			throwIfArgumentIsNull(predicate, "predicate");
 			
 			var enumerator:IEnumerator = GetEnumerator();
 			while(enumerator.MoveNext())

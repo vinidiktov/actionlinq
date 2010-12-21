@@ -56,7 +56,9 @@ package System.Linq
 			return enumeratorFactory(source);
 		}
 		
-		public function Where(predicate:Function):IEnumerable {
+		public function where(predicate:Function):IEnumerable {
+			throwIfArgumentIsNull(predicate, "predicate");
+			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new WhereEnumerator(source, predicate) });
@@ -281,7 +283,7 @@ package System.Linq
 		}
 		
 		public function ofType(type:Class):IEnumerable {
-			return Where(function(x){ return x is type });
+			return where(function(x){ return x is type });
 		}
 		
 		public function cast(type:Class):IEnumerable {
@@ -301,7 +303,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			var filteredEnumerator:IEnumerator = Where(predicate).getEnumerator();
+			var filteredEnumerator:IEnumerator = where(predicate).getEnumerator();
 			
 			if(!filteredEnumerator.MoveNext())
 				return none;
@@ -322,7 +324,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			return Where(predicate).Aggregate(none, function(acc, x) { return some(x)});
+			return where(predicate).Aggregate(none, function(acc, x) { return some(x)});
 		}
 		
 		public function Single(predicate:Function=null):* {
@@ -338,7 +340,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			var enumerator:IEnumerator = Where(predicate).getEnumerator();
+			var enumerator:IEnumerator = where(predicate).getEnumerator();
 			
 			if(!enumerator.MoveNext())
 				return none;
@@ -370,7 +372,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			return Where(predicate).getEnumerator().MoveNext();
+			return where(predicate).getEnumerator().MoveNext();
 		}
 		
 		public function All(predicate:Function):Boolean {
@@ -387,7 +389,7 @@ package System.Linq
 		}
 		
 		public function Count(predicate:Function=null):int {
-			var enumerator:IEnumerator = predicate != null ? Where(predicate).getEnumerator() : getEnumerator();
+			var enumerator:IEnumerator = predicate != null ? where(predicate).getEnumerator() : getEnumerator();
 			
 			if("internalCount" in enumerator)
 				return (enumerator as Object).internalCount;

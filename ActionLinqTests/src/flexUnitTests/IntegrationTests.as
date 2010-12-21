@@ -10,7 +10,7 @@ package flexUnitTests
 		[Test]
 		public function Do_A_Bunch_Of_Stuff() {
 			var morphed:IEnumerable = [1,2,3,4,5,6]
-				.Where(function(x) { return x % 2 } )
+				.where(function(x) { return x % 2 } )
 				.Select(function(x) { return x * 4 } )
 				.Skip(1);
 			

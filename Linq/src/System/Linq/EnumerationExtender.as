@@ -27,8 +27,8 @@ package System.Linq
 			c.prototype.getEnumerator = function():IEnumerator {
 				return Enumerable.From(this).getEnumerator();
 			};
-			c.prototype.Where = function(predicate:Function):IEnumerable {
-				return this.asEnumerable().Where(predicate);
+			c.prototype.where = function(predicate:Function):IEnumerable {
+				return this.asEnumerable().where(predicate);
 			};
 			c.prototype.Select = function(selector:Function):IEnumerable {
 				return this.asEnumerable().Select(selector);
@@ -166,7 +166,7 @@ package System.Linq
 				this.asEnumerable().Each(action);
 			}
 				
-			var names:Array = [ "asEnumerable", "getEnumerator", "Where", 
+			var names:Array = [ "asEnumerable", "getEnumerator", "where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
 				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",

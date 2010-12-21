@@ -17,7 +17,17 @@ package System.Collection.Generic
 		 */
 		function getEnumerator():IEnumerator; 
 		
-		function Where(predicate:Function):IEnumerable;		
+		/**
+		 * Filters a sequence of values based on a predicate.
+		 * 
+		 * @return An IEnumerable that contains elements from the input sequence that satisfy the condition.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 * 
+		 * @throws ArgumentError when predicate is null
+		 */
+		function where(predicate:Function):IEnumerable;		
+		
 		function Select(selector:Function):IEnumerable;
 		function SelectMany(selector:Function, resultsSelector:Function = null):IEnumerable;
 		function Take(count:int):IEnumerable;

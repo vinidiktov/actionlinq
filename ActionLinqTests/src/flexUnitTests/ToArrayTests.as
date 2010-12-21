@@ -32,7 +32,7 @@ package flexUnitTests
 		[Test]
 		public function toArray_on_where_returns_Array()
 		{
-			var filtered:Array = [1,2,3,4,5].Where(function(x){return x >= 4}).toArray();
+			var filtered:Array = [1,2,3,4,5].where(function(x){return x >= 4}).toArray();
 			
 			assertThat(filtered.length, equalTo(2));
 			assertThat(filtered[0], equalTo(4));

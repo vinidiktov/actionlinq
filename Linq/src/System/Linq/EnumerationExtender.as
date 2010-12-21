@@ -4,6 +4,7 @@ package System.Linq
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
 	import System.Collection.Generic.ILookup;
+	import System.Collection.Generic.IOrderedEnumerable;
 	import System.Linq.Option.Option;
 	
 	import flash.utils.Dictionary;
@@ -49,7 +50,10 @@ package System.Linq
 			c.prototype.joinEnumerables = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
 				return this.AsEnumerable().join(inner, outerKeySelector, innerKeySelector, resultSelector);
 			}
-			c.prototype.OrderBy = function(keySelector:Function):IEnumerable {
+			c.prototype.groupJoin = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
+				return this.AsEnumerable().groupJoin(inner, outerKeySelector, innerKeySelector, resultSelector);
+			}
+			c.prototype.OrderBy = function(keySelector:Function):IOrderedEnumerable {
 				return this.AsEnumerable().OrderBy(keySelector);
 			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
@@ -157,7 +161,7 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "joinEnumerables", "OrderBy", "Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
+				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "OrderBy", "Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
 				"Any", "All", "Count", "Contains",

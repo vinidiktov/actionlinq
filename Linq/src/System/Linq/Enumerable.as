@@ -4,6 +4,7 @@ package System.Linq
 	import System.Collection.Generic.IEnumerator;
 	import System.Collection.Generic.IEqualityComparer;
 	import System.Collection.Generic.ILookup;
+	import System.Collection.Generic.IOrderedEnumerable;
 	import System.Linq.Option.Option;
 	import System.Linq.Option.none;
 	import System.Linq.Option.some;
@@ -92,7 +93,7 @@ package System.Linq
 					return new SkipEnumerator(source, predicate) });
 		}
 		
-		public function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function) {
+		public function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
 			if(inner == null) throw new ArgumentError("inner was null");
 			if(outerKeySelector == null) throw new ArgumentError("outerKeySelector was null");
 			if(innerKeySelector == null) throw new ArgumentError("innerKeySelector was null");
@@ -103,10 +104,18 @@ package System.Linq
 			return SelectMany(function(outerItem) { return innerLookup.lookup(outerKeySelector(outerItem)) }, resultSelector);
 		}
 		
-		public function OrderBy(keySelector:Function):IEnumerable {
-			return new Enumerable(this,
-				function(source:*):IEnumerator {
-					return new OrderByEnumerator(source, keySelector) });
+		public function groupJoin(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
+			if(inner == null) throw new ArgumentError("inner was null");
+			if(outerKeySelector == null) throw new ArgumentError("outerKeySelector was null");
+			if(innerKeySelector == null) throw new ArgumentError("innerKeySelector was null");
+			if(resultSelector == null) throw new ArgumentError("resultSelector was null");
+			
+			var lookup:ILookup = inner.toLookup(innerKeySelector);
+			return Select(function(x:*):* { return resultSelector(x, lookup.lookup(outerKeySelector(x))) });
+		}
+		
+		public function OrderBy(keySelector:Function):IOrderedEnumerable {
+			return new OrderedEnumerable(this, keySelector);
 		}
 		
 		public function Concat(second:IEnumerable):IEnumerable {

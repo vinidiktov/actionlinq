@@ -21,6 +21,9 @@
     <classEntry path="System.Linq.Lookup"/>
     <classEntry path="System.Linq.GroupingEnumerator"/>
     <classEntry path="System.Linq.IntersectEnumerator"/>
+    <classEntry path="System.Collection.Generic.IOrderedEnumerable"/>
+    <classEntry path="System.Collection.Generic.IComparer"/>
+    <classEntry path="System.Linq.OrderedEnumerable"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

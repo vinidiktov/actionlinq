@@ -3,6 +3,7 @@ package flexUnitTests
 	import System.Collection.Generic.IEnumerable;
 	
 	import org.flexunit.assertThat;
+	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.nullValue;
 
@@ -60,6 +61,56 @@ package flexUnitTests
 		public function join_throws_ArgumentError_when_resultSelector_is_null():void {
 			var query:IEnumerable = [1,2,3].AsEnumerable().join([].AsEnumerable(), noOp, noOp, null);
 		}
+		
+		
+		[Test]
+		public function groupJoin_corelates_elements_based_on_groups():void {
+			var magnus:* = { Name: "Hedlund, Magnus" };
+			var terry:* = { Name: "Adams, Terry" };
+			var charlotte:* = { Name: "Weiss, Charlotte" };
+			
+			var barley:* = { Name: "Barley", Owner: terry };
+			var boots:* = { Name: "Boots", Owner: terry };
+			var whiskers:* = { Name: "Whiskers", Owner: charlotte };
+			var daisy:* = { Name: "Daisy", Owner: magnus };
+			
+			var people:Array = [ magnus, terry, charlotte ];
+			var pets:Array = [ barley, boots, whiskers, daisy ];
+			
+			var query:IEnumerable = people.groupJoin(pets.AsEnumerable(),
+				function(person) { return person },
+				function(pet) { return pet.Owner },
+				function(person, petCollection) { return { OwnerName: person.Name, Pets: petCollection.Select(function(pet) { return pet.Name }) }});
+			
+			var output:Array = query.toArray();
+			
+			assertThat(output[0].OwnerName, equalTo("Hedlund, Magnus"));
+			assertThat(output[0].Pets.toArray(), array("Daisy"));
+			assertThat(output[1].OwnerName, equalTo("Adams, Terry"));
+			assertThat(output[1].Pets.toArray(), array("Barley", "Boots"));
+			assertThat(output[2].OwnerName, equalTo("Weiss, Charlotte"));
+			assertThat(output[2].Pets.toArray(), array("Whiskers"));
+		}
+				
+		[Test(expected="ArgumentError")]
+		public function groupJoin_throws_ArgumentError_when_inner_is_null():void {
+			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin(null, noOp, noOp, noOp);
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function groupJoin_throws_ArgumentError_when_outerKeySelector_is_null():void {
+			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin([].AsEnumerable(), null, noOp, noOp);
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function groupJoin_throws_ArgumentError_when_innerKeySelector_is_null():void {
+			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin([].AsEnumerable(), noOp, null, noOp);
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function groupJoin_throws_ArgumentError_when_resultSelector_is_null():void {
+			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin([].AsEnumerable(), noOp, noOp, null);
+		}	
 		
 	}
 }

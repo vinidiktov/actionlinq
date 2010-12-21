@@ -32,11 +32,11 @@ package System.Collection.Generic
 		 * 
 		 * @throws ArgumentError when inner or outerKeySelector or innerKeySelector or resultSelector is null.
 		 */
-		function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function);
+		function join(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable;
 		
-		// GroupJoin
+		function groupJoin(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable;
 		
-		function OrderBy(keySelector:Function):IEnumerable;
+		function OrderBy(keySelector:Function):IOrderedEnumerable;
 		//* IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector);
 		//IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(Func<TSource, TKey> keySelector, IComparer<TKey> comparer);
 		

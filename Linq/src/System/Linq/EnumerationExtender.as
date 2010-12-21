@@ -30,11 +30,11 @@ package System.Linq
 			c.prototype.where = function(predicate:Function):IEnumerable {
 				return this.asEnumerable().where(predicate);
 			};
-			c.prototype.Select = function(selector:Function):IEnumerable {
-				return this.asEnumerable().Select(selector);
+			c.prototype.select = function(selector:Function):IEnumerable {
+				return this.asEnumerable().select(selector);
 			};
-			c.prototype.SelectMany = function(function1:Function, function2:Function = null):IEnumerable {
-				return this.asEnumerable().SelectMany(function1, function2);
+			c.prototype.selectMany = function(function1:Function, function2:Function = null):IEnumerable {
+				return this.asEnumerable().selectMany(function1, function2);
 			}
 			c.prototype.Take = function(count:int):IEnumerable {
 				return this.asEnumerable().Take(count);	
@@ -166,8 +166,8 @@ package System.Linq
 				this.asEnumerable().Each(action);
 			}
 				
-			var names:Array = [ "asEnumerable", "getEnumerator", "where", 
-				"Select", "SelectMany", "Take", "TakeWhile", 
+			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
+								"selectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
 				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 

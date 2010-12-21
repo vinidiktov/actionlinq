@@ -80,7 +80,7 @@ package flexUnitTests
 			var query:IEnumerable = people.groupJoin(pets.asEnumerable(),
 				function(person) { return person },
 				function(pet) { return pet.Owner },
-				function(person, petCollection) { return { OwnerName: person.Name, Pets: petCollection.Select(function(pet) { return pet.Name }) }});
+				function(person, petCollection) { return { OwnerName: person.Name, Pets: petCollection.select(function(pet) { return pet.Name }) }});
 			
 			var output:Array = query.toArray();
 			

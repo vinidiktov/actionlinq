@@ -68,7 +68,7 @@ package flexUnitTests
 																count: pets.Count(), 
 																min:   pets.Min(function(pet) { return pet.age }), 
 																max:   pets.Max(function(pet) { return pet.age }) }})
-								.Select(function(x) { return x.key + " " + x.count + " " + x.min + " " + x.max}) 
+								.select(function(x) { return x.key + " " + x.count + " " + x.min + " " + x.max}) 
 								.toArray();
 			
 			assertThat(grouping, array("8 1 8.3 8.3", "4 2 4.3 4.9", "1 1 1.5 1.5"));
@@ -90,7 +90,7 @@ package flexUnitTests
 																count: ages.Count(), 
 																min:   ages.Min(), 
 																max:   ages.Max() }})
-				.Select(function(x) { return x.key + " " + x.count + " " + x.min + " " + x.max}) 
+				.select(function(x) { return x.key + " " + x.count + " " + x.min + " " + x.max}) 
 				.toArray();
 			
 			assertThat(grouping, array("8 1 8.3 8.3", "4 2 4.3 4.9", "1 1 1.5 1.5"));

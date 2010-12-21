@@ -12,9 +12,9 @@ package flexUnitTests
 	public class SelectTests extends EnumerableTestsBase
 	{
 		[Test]
-		public function Select_Maps_Values_To_Function():void
+		public function select_maps_values_to_function():void
 		{
-			var mapped:IEnumerable = [1,2].Select(function(x){return x*2});
+			var mapped:IEnumerable = [1,2].select(function(x){return x*2});
 			
 			var enumerator:IEnumerator = mapped.getEnumerator();
 			
@@ -26,8 +26,8 @@ package flexUnitTests
 		}	
 		
 		[Test]
-		public function Select_with_static_function_and_no_index_does_not_fail():void {
-			var mapped:Array = [1,2].Select(Times2).toArray();
+		public function select_with_static_function_and_no_index_does_not_fail():void {
+			var mapped:Array = [1,2].select(Times2).toArray();
 			
 			assertThat(mapped, array(2,4));
 		}
@@ -35,19 +35,19 @@ package flexUnitTests
 		private function Times2(x) { return x * 2 }
 		
 		[Test]
-		public function Select_With_Index_Passes_Index_Into_Function():void {
+		public function select_with_index_passes_index_into_function():void {
 			var mapped:Array = 
 				[1,2,3,4]
-				.Select(function(x,i) { return x * i })
+				.select(function(x,i) { return x * i })
 				.toArray();
 			
 			assertThat(mapped, array(0, 2, 6, 12));
 		}
 		
 		[Test]
-		public function Selector_Is_Only_Called_Once_Per_Move(): void {
+		public function selector_is_only_called_once_per_move(): void {
 			var increment:int = 0;
-			var mapped:IEnumerator = [1].Select(function(x){return increment++}).getEnumerator();
+			var mapped:IEnumerator = [1].select(function(x){return increment++}).getEnumerator();
 			
 			mapped.MoveNext();
 			
@@ -56,9 +56,9 @@ package flexUnitTests
 		}
 		
 		[Test]
-		public function Resetting_Select_Starts_Over()
+		public function resetting_select_starts_over()
 		{
-			var mapped:IEnumerable = [1,2].Select(function(x){return x*2});
+			var mapped:IEnumerable = [1,2].select(function(x){return x*2});
 			var enumerator:IEnumerator = mapped.getEnumerator();
 			
 			enumerator.MoveNext();
@@ -67,6 +67,11 @@ package flexUnitTests
 			enumerator.MoveNext();
 			
 			assertThat(enumerator.Current(), equalTo(2));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function select_throws_ArgumentError_when_selector_is_null():void {
+			var mapped = [].select(null);
 		}
 	}
 }

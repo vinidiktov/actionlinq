@@ -20,6 +20,8 @@ package System.Collection.Generic
 		/**
 		 * Filters a sequence of values based on a predicate.
 		 * 
+		 * Predicates are of the form function(element:*):Boolean;
+		 * 
 		 * @return An IEnumerable that contains elements from the input sequence that satisfy the condition.
 		 * 
 		 * @param predicate A function to test each element for a condition.
@@ -28,8 +30,54 @@ package System.Collection.Generic
 		 */
 		function where(predicate:Function):IEnumerable;		
 		
-		function Select(selector:Function):IEnumerable;
-		function SelectMany(selector:Function, resultsSelector:Function = null):IEnumerable;
+		/**
+		 * Projects each element of a sequence into a new form by optionally incorporating the element's index.
+		 * 
+		 * <p>selector can be of two prototypes
+		 * <ul>
+		 *   <li>function(element:*):*</li>
+		 *   <li>function(element:*, index:int):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return An IEnumerable whose elements are the result of invoking the transform function on each element of source.
+		 * 
+		 * @param A transform function to apply to each source element; the second (if given) parameter of the function represents the index of the source element.
+		 * 
+		 * @throws ArgumentError if selector is null
+		 * 
+		 * @see selectMany
+		 */
+		function select(selector:Function):IEnumerable;
+		
+		/**
+		 * Projects each element of a sequence to an IEnumerable, flattens the resulting sequences into one sequence, and invokes an optional result selector function on each element therein.
+		 * 
+		 * <p>selectMany can be called with two different overloads:
+		 * <ul>
+		 *   <li>selectMany(collectionSelector:Function):IEnumerable</li>
+		 *   <li>selectMany(collectionSelector:Function, resultSelector:Function</li>
+		 * </ul></p>
+		 * 
+		 * <p>collectionSelector can be of two prototypes
+		 * <ul>
+		 *   <li>function(element:*):*</li>
+		 *   <li>function(element:*, index:int):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return An IEnumerable whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of source 
+		 * and then mapping each of those sequence elements and their corresponding source element to a result element.
+		 * 
+		 * @param collectionSelector A transform function to apply to each element of the input sequence.
+		 * @param resultSelector A transform function to apply to each element of the intermediate sequence.
+		 * 
+		 * @throws ArgumentException when collectionSelector is null
+		 * 
+		 * @see select
+		 */
+		function selectMany(collectionSelector:Function, resultSelector:Function = null):IEnumerable;
+		
 		function Take(count:int):IEnumerable;
 		function TakeWhile(predicate:Function):IEnumerable;
 		function Skip(count:int):IEnumerable; 

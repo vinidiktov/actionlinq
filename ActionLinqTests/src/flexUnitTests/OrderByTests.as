@@ -13,7 +13,7 @@ package flexUnitTests
 	public class OrderByTests extends EnumerableTestsBase
 	{		
 		[Test]
-		public function orderBy_sorts_given_the_keySelector():void {
+		public function orderBy_sorts_given_the_keyselector():void {
 			var ordered:IOrderedEnumerable = ["red", "green", "blue", "purple"]
 				.orderBy(function(item:String):int { return item.length; });
 			
@@ -44,19 +44,19 @@ package flexUnitTests
 			var ordered:Array = 
 				data
 				.orderBy(function(item) { return item; }, new ModelComparator())
-				.Select(function(item) { return item.name})
+				.select(function(item) { return item.name})
 				.toArray();
 			
 			assertThat(ordered, array("maia", "brian", "cara"));
 		}
 		
 		[Test(expected="ArgumentError")]
-		public function orderBy_throws_ArgumentError_when_keySelector_is_null():void {
+		public function orderBy_throws_ArgumentError_when_keyselector_is_null():void {
 			var ordered = [].orderBy(null);
 		}
 		
 		[Test]
-		public function orderByDescending_sorts_given_the_keySelector_descended():void {
+		public function orderByDescending_sorts_given_the_keyselector_descended():void {
 			var ordered:IOrderedEnumerable = ["red", "green", "blue", "purple"]
 				.orderByDescending(function(item:String):int { return item.length; });
 			
@@ -73,14 +73,14 @@ package flexUnitTests
 			var ordered:Array = 
 				data
 				.orderByDescending(function(item) { return item; }, new ModelComparator())
-				.Select(function(item) { return item.name})
+				.select(function(item) { return item.name})
 				.toArray();
 			
 			assertThat(ordered, array("cara", "brian", "maia"));
 		}
 		
 		[Test(expected="ArgumentError")]
-		public function orderByDescending_throws_ArgumentError_when_keySelector_is_null():void {
+		public function orderByDescending_throws_ArgumentError_when_keyselector_is_null():void {
 			var ordered = [].orderByDescending(null);
 		}
 		
@@ -107,14 +107,14 @@ package flexUnitTests
 				data
 				.orderBy(function(item) { return item.name.length })
 				.thenBy(function(item) { return item }, new ModelComparator())
-				.Select(function(item) { return item.name})
+				.select(function(item) { return item.name})
 				.toArray();
 			
 			assertThat(ordered, array("eli", "maia", "cara", "brian"));
 		}
 		
 		[Test(expected="ArgumentError")]
-		public function thenBy_throws_ArgumentError_when_keySelector_is_null():void {
+		public function thenBy_throws_ArgumentError_when_keyselector_is_null():void {
 			var ordered = [3,4,5]
 							.orderBy(function(x) { return x })
 							.thenBy(null);
@@ -143,14 +143,14 @@ package flexUnitTests
 				data
 				.orderBy(function(item) { return item.name.length })
 				.thenByDescending(function(item) { return item }, new ModelComparator())
-				.Select(function(item) { return item.name})
+				.select(function(item) { return item.name})
 				.toArray();
 			
 			assertThat(ordered, array("eli", "cara", "maia", "brian"));
 		}
 		
 		[Test(expected="ArgumentError")]
-		public function thenByDescending_throws_ArgumentError_when_keySelector_is_null():void {
+		public function thenByDescending_throws_ArgumentError_when_keyselector_is_null():void {
 			var ordered = [3,4,5]
 				.orderBy(function(x) { return x })
 				.thenByDescending(null);
@@ -173,7 +173,7 @@ package flexUnitTests
 							.orderBy(function(x) { return x.name })
 							.thenBy(function(x) { return x.age })
 							.thenBy(function(x) { return x.soc })
-							.Select(function(x) { return x.name + " " + x.age + " " + x.soc })
+							.select(function(x) { return x.name + " " + x.age + " " + x.soc })
 							.toArray();
 			
 			assertThat(ordered, array("brian 33 1", "brian 33 5", "brian 34 6", "cara 2 4", "cara 2 8", "cara 3 2", "maia 1 7", "maia 88 3", "maia 88 9"));		

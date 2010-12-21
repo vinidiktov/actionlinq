@@ -64,16 +64,20 @@ package System.Linq
 					return new WhereEnumerator(source, predicate) });
 		}
 		
-		public function Select(selector:Function):IEnumerable {
+		public function select(selector:Function):IEnumerable {
+			throwIfArgumentIsNull(selector, "selector");
+			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new SelectEnumerator(source, selector) });
 		}
 		
-		public function SelectMany(selector:Function, resultsSelector:Function = null):IEnumerable {
+		public function selectMany(collectionSelector:Function, resultsSelector:Function = null):IEnumerable {
+			throwIfArgumentIsNull(collectionSelector, "collectionSelector");
+			
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
-					return new SelectManyEnumerator(source, selector, resultsSelector) });
+					return new SelectManyEnumerator(source, collectionSelector, resultsSelector) });
 		}
 		
 		public function Take(count:int):IEnumerable {
@@ -109,7 +113,7 @@ package System.Linq
 			
 			var innerLookup:ILookup = inner.toLookup(innerKeySelector);
 			
-			return SelectMany(function(outerItem) { return innerLookup.lookup(outerKeySelector(outerItem)) }, resultSelector);
+			return selectMany(function(outerItem) { return innerLookup.lookup(outerKeySelector(outerItem)) }, resultSelector);
 		}
 		
 		public function groupJoin(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
@@ -119,7 +123,7 @@ package System.Linq
 			throwIfArgumentIsNull(resultSelector, "resultSelector");
 			
 			var lookup:ILookup = inner.toLookup(innerKeySelector);
-			return Select(function(x:*):* { return resultSelector(x, lookup.lookup(outerKeySelector(x))) });
+			return select(function(x:*):* { return resultSelector(x, lookup.lookup(outerKeySelector(x))) });
 		}
 		
 		public function orderBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
@@ -138,7 +142,7 @@ package System.Linq
 			if(resultSelector == null)
 				resultSelector = function(key, all) { return all };
 			
-			return toLookup(keySelector, elementSelector).Select(function(x) { return resultSelector(x.key, x) });
+			return toLookup(keySelector, elementSelector).select(function(x) { return resultSelector(x.key, x) });
 		}
 		
 		public function Concat(second:IEnumerable):IEnumerable {
@@ -287,7 +291,7 @@ package System.Linq
 		}
 		
 		public function cast(type:Class):IEnumerable {
-			return Select(function(x) { return type(x) });
+			return select(function(x) { return type(x) });
 		}
 		
 		public function first(predicate:Function=null):* {

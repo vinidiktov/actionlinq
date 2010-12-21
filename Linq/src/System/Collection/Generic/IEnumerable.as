@@ -97,7 +97,7 @@ package System.Collection.Generic
 		function take(count:int):IEnumerable;
 		
 		/**
-		 * Returns elements from a sequence as long as a specified condition is true. The element's index is used in the logic of the predicate function.
+		 * Returns elements from a sequence as long as a specified condition is true. The element's index is optionally used in the logic of the predicate function.
 		 * 
 		 * <p>predicate can be of two prototypes
 		 * <ul>
@@ -108,7 +108,7 @@ package System.Collection.Generic
 		 * 
 		 * @return An IEnumerable that contains elements from the input sequence that occur before the element at which the test no longer passes.
 		 * 
-		 * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
+		 * @param predicate A function to test each source element for a condition; the optional second parameter of the function represents the index of the source element.
 		 * 
 		 * @throws ArgumentError when predicate is null
 		 * 
@@ -118,8 +118,40 @@ package System.Collection.Generic
 		 */
 		function takeWhile(predicate:Function):IEnumerable;
 		
-		function Skip(count:int):IEnumerable; 
-		function SkipWhile(predicate:Function):IEnumerable;
+		/**
+		 * Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+		 * 
+		 * @return n IEnumerable<T> that contains the elements that occur after the specified index in the input sequence.
+		 * 
+		 * @param count The number of elements to skip before returning the remaining elements.
+		 * 
+		 * @see takeWhile
+		 * @see take
+		 * @see skipWhile
+		 */
+		function skip(count:int):IEnumerable; 
+		
+		/**
+		 * Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements. The element's index is optionally used in the logic of the predicate function.
+		 * 
+		 * <p>predicate can be of two prototypes
+		 * <ul>
+		 *   <li>function(element:*):Boolean</li>
+		 *   <li>function(element:*, index:int):Boolean</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * @return An IEnumerable that contains the elements from the input sequence starting at the first element in the linear series that does not pass the test specified by predicate.
+		 * 
+		 * @param predicate A function to test each source element for a condition; the optional second parameter of the function represents the index of the source element.
+		 * 
+		 * @throws ArgumentError when predicate is null
+		 * 
+		 * @see take
+		 * @see takeWhile
+		 * @see skip
+		 */
+		function skipWhile(predicate:Function):IEnumerable;
 
 		/**
 		 * Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.

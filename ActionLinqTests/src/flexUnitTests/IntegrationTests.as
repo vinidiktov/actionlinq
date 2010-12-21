@@ -12,7 +12,7 @@ package flexUnitTests
 			var morphed:IEnumerable = [1,2,3,4,5,6]
 				.where(function(x) { return x % 2 } )
 				.select(function(x) { return x * 4 } )
-				.Skip(1);
+				.skip(1);
 			
 			var result:int = morphed.Sum();
 			Assert.assertEquals(result, 32);

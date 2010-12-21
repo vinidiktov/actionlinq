@@ -42,11 +42,11 @@ package System.Linq
 			c.prototype.takeWhile = function(predicate:Function) {
 				return this.asEnumerable().takeWhile(predicate);
 			}
-			c.prototype.Skip = function(count:int):IEnumerable {
-				return this.asEnumerable().Skip(count);
+			c.prototype.skip = function(count:int):IEnumerable {
+				return this.asEnumerable().skip(count);
 			}
-			c.prototype.SkipWhile = function(predicate:Function):IEnumerable {
-				return this.asEnumerable().SkipWhile(predicate);
+			c.prototype.skipWhile = function(predicate:Function):IEnumerable {
+				return this.asEnumerable().skipWhile(predicate);
 			}
 			c.prototype.joinEnumerables = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
 				return this.asEnumerable().join(inner, outerKeySelector, innerKeySelector, resultSelector);
@@ -167,8 +167,8 @@ package System.Linq
 			}
 				
 			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
-								"selectMany", "take", "takeWhile", 
-				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
+								"selectMany", "take", "takeWhile", "skip", "skipWhile", 
+								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
 				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",

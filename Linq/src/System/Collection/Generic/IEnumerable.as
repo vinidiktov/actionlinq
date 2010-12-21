@@ -10,6 +10,11 @@ package System.Collection.Generic
 
 	public interface IEnumerable
 	{
+		/**
+		 * Returns an enumerator that iterates through a collection.
+		 * 
+		 * @return An IEnumerator object that can be used to iterate through the collection.
+		 */
 		function getEnumerator():IEnumerator; 
 		
 		function Where(predicate:Function):IEnumerable;		

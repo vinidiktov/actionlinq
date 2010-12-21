@@ -23,7 +23,7 @@ package flexUnitTests
 			var people:Array = [ magnus, terry, charlotte ];
 			var pets:Array = [ barley, boots, whiskers, daisy ];
 			
-			var query:IEnumerable = people.joinEnumerables(pets.AsEnumerable(), 
+			var query:IEnumerable = people.joinEnumerables(pets.asEnumerable(), 
 					function(person:*):* {return person},
 					function(pet:*):* { return pet.Owner},
 					function(person, pet) { return {OwnerName: person.Name, Pet: pet.Name}; });
@@ -44,22 +44,22 @@ package flexUnitTests
 		
 		[Test(expected="ArgumentError")]
 		public function join_throws_ArgumentError_when_inner_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().join(null, noOp, noOp, noOp);
+			var query:IEnumerable = [1,2,3].asEnumerable().join(null, noOp, noOp, noOp);
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function join_throws_ArgumentError_when_outerKeySelector_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().join([].AsEnumerable(), null, noOp, noOp);
+			var query:IEnumerable = [1,2,3].asEnumerable().join([].asEnumerable(), null, noOp, noOp);
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function join_throws_ArgumentError_when_innerKeySelector_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().join([].AsEnumerable(), noOp, null, noOp);
+			var query:IEnumerable = [1,2,3].asEnumerable().join([].asEnumerable(), noOp, null, noOp);
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function join_throws_ArgumentError_when_resultSelector_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().join([].AsEnumerable(), noOp, noOp, null);
+			var query:IEnumerable = [1,2,3].asEnumerable().join([].asEnumerable(), noOp, noOp, null);
 		}
 		
 		
@@ -77,7 +77,7 @@ package flexUnitTests
 			var people:Array = [ magnus, terry, charlotte ];
 			var pets:Array = [ barley, boots, whiskers, daisy ];
 			
-			var query:IEnumerable = people.groupJoin(pets.AsEnumerable(),
+			var query:IEnumerable = people.groupJoin(pets.asEnumerable(),
 				function(person) { return person },
 				function(pet) { return pet.Owner },
 				function(person, petCollection) { return { OwnerName: person.Name, Pets: petCollection.Select(function(pet) { return pet.Name }) }});
@@ -94,22 +94,22 @@ package flexUnitTests
 				
 		[Test(expected="ArgumentError")]
 		public function groupJoin_throws_ArgumentError_when_inner_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin(null, noOp, noOp, noOp);
+			var query:IEnumerable = [1,2,3].asEnumerable().groupJoin(null, noOp, noOp, noOp);
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function groupJoin_throws_ArgumentError_when_outerKeySelector_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin([].AsEnumerable(), null, noOp, noOp);
+			var query:IEnumerable = [1,2,3].asEnumerable().groupJoin([].asEnumerable(), null, noOp, noOp);
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function groupJoin_throws_ArgumentError_when_innerKeySelector_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin([].AsEnumerable(), noOp, null, noOp);
+			var query:IEnumerable = [1,2,3].asEnumerable().groupJoin([].asEnumerable(), noOp, null, noOp);
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function groupJoin_throws_ArgumentError_when_resultSelector_is_null():void {
-			var query:IEnumerable = [1,2,3].AsEnumerable().groupJoin([].AsEnumerable(), noOp, noOp, null);
+			var query:IEnumerable = [1,2,3].asEnumerable().groupJoin([].asEnumerable(), noOp, noOp, null);
 		}	
 		
 	}

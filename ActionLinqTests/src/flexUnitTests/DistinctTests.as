@@ -10,7 +10,7 @@ package flexUnitTests
 	{		
 		[Test]
 		public function Distinct_makes_sure_all_items_are_unique():void {
-			var distinct:IEnumerator = [1,1,2,2,3,3].Distinct().GetEnumerator();
+			var distinct:IEnumerator = [1,1,2,2,3,3].Distinct().getEnumerator();
 			
 			assertThat(distinct.MoveNext(), equalTo(true));
 			assertThat(distinct.Current(), equalTo(1));
@@ -23,7 +23,7 @@ package flexUnitTests
 		
 		[Test]
 		public function Reset_Causes_Everything_To_Go_Back():void {
-			var distinct:IEnumerator = [1,1,2,2,3,3].Distinct().GetEnumerator();
+			var distinct:IEnumerator = [1,1,2,2,3,3].Distinct().getEnumerator();
 			
 			distinct.MoveNext();
 			distinct.MoveNext();

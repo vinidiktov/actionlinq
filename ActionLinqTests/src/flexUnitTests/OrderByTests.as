@@ -24,7 +24,7 @@ package flexUnitTests
 		public function resetting_orderBy_causes_it_to_go_back_to_beginning() {
 			var orderedEnumerator:IEnumerator = ["red", "green", "blue", "purple"]
 				.orderBy(function(item:String):int { return item.length; })
-				.GetEnumerator();
+				.getEnumerator();
 			
 			orderedEnumerator.MoveNext();
 			orderedEnumerator.MoveNext();

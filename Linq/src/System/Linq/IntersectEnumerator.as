@@ -16,7 +16,7 @@ package System.Linq
 		
 		public function IntersectEnumerator(first:IEnumerable, second:IEnumerable, comparer:IEqualityComparer, invert:Boolean=false)
 		{
-			this.first = first.GetEnumerator();
+			this.first = first.getEnumerator();
 			this.second = second;
 			this.comparer = comparer;
 			this.invert = invert;

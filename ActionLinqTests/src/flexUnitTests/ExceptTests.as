@@ -11,7 +11,7 @@ package flexUnitTests
 			var first:Array = [2.0, 2.1, 2.2, 2.3, 2.4, 2.5 ];
 			var second:Array = [ 2.2 ];
 			
-			var except:Array = first.except(second.AsEnumerable()).toArray();
+			var except:Array = first.except(second.asEnumerable()).toArray();
 			
 			assertThat(except, array(2.0, 2.1, 2.3, 2.4, 2.5));
 		}
@@ -29,7 +29,7 @@ package flexUnitTests
 			
 			var second:Array = [new TestModel("cara", 34, 123454321) ];
 			
-			var except:Array = first.except(second.AsEnumerable(), new ModelComparator()).toArray();
+			var except:Array = first.except(second.asEnumerable(), new ModelComparator()).toArray();
 			
 			assertThat(except.length, equalTo(2));
 			assertThat(except[0].name, equalTo("brian"));

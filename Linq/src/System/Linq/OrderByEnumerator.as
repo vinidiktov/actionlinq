@@ -26,7 +26,7 @@ package System.Linq
 			
 			var sortedArray:Array = enumerator.toArray();
 			sortedArray.sort(sortFunction);
-			sortedEnumerator = Enumerable.From(sortedArray).GetEnumerator();
+			sortedEnumerator = Enumerable.From(sortedArray).getEnumerator();
 			return sortedEnumerator;
 		}
 		

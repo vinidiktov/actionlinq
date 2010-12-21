@@ -12,7 +12,7 @@ package System.Linq
 		private var index = -1;
 		
 		public function SkipEnumerator(enumerable:IEnumerable, predicate:Function) {
-			this.enumerator = enumerable.GetEnumerator();
+			this.enumerator = enumerable.getEnumerator();
 			this.predicate = predicate;
 		}
 		

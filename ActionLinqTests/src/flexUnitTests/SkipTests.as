@@ -15,7 +15,7 @@ package flexUnitTests
 		public function Skip_Will_Skip_The_Number_Specified()
 		{
 			var skipped:IEnumerable = [1,2,3,4,5].Skip(2);
-			var enumerator:IEnumerator = skipped.GetEnumerator();
+			var enumerator:IEnumerator = skipped.getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext())
 			Assert.assertEquals(enumerator.Current(), 3);
@@ -54,7 +54,7 @@ package flexUnitTests
 		public function Reset_Skip_Enumerator_Causes_Entire_Reset()
 		{
 			var skipped:IEnumerable = [1,2,3,4,5].Skip(2);
-			var enumerator:IEnumerator = skipped.GetEnumerator();
+			var enumerator:IEnumerator = skipped.getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();

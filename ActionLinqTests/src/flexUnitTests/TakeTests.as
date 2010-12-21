@@ -11,7 +11,7 @@ package flexUnitTests
 	{		
 		[Test]
 		public function Take_Pulls_First_N_Items():void {
-			var enumerator:IEnumerator = [2,3,4,5].Take(2).GetEnumerator();
+			var enumerator:IEnumerator = [2,3,4,5].Take(2).getEnumerator();
 			
 			assertThat(enumerator.MoveNext(), equalTo(true));
 			assertThat(enumerator.Current(), equalTo(2));
@@ -47,7 +47,7 @@ package flexUnitTests
 		
 		[Test]
 		public function Resetting_Take_Causes_Enumerator_To_Go_Back_To_Beginning():void {
-			var enumerator:IEnumerator = [2,3,4,5].Take(2).GetEnumerator();
+			var enumerator:IEnumerator = [2,3,4,5].Take(2).getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.Reset();

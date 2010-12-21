@@ -12,7 +12,7 @@ package System.Linq
 		
 		public function SelectEnumerator(enumerable:IEnumerable, selector:Function)
 		{
-			this.enumerator = enumerable.GetEnumerator();
+			this.enumerator = enumerable.getEnumerator();
 			this.selector = selector;
 		}
 		

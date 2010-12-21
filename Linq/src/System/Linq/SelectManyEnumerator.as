@@ -16,7 +16,7 @@ package System.Linq
 			if(resultsSelector == null)
 				resultsSelector = function(x,y){return y};
 			
-			this.enumerator = enumerable.GetEnumerator();
+			this.enumerator = enumerable.getEnumerator();
 			
 			this.collectionSelector = selector;
 			this.resultSelector = resultsSelector;
@@ -40,9 +40,9 @@ package System.Linq
 						return false;
 					
 					if(collectionSelector.length == 1)
-						collectionEnumerator = collectionSelector(enumerator.Current()).GetEnumerator();
+						collectionEnumerator = collectionSelector(enumerator.Current()).getEnumerator();
 					else
-						collectionEnumerator = collectionSelector(enumerator.Current(), ++count).GetEnumerator();
+						collectionEnumerator = collectionSelector(enumerator.Current(), ++count).getEnumerator();
 					
 					if(collectionEnumerator.MoveNext())
 						break;

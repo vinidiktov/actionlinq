@@ -21,152 +21,152 @@ package System.Linq
 		}
 		
 		public static function InitializeClass(c:Class):void {
-			c.prototype.AsEnumerable = function():IEnumerable {
+			c.prototype.asEnumerable = function():IEnumerable {
 				return Enumerable.From(this);
 			};
-			c.prototype.GetEnumerator = function():IEnumerator {
-				return Enumerable.From(this).GetEnumerator();
+			c.prototype.getEnumerator = function():IEnumerator {
+				return Enumerable.From(this).getEnumerator();
 			};
 			c.prototype.Where = function(predicate:Function):IEnumerable {
-				return this.AsEnumerable().Where(predicate);
+				return this.asEnumerable().Where(predicate);
 			};
 			c.prototype.Select = function(selector:Function):IEnumerable {
-				return this.AsEnumerable().Select(selector);
+				return this.asEnumerable().Select(selector);
 			};
 			c.prototype.SelectMany = function(function1:Function, function2:Function = null):IEnumerable {
-				return this.AsEnumerable().SelectMany(function1, function2);
+				return this.asEnumerable().SelectMany(function1, function2);
 			}
 			c.prototype.Take = function(count:int):IEnumerable {
-				return this.AsEnumerable().Take(count);	
+				return this.asEnumerable().Take(count);	
 			}
 			c.prototype.TakeWhile = function(predicate:Function) {
-				return this.AsEnumerable().TakeWhile(predicate);
+				return this.asEnumerable().TakeWhile(predicate);
 			}
 			c.prototype.Skip = function(count:int):IEnumerable {
-				return this.AsEnumerable().Skip(count);
+				return this.asEnumerable().Skip(count);
 			}
 			c.prototype.SkipWhile = function(predicate:Function):IEnumerable {
-				return this.AsEnumerable().SkipWhile(predicate);
+				return this.asEnumerable().SkipWhile(predicate);
 			}
 			c.prototype.joinEnumerables = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
-				return this.AsEnumerable().join(inner, outerKeySelector, innerKeySelector, resultSelector);
+				return this.asEnumerable().join(inner, outerKeySelector, innerKeySelector, resultSelector);
 			}
 			c.prototype.groupJoin = function(inner:IEnumerable, outerKeySelector:Function, innerKeySelector:Function, resultSelector:Function):IEnumerable {
-				return this.AsEnumerable().groupJoin(inner, outerKeySelector, innerKeySelector, resultSelector);
+				return this.asEnumerable().groupJoin(inner, outerKeySelector, innerKeySelector, resultSelector);
 			}
 			c.prototype.orderBy = function(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
-				return this.AsEnumerable().orderBy(keySelector, comparer);
+				return this.asEnumerable().orderBy(keySelector, comparer);
 			}
 			c.prototype.orderByDescending = function(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
-				return this.AsEnumerable().orderByDescending(keySelector, comparer);
+				return this.asEnumerable().orderByDescending(keySelector, comparer);
 			}
 			c.prototype.groupBy = function(keySelector:Function, elementSelector:Function=null, resultSelector:Function=null):IEnumerable {
-				return this.AsEnumerable().groupBy(keySelector, elementSelector, resultSelector);
+				return this.asEnumerable().groupBy(keySelector, elementSelector, resultSelector);
 			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
-				return this.AsEnumerable().Concat(second);
+				return this.asEnumerable().Concat(second);
 			}
 			c.prototype.Zip = function(second:IEnumerable, resultSelector:Function):IEnumerable {
-				return this.AsEnumerable().Zip(second, resultSelector);
+				return this.asEnumerable().Zip(second, resultSelector);
 			}
 			c.prototype.Distinct = function(comparer:IEqualityComparer=null):IEnumerable {
-				return this.AsEnumerable().Distinct(comparer);
+				return this.asEnumerable().Distinct(comparer);
 			}
 			c.prototype.Union = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-				return this.AsEnumerable().Union(second, comparer);
+				return this.asEnumerable().Union(second, comparer);
 			}
 			c.prototype.intersect = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-				return this.AsEnumerable().intersect(second, comparer);
+				return this.asEnumerable().intersect(second, comparer);
 			}
 			c.prototype.except = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-				return this.AsEnumerable().except(second, comparer);
+				return this.asEnumerable().except(second, comparer);
 			}
 			c.prototype.reverseEnumerate = function():IEnumerable {
-				return this.AsEnumerable().reverse();
+				return this.asEnumerable().reverse();
 			}
 			c.prototype.sequenceEqual = function(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
-				return this.AsEnumerable().sequenceEqual(second, comparer);
+				return this.asEnumerable().sequenceEqual(second, comparer);
 			}
 			c.prototype.toArray = function():Array {
-				return this.AsEnumerable().toArray();
+				return this.asEnumerable().toArray();
 			}
 			c.prototype.toArrayCollection = function():ArrayCollection {
-				return this.AsEnumerable().toArrayCollection();
+				return this.asEnumerable().toArrayCollection();
 			}
 			c.prototype.toList = function():IList {
-				return this.AsEnumerable().toList();
+				return this.asEnumerable().toList();
 			}
 			c.prototype.toDictionary = function(keySelector:Function, elementSelector:Function=null):Dictionary {
-				return this.AsEnumerable().toDictionary(keySelector, elementSelector);
+				return this.asEnumerable().toDictionary(keySelector, elementSelector);
 			}
 			c.prototype.toLookup = function(keySelector:Function, elementSelector:Function=null):ILookup {
-				return this.AsEnumerable().toLookup(keySelector, elementSelector);
+				return this.asEnumerable().toLookup(keySelector, elementSelector);
 			}
 			c.prototype.noneIfEmpty = function():Option {
-				return this.AsEnumerable().noneIfEmpty();
+				return this.asEnumerable().noneIfEmpty();
 			}
 			c.prototype.ofType = function(type:Class):IEnumerable {
-				return this.AsEnumerable().ofType(type);
+				return this.asEnumerable().ofType(type);
 			}
 			c.prototype.cast = function(type:Class):IEnumerable {
-				return this.AsEnumerable().cast(type);
+				return this.asEnumerable().cast(type);
 			}
 			c.prototype.first = function(predicate:Function=null):* {
-				return this.AsEnumerable().first(predicate);
+				return this.asEnumerable().first(predicate);
 			}
 			c.prototype.firstOrNone = function(predicate:Function=null):Option {
-				return this.AsEnumerable().firstOrNone(predicate);
+				return this.asEnumerable().firstOrNone(predicate);
 			}
 			c.prototype.last = function(predicate:Function=null):* {
-				return this.AsEnumerable().last(predicate);
+				return this.asEnumerable().last(predicate);
 			}
 			c.prototype.lastOrNone = function(predicate:Function=null):Option {
-				return this.AsEnumerable().lastOrNone(predicate);
+				return this.asEnumerable().lastOrNone(predicate);
 			}
 			c.prototype.Single = function(predicate:Function=null):* {
-				return this.AsEnumerable().Single(predicate);
+				return this.asEnumerable().Single(predicate);
 			}
 			c.prototype.SingleOrNone = function(predicate:Function=null):* {
-				return this.AsEnumerable().SingleOrNone(predicate);
+				return this.asEnumerable().SingleOrNone(predicate);
 			}
 			c.prototype.ElementAt = function(index:int):* {
-				return this.AsEnumerable().ElementAt(index);
+				return this.asEnumerable().ElementAt(index);
 			}
 			c.prototype.ElementAtOrNone = function(index:int):Option {
-				return this.AsEnumerable().ElementAtOrNone(index);
+				return this.asEnumerable().ElementAtOrNone(index);
 			}
 			c.prototype.Any = function(predicate:Function=null):Boolean {
-				return this.AsEnumerable().Any(predicate);
+				return this.asEnumerable().Any(predicate);
 			}		
 			c.prototype.All = function(predicate:Function):Boolean {
-				return this.AsEnumerable().All(predicate);
+				return this.asEnumerable().All(predicate);
 			}
 			c.prototype.Count = function(predicate:Function=null):int {
-				return this.AsEnumerable().Count(predicate);
+				return this.asEnumerable().Count(predicate);
 			}
 			c.prototype.Contains = function(value:*, comparer:IEqualityComparer=null):Boolean {
-				return this.AsEnumerable().Contains(value, comparer);
+				return this.asEnumerable().Contains(value, comparer);
 			}
 			c.prototype.Aggregate = function(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
-				return this.AsEnumerable().Aggregate(funcOrSeed, func, resultSelector);
+				return this.asEnumerable().Aggregate(funcOrSeed, func, resultSelector);
 			}
 			c.prototype.Sum =  function(selector:Function=null):* {
-				return this.AsEnumerable().Sum(selector);
+				return this.asEnumerable().Sum(selector);
 			}
 			c.prototype.Min = function(selector:Function=null):* {
-				return this.AsEnumerable().Min(selector);
+				return this.asEnumerable().Min(selector);
 			}
 			c.prototype.Max = function(selector:Function=null):* {
-				return this.AsEnumerable().Max(selector);
+				return this.asEnumerable().Max(selector);
 			}
 			c.prototype.Average = function(selector:Function=null):* {
-				return this.AsEnumerable().Average(selector);
+				return this.asEnumerable().Average(selector);
 			}
 			c.prototype.Each = function(action:Function):* {
-				this.AsEnumerable().Each(action);
+				this.asEnumerable().Each(action);
 			}
 				
-			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
+			var names:Array = [ "asEnumerable", "getEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
 				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
 				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",

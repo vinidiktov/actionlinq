@@ -13,7 +13,7 @@ package System.Linq
 		
 		public function DistinctEnumerator(enumerable:IEnumerable, comparer:IEqualityComparer)
 		{
-			this.enumerator = enumerable.GetEnumerator(); 
+			this.enumerator = enumerable.getEnumerator(); 
 			this.comparer = comparer;
 		}
 		

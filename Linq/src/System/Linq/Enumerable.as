@@ -51,7 +51,7 @@ package System.Linq
 			return null;
 		}
 		
-		public function GetEnumerator():IEnumerator
+		public function getEnumerator():IEnumerator
 		{
 			return enumeratorFactory(source);
 		}
@@ -186,8 +186,8 @@ package System.Linq
 			
 			var compare:Function = comparer != null ? comparer.Equals : function(f,s) { return f == s };
 			
-			var firstEnumerator:IEnumerator = GetEnumerator();
-			var secondEnumerator:IEnumerator = second.GetEnumerator();
+			var firstEnumerator:IEnumerator = getEnumerator();
+			var secondEnumerator:IEnumerator = second.getEnumerator();
 			
 			while(firstEnumerator.MoveNext())
 			{
@@ -268,7 +268,7 @@ package System.Linq
 		}
 		
 		private function populateContainer(container:*, add:Function):* {
-			var enumerator:IEnumerator = GetEnumerator();
+			var enumerator:IEnumerator = getEnumerator();
 			
 			while(enumerator.MoveNext())
 				add(container, enumerator.Current());
@@ -301,7 +301,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			var filteredEnumerator:IEnumerator = Where(predicate).GetEnumerator();
+			var filteredEnumerator:IEnumerator = Where(predicate).getEnumerator();
 			
 			if(!filteredEnumerator.MoveNext())
 				return none;
@@ -338,7 +338,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			var enumerator:IEnumerator = Where(predicate).GetEnumerator();
+			var enumerator:IEnumerator = Where(predicate).getEnumerator();
 			
 			if(!enumerator.MoveNext())
 				return none;
@@ -370,13 +370,13 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			return Where(predicate).GetEnumerator().MoveNext();
+			return Where(predicate).getEnumerator().MoveNext();
 		}
 		
 		public function All(predicate:Function):Boolean {
 			throwIfArgumentIsNull(predicate, "predicate");
 			
-			var enumerator:IEnumerator = GetEnumerator();
+			var enumerator:IEnumerator = getEnumerator();
 			while(enumerator.MoveNext())
 			{
 				if(!predicate(enumerator.Current()))
@@ -387,7 +387,7 @@ package System.Linq
 		}
 		
 		public function Count(predicate:Function=null):int {
-			var enumerator:IEnumerator = predicate != null ? Where(predicate).GetEnumerator() : GetEnumerator();
+			var enumerator:IEnumerator = predicate != null ? Where(predicate).getEnumerator() : getEnumerator();
 			
 			if("internalCount" in enumerator)
 				return (enumerator as Object).internalCount;
@@ -413,7 +413,7 @@ package System.Linq
 		
 		public function Aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
 			
-			var enumerator:IEnumerator = GetEnumerator();
+			var enumerator:IEnumerator = getEnumerator();
 			
 			if(funcOrSeed is Function)
 			{
@@ -465,7 +465,7 @@ package System.Linq
 				selector = identity;
 			
 			var extreme = null;
-			var enumerator:IEnumerator = GetEnumerator();
+			var enumerator:IEnumerator = getEnumerator();
 			while(enumerator.MoveNext()) {
 				var selectedItem = selector(enumerator.Current());
 				if(extreme == null || comparitor(selectedItem, extreme))
@@ -520,7 +520,7 @@ package System.Linq
 		}
 		
 		public function Each(action:Function):void {
-			var enumerator:IEnumerator = GetEnumerator();
+			var enumerator:IEnumerator = getEnumerator();
 			while(enumerator.MoveNext())
 				action(enumerator.Current());
 		}
@@ -530,7 +530,7 @@ package System.Linq
 		override flash_proxy function nextNameIndex (index:int):int {
 			if(index <= 0)
 			{
-				currentEnumerator = GetEnumerator();
+				currentEnumerator = getEnumerator();
 			}
 			
 			return currentEnumerator.MoveNext() ? index + 1 : 0;

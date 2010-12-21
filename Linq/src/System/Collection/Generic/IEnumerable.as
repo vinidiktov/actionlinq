@@ -10,7 +10,7 @@ package System.Collection.Generic
 
 	public interface IEnumerable
 	{
-		function GetEnumerator():IEnumerator; 
+		function getEnumerator():IEnumerator; 
 		
 		function Where(predicate:Function):IEnumerable;		
 		function Select(selector:Function):IEnumerable;

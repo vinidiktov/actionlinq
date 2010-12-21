@@ -18,7 +18,7 @@ package flexUnitTests
 		[Test]
 		public function EnumerableFrom_Generates_IEnumerable_From_Array()
 		{
-			var enumerator:IEnumerator = [1,2,3].GetEnumerator();
+			var enumerator:IEnumerator = [1,2,3].getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);
@@ -32,7 +32,7 @@ package flexUnitTests
 		[Test]
 		public function Calling_Reset_Will_Reset_The_Enumerator_From_Array()
 		{
-			var enumerator:IEnumerator = [1,2,3,4].GetEnumerator();
+			var enumerator:IEnumerator = [1,2,3,4].getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();
@@ -48,7 +48,7 @@ package flexUnitTests
 			var data:ArrayCollection = new ArrayCollection([1,2,3]);
 			
 			var enumerable:IEnumerable = Enumerable.From(data);
-			var enumerator:IEnumerator = enumerable.GetEnumerator();
+			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);
@@ -64,7 +64,7 @@ package flexUnitTests
 		{
 			var data:ArrayCollection = new ArrayCollection([1,2,3,4]);
 			var enumerable:IEnumerable = Enumerable.From(data);
-			var enumerator:IEnumerator = enumerable.GetEnumerator();
+			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();
@@ -80,7 +80,7 @@ package flexUnitTests
 			var data:Vector.<int> = Vector.<int>([1,2,3]);
 			
 			var enumerable:IEnumerable = Enumerable.From(data);
-			var enumerator:IEnumerator = enumerable.GetEnumerator();
+			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);
@@ -96,7 +96,7 @@ package flexUnitTests
 		{
 			var data:Vector.<int> = Vector.<int>([1,2,3]);
 			var enumerable:IEnumerable = Enumerable.From(data);
-			var enumerator:IEnumerator = enumerable.GetEnumerator();
+			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();
@@ -114,7 +114,7 @@ package flexUnitTests
              				 <item>2</item>
              				 <item>3</item>
 				           </data>;
-			var enumerator:IEnumerator = Enumerable.From(data.item).GetEnumerator();
+			var enumerator:IEnumerator = Enumerable.From(data.item).getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);
@@ -133,7 +133,7 @@ package flexUnitTests
 							<item>2</item>
 							<item>3</item>
 						   </data>;
-			var enumerator:IEnumerator = Enumerable.From(data.item).GetEnumerator();
+			var enumerator:IEnumerator = Enumerable.From(data.item).getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();
@@ -146,9 +146,9 @@ package flexUnitTests
 		[Test]
 		public function Calling_Get_Enumerator_Twice_Yields_Two_Different_IEnumerator()
 		{
-			var enumerable:IEnumerable = [1,2,3].AsEnumerable();
-			var enumerator1:IEnumerator = enumerable.GetEnumerator();
-			var enumerator2:IEnumerator = enumerable.GetEnumerator();
+			var enumerable:IEnumerable = [1,2,3].asEnumerable();
+			var enumerator1:IEnumerator = enumerable.getEnumerator();
+			var enumerator2:IEnumerator = enumerable.getEnumerator();
 			
 			Assert.assertTrue( enumerator1 != enumerator2 );
 			
@@ -173,7 +173,7 @@ package flexUnitTests
 		public function Enumerable_Plays_Nicely_With_for_each():void {
 			
 			var count = 0;
-			for each(var item in [1,2,3].AsEnumerable())
+			for each(var item in [1,2,3].asEnumerable())
 			{
 				count += item;
 			}
@@ -183,7 +183,7 @@ package flexUnitTests
 		
 		[Test]
 		public function EnumerableFrom_Returns_Enumerable_If_Already_Enumerable() {
-			var enumerator:IEnumerator = [1,2,3].GetEnumerator();
+			var enumerator:IEnumerator = [1,2,3].getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);

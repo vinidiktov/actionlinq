@@ -18,7 +18,7 @@ package flexUnitTests
 		{
 			var data:Array = [1, 2, 3, 4, 5];
 			var filtered:IEnumerable = data.Where(function(x){return x >= 4});
-			var enumerator:IEnumerator = filtered.GetEnumerator();
+			var enumerator:IEnumerator = filtered.getEnumerator();
 			
 			assertThat(enumerator.MoveNext(), equalTo(true));
 			assertThat(enumerator.Current(), equalTo(4));
@@ -52,7 +52,7 @@ package flexUnitTests
 		{
 			var data:Array = [1, 2, 3, 4, 5];
 			var filtered:IEnumerable = data.Where(function(x){return x >= 4});
-			var enumerator:IEnumerator = filtered.GetEnumerator();
+			var enumerator:IEnumerator = filtered.getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();

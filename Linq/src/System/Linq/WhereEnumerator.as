@@ -11,7 +11,7 @@ package System.Linq
 		
 		public function WhereEnumerator(enumerable:IEnumerable, predicate:Function)
 		{
-			this.enumerator = enumerable.GetEnumerator();
+			this.enumerator = enumerable.getEnumerator();
 			this.predicate = predicate;
 		}
 		

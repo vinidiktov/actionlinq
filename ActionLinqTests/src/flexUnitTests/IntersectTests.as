@@ -13,7 +13,7 @@ package flexUnitTests
 			var first:Array = [1,2,3,4,5,6,7,8];
 			var second:Array = [2,4,5,9,10];
 			
-			var intersection:Array = first.intersect(second.AsEnumerable()).toArray();
+			var intersection:Array = first.intersect(second.asEnumerable()).toArray();
 			
 			assertThat(intersection, array(2,4,5));
 			
@@ -36,7 +36,7 @@ package flexUnitTests
 				new TestModel("cara", 34, 123454321), 
 				new TestModel("maia", 4, 999999)];
 			
-			var intersection:Array = first.intersect(second.AsEnumerable(), new ModelComparator()).toArray();
+			var intersection:Array = first.intersect(second.asEnumerable(), new ModelComparator()).toArray();
 			
 			assertThat(intersection.length, equalTo(1));
 			assertThat(intersection[0].name, equalTo("cara"));

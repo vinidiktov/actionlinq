@@ -11,10 +11,10 @@ package flexUnitTests
 	{		
 		[Test]
 		public function Zip_Will_Combine_Two_Enumerables():void {
-			var first:IEnumerable = [1,2,3].AsEnumerable();
-			var second:IEnumerable = ['a','b','c'].AsEnumerable();
+			var first:IEnumerable = [1,2,3].asEnumerable();
+			var second:IEnumerable = ['a','b','c'].asEnumerable();
 			
-			var enumerator:IEnumerator = first.Zip(second, function(f,s) { return f + s }).GetEnumerator();
+			var enumerator:IEnumerator = first.Zip(second, function(f,s) { return f + s }).getEnumerator();
 			
 			assertThat(enumerator.MoveNext(), equalTo(true))
 			assertThat(enumerator.Current(), equalTo("1a"))
@@ -28,7 +28,7 @@ package flexUnitTests
 		[Test]
 		public function Left_Has_More_Than_Right_Bound_To_Right_Count():void {
 			var result:Array = [1,2,3,4,5]
-				.Zip(['a', 'b'].AsEnumerable(), function(f,s) { return f + s})
+				.Zip(['a', 'b'].asEnumerable(), function(f,s) { return f + s})
 				.toArray();
 			
 			assertThat(result, array("1a", "2b"));
@@ -37,7 +37,7 @@ package flexUnitTests
 		[Test]
 		public function Right_Has_More_Than_Left_Bound_To_Left_Count():void {
 			var result:Array = [1,2]
-				.Zip(['a', 'b', 'c', 'd', 'e'].AsEnumerable(), function(f,s) { return f + s})
+				.Zip(['a', 'b', 'c', 'd', 'e'].asEnumerable(), function(f,s) { return f + s})
 				.toArray();
 			
 			assertThat(result, array("1a", "2b"));
@@ -45,10 +45,10 @@ package flexUnitTests
 		
 		[Test]
 		public function Reset_Zip_Will_Start_From_Scratch():void {
-			var first:IEnumerable = [1,2,3].AsEnumerable();
-			var second:IEnumerable = ['a','b','c'].AsEnumerable();
+			var first:IEnumerable = [1,2,3].asEnumerable();
+			var second:IEnumerable = ['a','b','c'].asEnumerable();
 			
-			var enumerator:IEnumerator = first.Zip(second, function(f,s) { return f + s }).GetEnumerator();
+			var enumerator:IEnumerator = first.Zip(second, function(f,s) { return f + s }).getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();

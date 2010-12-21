@@ -11,8 +11,8 @@ package System.Linq
 		
 		public function ConcatEnumerator(first:IEnumerable, second:IEnumerable)
 		{
-			this.first = first.GetEnumerator();
-			this.second = second.GetEnumerator();
+			this.first = first.getEnumerator();
+			this.second = second.getEnumerator();
 		}
 		
 		public function MoveNext():Boolean

@@ -12,8 +12,8 @@ package System.Linq
 		
 		public function ZipEnumerator(left:IEnumerable, right:IEnumerable, resultSelector:Function)
 		{
-			this.left = left.GetEnumerator();
-			this.right = right.GetEnumerator();
+			this.left = left.getEnumerator();
+			this.right = right.getEnumerator();
 			this.resultSelector = resultSelector;
 		}
 		

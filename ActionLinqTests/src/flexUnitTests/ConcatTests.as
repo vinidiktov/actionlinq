@@ -12,10 +12,10 @@ package flexUnitTests
 	{		
 		[Test]
 		public function Concat_Concatenates_Two_Sets():void {
-			var data2:IEnumerable = [3,5,6].AsEnumerable();
+			var data2:IEnumerable = [3,5,6].asEnumerable();
 			var combined:IEnumerable = [1,3,4].Concat(data2);
 			
-			var enumerator:IEnumerator = combined.GetEnumerator();
+			var enumerator:IEnumerator = combined.getEnumerator();
 			
 			assertThat(enumerator.MoveNext(), equalTo(true));
 			assertThat(enumerator.Current(), equalTo(1));
@@ -34,10 +34,10 @@ package flexUnitTests
 		
 		[Test]
 		public function Reset_Will_Reset_Both_Enumerators():void {
-			var data2:IEnumerable = [3,5,6].AsEnumerable();
+			var data2:IEnumerable = [3,5,6].asEnumerable();
 			var combined:IEnumerable = [1,3,4].Concat(data2);
 			
-			var enumerator:IEnumerator = combined.GetEnumerator();
+			var enumerator:IEnumerator = combined.getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();

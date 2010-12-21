@@ -36,6 +36,12 @@ package System.Linq
 			return createOrderedEnumerable(keySelector, comparer, false);
 		}
 		
+		public function thenByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
+			if(keySelector == null) throw new ArgumentError("keySelector was null");
+			
+			return createOrderedEnumerable(keySelector, comparer, true);
+		}
+		
 		public function createOrderedEnumerable(keySelector:Function, comparer:IComparer, descending:Boolean):IOrderedEnumerable {
 			return new OrderedEnumerable(this, keySelector, comparers, comparer, descending);
 		}

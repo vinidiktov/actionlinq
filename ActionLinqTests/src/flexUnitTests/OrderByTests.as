@@ -120,5 +120,41 @@ package flexUnitTests
 							.thenBy(null);
 		}
 		
+		[Test]
+		public function thenByDescending_uses_second_criteria_for_sorting():void {
+			var data:Array = ["one", "two", "three", "four", "five", "six"];
+			var ordered:Array = data
+				.orderBy(function(x:String) { return x.length })
+				.thenByDescending(function(x:String) { return x })
+				.toArray();
+			
+			assertThat(ordered, array("two", "six", "one", "four", "five", "three"));
+		}
+		
+		[Test]
+		public function thenByDescending_uses_second_criteria_with_comparator_for_sorting():void {
+			var data:Array = [
+				new TestModel("brian", 33, 12345),
+				new TestModel("maia", 3, 34567),
+				new TestModel("cara", 34, 23456),
+				new TestModel("eli", 0, 45678)];
+			
+			var ordered:Array = 
+				data
+				.orderBy(function(item) { return item.name.length })
+				.thenByDescending(function(item) { return item }, new ModelComparator())
+				.Select(function(item) { return item.name})
+				.toArray();
+			
+			assertThat(ordered, array("eli", "cara", "maia", "brian"));
+		}
+		
+		[Test(expected="ArgumentError")]
+		public function thenByDescending_throws_ArgumentError_when_keySelector_is_null():void {
+			var ordered = [3,4,5]
+				.orderBy(function(x) { return x })
+				.thenByDescending(null);
+		}
+		
 	}
 }

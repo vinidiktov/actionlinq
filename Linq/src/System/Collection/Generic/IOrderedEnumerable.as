@@ -14,6 +14,22 @@ package System.Collection.Generic
 		function createOrderedEnumerable(keySelector:Function, comparer:IComparer, descending:Boolean):IOrderedEnumerable;
 		
 		/**
+		 * Performs a subsequent ordering of the elements in a sequence in order by using an optional comparer.
+		 * 
+		 * @return An IOrderedEnumerable whose elements are sorted in order according to a key.
+		 * 
+		 * @param keySelector A function to extract a key from each element.
+		 * @param comparer An IComparer to compare keys.
+		 * 
+		 * @throws ArgumentError when keySelector is null
+		 * 
+		 * @see thenByDescending
+		 * @see IEnumerable.orderBy
+		 * @see IEnumerable.orderByDescending
+		 */
+		function thenBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
+		
+		/**
 		 * Performs a subsequent ordering of the elements in a sequence in descending order by using an optional comparer.
 		 * 
 		 * @return An IOrderedEnumerable whose elements are sorted in descending order according to a key.
@@ -27,8 +43,6 @@ package System.Collection.Generic
 		 * @see IEnumerable.orderBy
 		 * @see IEnumerable.orderByDescending
 		 */
-		function thenBy(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
-		
-		// ThenByDescending
+		function thenByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
 	}
 }

@@ -60,6 +60,9 @@ package System.Linq
 			c.prototype.orderByDescending = function(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable {
 				return this.AsEnumerable().orderByDescending(keySelector, comparer);
 			}
+			c.prototype.groupBy = function(keySelector:Function, elementSelector:Function=null, resultSelector:Function=null):IEnumerable {
+				return this.AsEnumerable().groupBy(keySelector, elementSelector, resultSelector);
+			}
 			c.prototype.Concat = function(second:IEnumerable):IEnumerable {
 				return this.AsEnumerable().Concat(second);
 			}
@@ -165,7 +168,7 @@ package System.Linq
 				
 			var names:Array = [ "AsEnumerable", "GetEnumerator", "Where", 
 				"Select", "SelectMany", "Take", "TakeWhile", 
-				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending",
+				"Skip", "SkipWhile", "joinEnumerables", "groupJoin", "orderBy", "orderByDescending", "groupBy",
 				"Concat", "Zip", "Distinct", "Union", "intersect", "except", "reverseEnumerate", "sequenceEqual",
 				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
 				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",

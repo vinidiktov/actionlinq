@@ -84,7 +84,21 @@ package System.Collection.Generic
 		 */
 		function orderByDescending(keySelector:Function, comparer:IComparer=null):IOrderedEnumerable;
 		
-		// GroupBy
+		/**
+		 * Groups the elements of a sequence according to a specified key selector function and creates a result value from each group and its key. 
+		 * The elements of each group are projected by using a specified function.
+		 * 
+		 * @return A collection of elements where each element represents a projection over a group and its key.
+		 * 
+		 * @param keySelector A function to extract the key for each element.
+		 * @param elementSelector A function to map each source element to an element in an IGrouping
+		 * @param resultSelector A function to create a result value from each group.
+		 * 
+		 * @throws ArgumentError when keySelector is null
+		 * 
+		 * @see toLookup
+		 */
+		function groupBy(keySelector:Function, elementSelector:Function=null, resultSelector:Function=null):IEnumerable;
 		
 		function Concat(second:IEnumerable):IEnumerable;
 		function Zip(second:IEnumerable, resultSelector:Function):IEnumerable;

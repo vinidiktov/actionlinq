@@ -132,6 +132,13 @@ package System.Linq
 			return new OrderedEnumerable(this, keySelector, [], comparer, true);
 		}
 		
+		public function groupBy(keySelector:Function, elementSelector:Function=null, resultSelector:Function=null):IEnumerable {
+			if(resultSelector == null)
+				resultSelector = function(key, all) { return all };
+			
+			return toLookup(keySelector, elementSelector).Select(function(x) { return resultSelector(x.key, x) });
+		}
+		
 		public function Concat(second:IEnumerable):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {

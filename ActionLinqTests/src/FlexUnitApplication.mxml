@@ -28,6 +28,7 @@
 			import flexUnitTests.IntersectTests;
 			import flexUnitTests.IntegrationTests;
 			import flexUnitTests.GroupingTests;
+			import flexUnitTests.GroupByTests;
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.ExceptTests;
 			import flexUnitTests.EnumerableTests;
@@ -56,6 +57,7 @@
 				testsToRun.push(flexUnitTests.EnumerableTests);
 				testsToRun.push(flexUnitTests.ExceptTests);
 				testsToRun.push(flexUnitTests.FirstTests);
+				testsToRun.push(flexUnitTests.GroupByTests);
 				testsToRun.push(flexUnitTests.GroupingTests);
 				testsToRun.push(flexUnitTests.IntegrationTests);
 				testsToRun.push(flexUnitTests.IntersectTests);

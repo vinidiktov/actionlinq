@@ -72,8 +72,8 @@ package System.Linq
 			c.prototype.distinct = function(comparer:IEqualityComparer=null):IEnumerable {
 				return this.asEnumerable().distinct(comparer);
 			}
-			c.prototype.Union = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-				return this.asEnumerable().Union(second, comparer);
+			c.prototype.union = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
+				return this.asEnumerable().union(second, comparer);
 			}
 			c.prototype.intersect = function(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
 				return this.asEnumerable().intersect(second, comparer);
@@ -169,12 +169,13 @@ package System.Linq
 			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
 								"selectMany", "take", "takeWhile", "skip", "skipWhile", 
 								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", 
-								"groupBy", "concatEnumerable", "zip", "distinct", "Union", "intersect", 
-								"except", "reverseEnumerate", "sequenceEqual",
-				"toArray", "toArrayCollection", "toList", "toDictionary", "toLookup", "noneIfEmpty", "ofType", "cast", "first", "firstOrNone", 
-				"last", "lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
-				"Any", "All", "Count", "Contains",
-				"Aggregate", "Sum", "Min", "Max", "Average", "Each"];
+								"groupBy", "concatEnumerable", "zip", "distinct", "union", "intersect", 
+								"except", "reverseEnumerate", "sequenceEqual", "toArray", 
+								"toArrayCollection", "toList", "toDictionary", "toLookup", 
+								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
+								"lastOrNone", "Single", "SingleOrNone", "ElementAt", "ElementAtOrNone",
+								"Any", "All", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
+								"Average", "Each"];
 			
 			Enumerable.From(names).Each(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
 		}

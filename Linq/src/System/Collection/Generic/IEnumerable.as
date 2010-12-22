@@ -265,8 +265,17 @@ package System.Collection.Generic
 		 */
 		function distinct(comparer:IEqualityComparer=null):IEnumerable;
 		
-		
-		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
+		/**
+		 * Produces the set union of two sequences by using an optional IEqualityComparer
+		 * 
+		 * @return An IEnumerable that contains the elements from both input sequences, excluding duplicates.
+		 * 
+		 * @param second An IEnumerable whose distinct elements form the second set for the union.
+		 * @param comparer The IEqualityComparer to compare values.
+		 * 
+		 * @throws ArgumentError when second is null
+		 */
+		function union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		
 		/**
 		 * Produces the set intersection of two sequences by using the optional IEqualityComparer to compare values.

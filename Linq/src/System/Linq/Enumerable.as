@@ -172,7 +172,7 @@ package System.Linq
 					return new DistinctEnumerator(source, comparer) });
 		}
 		
-		public function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
+		public function union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
 			return concat(second).distinct(comparer);
 		}
 		

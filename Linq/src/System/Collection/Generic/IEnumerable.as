@@ -458,7 +458,7 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
-		 * predicate is of the prototype: function(element:*):*
+		 * predicate is of the prototype: function(element:*):Boolean
 		 * 
 		 * @return The first element in the sequence that passes the test in the specified predicate function.
 		 * 
@@ -487,7 +487,7 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
-		 * predicate is of the prototype: function(element:*):*
+		 * predicate is of the prototype: function(element:*):Boolean
 		 * 
 		 * @return The first element in the sequence that passes the test in the specified predicate function.
 		 * 
@@ -513,7 +513,7 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
-		 * predicate is of the prototype: function(element:*):*
+		 * predicate is of the prototype: function(element:*):Boolean
 		 * 
 		 * @return The last element in the sequence that passes the test in the specified predicate function.
 		 * 
@@ -542,7 +542,7 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
-		 * predicate is of the prototype: function(element:*):*
+		 * predicate is of the prototype: function(element:*):Boolean
 		 * 
 		 * @return The last element in the sequence that passes the test in the specified predicate function.
 		 * 
@@ -558,8 +558,59 @@ package System.Collection.Generic
 		 */
 		function lastOrNone(predicate:Function=null):Option;
 		
-		function Single(predicate:Function=null):*;
-		function SingleOrNone(predicate:Function=null):Option;
+		/**
+		 * Returns the only element of a sequence that satisfies an optional condition, and throws an exception if more than one such element exists.
+		 * 
+		 * <p>single can be called in any of two overloads:
+		 * <ul>
+		 *   <li>single():*</li>
+		 *   <li>single(predicate:Function):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * predicate is of the prototype: function(element:*):Boolean
+		 * 
+		 * @return The single element of the input sequence that satisfies an optional condition.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 * 
+		 * @see first
+		 * @see firstOrNone
+		 * @see last
+		 * @see lastOrNone
+		 * @see singleOrNone
+		 * @see elementAt
+		 * @see elementAtOrNone
+		 */
+		function single(predicate:Function=null):*;
+		
+		/**
+		 * Returns the only element of a sequence that satisfies an optional condition or none if no such element exists
+		 * 
+		 * <p>lastOrNone can be called in any of two overloads:
+		 * <ul>
+		 *   <li>singleOrNone():*</li>
+		 *   <li>singleOrNone(predicate:Function):*</li>
+		 * </ul>
+		 * </p>
+		 * 
+		 * predicate is of the prototype: function(element:*):Boolean
+		 * 
+		 * @return The single element of the input sequence that satisfies the condition, or none if no such element is found.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 *
+		 * @see first
+		 * @see firstOrNone
+		 * @see last
+		 * @see lastOrNone
+		 * @see single
+		 * @see elementAt
+		 * @see elementAtOrNone
+		 */
+		function singleOrNone(predicate:Function=null):Option;
+		
+		
 		function ElementAt(index:int):*;
 		function ElementAtOrNone(index:int):Option;
 		function Any(predicate:Function=null):Boolean;
@@ -575,7 +626,7 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
-		 * predicate is of the prototype: function(element:*):*
+		 * predicate is of the prototype: function(element:*):Boolean
 		 * 
 		 * @return The number of elements in the input sequence.
 		 * 

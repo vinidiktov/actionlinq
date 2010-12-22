@@ -340,8 +340,8 @@ package System.Linq
 			return where(predicate).Aggregate(none, function(acc, x) { return some(x)});
 		}
 		
-		public function Single(predicate:Function=null):* {
-			var result:Option = SingleOrNone(predicate);
+		public function single(predicate:Function=null):* {
+			var result:Option = singleOrNone(predicate);
 			
 			if(result.isNone)
 				throw new RangeError("Sequence does not contain one element");
@@ -349,7 +349,7 @@ package System.Linq
 			return result.value;
 		}
 		
-		public function SingleOrNone(predicate:Function=null):Option {
+		public function singleOrNone(predicate:Function=null):Option {
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			

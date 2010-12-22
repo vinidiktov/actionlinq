@@ -388,7 +388,7 @@ package System.Linq
 			return where(predicate).getEnumerator().MoveNext();
 		}
 		
-		public function All(predicate:Function):Boolean {
+		public function all(predicate:Function):Boolean {
 			throwIfArgumentIsNull(predicate, "predicate");
 			
 			var enumerator:IEnumerator = getEnumerator();

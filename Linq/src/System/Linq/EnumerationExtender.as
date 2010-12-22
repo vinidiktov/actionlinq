@@ -138,8 +138,8 @@ package System.Linq
 			c.prototype.any = function(predicate:Function=null):Boolean {
 				return this.asEnumerable().any(predicate);
 			}		
-			c.prototype.All = function(predicate:Function):Boolean {
-				return this.asEnumerable().All(predicate);
+			c.prototype.all = function(predicate:Function):Boolean {
+				return this.asEnumerable().all(predicate);
 			}
 			c.prototype.Count = function(predicate:Function=null):int {
 				return this.asEnumerable().Count(predicate);
@@ -175,7 +175,7 @@ package System.Linq
 								"toArrayCollection", "toList", "toDictionary", "toLookup", 
 								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
 								"lastOrNone", "single", "singleOrNone", "elementAt", "elementAtOrNone",
-								"any", "All", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
+								"any", "all", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
 								"Average", "Each"];
 			
 			Enumerable.From(names).Each(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });

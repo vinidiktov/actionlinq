@@ -653,6 +653,8 @@ package System.Collection.Generic
 		/**
 		 * Determines whether any element of a sequence satisfies a condition.
 		 * 
+		 * predicate is of the prototype: function(element:*):Boolean
+		 * 
 		 * @return true if any elements in the source sequence pass the test in the optional predicate; otherwise, false.
 		 * 
 		 * @param predicate A function to test each element for a condition.
@@ -661,7 +663,18 @@ package System.Collection.Generic
 		 */
 		function any(predicate:Function=null):Boolean;
 		
-		function All(predicate:Function):Boolean;
+		/**
+		 * Determines whether all elements of a sequence satisfy a condition.
+		 * 
+		 * predicate is of the prototype: function(element:*):Boolean
+		 * 
+		 * @return true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
+		 * 
+		 * @throw ArgumentError when predicate is null
+		 * 
+		 * @see any
+		 */
+		function all(predicate:Function):Boolean;
 		
 		/**
 		 * Returns the number of elements in a sequence

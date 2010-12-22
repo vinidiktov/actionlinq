@@ -57,11 +57,9 @@ package flexUnitTests
 			assertThat(single.isNone);
 		}
 		
-		[Test]
-		public function singleOrNone_returns_none_when_more_than_one():void {
+		[Test(expected="RangeError")]
+		public function singleOrNone_throws_RangeError_when_more_than_one():void {
 			var single:Option = [1,2].singleOrNone();
-			
-			assertThat(single.isNone);
 		}
 		
 		[Test]
@@ -78,11 +76,9 @@ package flexUnitTests
 			assertThat(single.isNone);
 		}
 		
-		[Test]
-		public function singleOrNone_with_predicate_returns_none_when_more_than_one():void {
+		[Test(expected="RangeError")]
+		public function singleOrNone_with_predicate_throws_RangeError_none_when_more_than_one():void {
 			var single:Option = [2,3,4,4].singleOrNone(function(x){return x == 4});
-			
-			assertThat(single.isNone);
 		}
 	}
 }

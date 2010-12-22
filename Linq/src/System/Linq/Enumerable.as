@@ -361,7 +361,7 @@ package System.Linq
 			var result:Option = some(enumerator.Current());
 			
 			if(enumerator.MoveNext())
-				return none;
+				throw new RangeError("Sequence does not contain one element");
 			
 			return result;
 		}

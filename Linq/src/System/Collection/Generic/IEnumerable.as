@@ -574,6 +574,8 @@ package System.Collection.Generic
 		 * 
 		 * @param predicate A function to test each element for a condition.
 		 * 
+		 * @throw RangeError if sequence contains zero or more than one item
+		 * 
 		 * @see first
 		 * @see firstOrNone
 		 * @see last
@@ -585,7 +587,7 @@ package System.Collection.Generic
 		function single(predicate:Function=null):*;
 		
 		/**
-		 * Returns the only element of a sequence that satisfies an optional condition or none if no such element exists
+		 * Returns the only element of a sequence that satisfies an optional condition or none if no such element exists; this method throws an exception if more than one element satisfies the condition.
 		 * 
 		 * <p>lastOrNone can be called in any of two overloads:
 		 * <ul>
@@ -600,6 +602,8 @@ package System.Collection.Generic
 		 * 
 		 * @param predicate A function to test each element for a condition.
 		 *
+		 * @throw RangeError if sequence contains more than one item
+		 * 
 		 * @see first
 		 * @see firstOrNone
 		 * @see last

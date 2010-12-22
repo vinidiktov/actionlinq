@@ -256,7 +256,16 @@ package System.Collection.Generic
 		 */
 		function zip(second:IEnumerable, resultSelector:Function):IEnumerable;
 		
-		function Distinct(comparer:IEqualityComparer=null):IEnumerable;
+		/**
+		 * Returns distinct elements from a sequence, optionally using a specified IEqualityComparer to compare values.
+		 * 
+		 * @return An IEnumerable that contains distinct elements from the source sequence.
+		 * 
+		 * @param An IEqualityComparer to compare values.
+		 */
+		function distinct(comparer:IEqualityComparer=null):IEnumerable;
+		
+		
 		function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable;
 		
 		/**

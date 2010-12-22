@@ -166,14 +166,14 @@ package System.Linq
 					return new ZipEnumerator(source, second, resultSelector) });
 		}
 		
-		public function Distinct(comparer:IEqualityComparer=null):IEnumerable {
+		public function distinct(comparer:IEqualityComparer=null):IEnumerable {
 			return new Enumerable(this,
 				function(source:*):IEnumerator {
 					return new DistinctEnumerator(source, comparer) });
 		}
 		
 		public function Union(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {
-			return concat(second).Distinct(comparer);
+			return concat(second).distinct(comparer);
 		}
 		
 		public function intersect(second:IEnumerable, comparer:IEqualityComparer=null):IEnumerable {

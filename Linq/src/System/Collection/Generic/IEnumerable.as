@@ -614,9 +614,43 @@ package System.Collection.Generic
 		 */
 		function singleOrNone(predicate:Function=null):Option;
 		
+		/**
+		 * Returns the element at a specified index in a sequence.
+		 * 
+		 * @return The element at the specified position in the source sequence.
+		 * 
+		 * @param index The zero-based index of the element to retrieve.
+		 * 
+		 * @throw RangeError if index is less than 0 or greater than or equal to the number of elements in source.
+		 * 
+		 * @see first
+		 * @see firstOrNone
+		 * @see last
+		 * @see lastOrNone
+		 * @see single
+		 * @see singleOrNone
+		 * @see elementAt
+		 */
+		function elementAt(index:int):*;
 		
-		function ElementAt(index:int):*;
-		function ElementAtOrNone(index:int):Option;
+		/**
+		 * Returns the element at a specified index in a sequence or none if the index is out of range.
+		 * 
+		 * @return The single element of the input sequence that satisfies the condition, or none if no such element is found.
+		 * 
+		 * @param index The zero-based index of the element to retrieve.
+		 * 
+		 * @see first
+		 * @see firstOrNone
+		 * @see last
+		 * @see lastOrNone
+		 * @see single
+		 * @see singleOrNone
+		 * @see elementAt
+		 */
+		function elementAtOrNone(index:int):Option;
+		
+		
 		function Any(predicate:Function=null):Boolean;
 		function All(predicate:Function):Boolean;
 		

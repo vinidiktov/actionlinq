@@ -129,11 +129,11 @@ package System.Linq
 			c.prototype.singleOrNone = function(predicate:Function=null):* {
 				return this.asEnumerable().singleOrNone(predicate);
 			}
-			c.prototype.ElementAt = function(index:int):* {
-				return this.asEnumerable().ElementAt(index);
+			c.prototype.elementAt = function(index:int):* {
+				return this.asEnumerable().elementAt(index);
 			}
-			c.prototype.ElementAtOrNone = function(index:int):Option {
-				return this.asEnumerable().ElementAtOrNone(index);
+			c.prototype.elementAtOrNone = function(index:int):Option {
+				return this.asEnumerable().elementAtOrNone(index);
 			}
 			c.prototype.Any = function(predicate:Function=null):Boolean {
 				return this.asEnumerable().Any(predicate);
@@ -173,7 +173,7 @@ package System.Linq
 								"except", "reverseEnumerate", "sequenceEqual", "toArray", 
 								"toArrayCollection", "toList", "toDictionary", "toLookup", 
 								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
-								"lastOrNone", "single", "singleOrNone", "ElementAt", "ElementAtOrNone",
+								"lastOrNone", "single", "singleOrNone", "elementAt", "elementAtOrNone",
 								"Any", "All", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
 								"Average", "Each"];
 			

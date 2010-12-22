@@ -366,8 +366,8 @@ package System.Linq
 			return result;
 		}
 		
-		public function ElementAt(index:int):* {
-			var result:Option = ElementAtOrNone(index);
+		public function elementAt(index:int):* {
+			var result:Option = elementAtOrNone(index);
 			
 			if(result.isNone)
 				throw new RangeError("Index was out of range");
@@ -375,7 +375,7 @@ package System.Linq
 			return result.value;
 		}
 		
-		public function ElementAtOrNone(index:int):Option {
+		public function elementAtOrNone(index:int):Option {
 			var count:int = 0;
 			return firstOrNone(function(x) {return (count++ == index);});
 		}

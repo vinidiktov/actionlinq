@@ -650,8 +650,17 @@ package System.Collection.Generic
 		 */
 		function elementAtOrNone(index:int):Option;
 		
+		/**
+		 * Determines whether any element of a sequence satisfies a condition.
+		 * 
+		 * @return true if any elements in the source sequence pass the test in the optional predicate; otherwise, false.
+		 * 
+		 * @param predicate A function to test each element for a condition.
+		 * 
+		 * @see all
+		 */
+		function any(predicate:Function=null):Boolean;
 		
-		function Any(predicate:Function=null):Boolean;
 		function All(predicate:Function):Boolean;
 		
 		/**

@@ -9,24 +9,23 @@ package flexUnitTests
 	public class AnyTests extends EnumerableTestsBase
 	{		
 		[Test]
-		public function Populated_Enumerable_Has_Any():void {
-			assertThat([1].Any(), equalTo(true));
+		public function populated_enumerable_has_any():void {
+			assertThat([1].any(), equalTo(true));
 		}
 		
 		[Test]
-		public function Unpopulated_Enumerable_Does_Not_Have_Any():void {
-			assertThat([].Any(), equalTo(false));
+		public function unpopulated_enumerable_does_not_have_any():void {
+			assertThat([].any(), equalTo(false));
 		}
 		
 		[Test]
-		public function Any_With_Predicate_Returns_True_When_Matched():void {
-			assertThat([1,2,3].Any(function(x){return x > 2}), equalTo(true));
+		public function any_with_predicate_returns_true_when_matched():void {
+			assertThat([1,2,3].any(function(x){return x > 2}), equalTo(true));
 		}
 		
 		[Test]
-		public function Any_With_Predicate_Returns_False_When_Not_Matched():void {
-			assertThat([1,2].Any(function(x){return x > 2}), equalTo(false));
+		public function any_with_predicate_returns_false_when_not_matched():void {
+			assertThat([1,2].any(function(x){return x > 2}), equalTo(false));
 		}
-		
 	}
 }

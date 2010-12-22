@@ -1,5 +1,6 @@
 package flexUnitTests
 {
+	import System.Linq.Enumerable;
 	import System.Linq.Option.Option;
 	
 	import org.flexunit.assertThat;

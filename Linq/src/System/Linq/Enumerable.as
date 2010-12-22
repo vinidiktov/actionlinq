@@ -292,7 +292,7 @@ package System.Linq
 		}
 		
 		public function noneIfEmpty():Option {
-			return Any() ? some(this) : none;
+			return any() ? some(this) : none;
 		}
 		
 		public function ofType(type:Class):IEnumerable {
@@ -381,7 +381,7 @@ package System.Linq
 		}
 			
 		
-		public function Any(predicate:Function=null):Boolean {
+		public function any(predicate:Function=null):Boolean {
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			

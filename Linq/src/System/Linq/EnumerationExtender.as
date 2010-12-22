@@ -135,8 +135,8 @@ package System.Linq
 			c.prototype.elementAtOrNone = function(index:int):Option {
 				return this.asEnumerable().elementAtOrNone(index);
 			}
-			c.prototype.Any = function(predicate:Function=null):Boolean {
-				return this.asEnumerable().Any(predicate);
+			c.prototype.any = function(predicate:Function=null):Boolean {
+				return this.asEnumerable().any(predicate);
 			}		
 			c.prototype.All = function(predicate:Function):Boolean {
 				return this.asEnumerable().All(predicate);
@@ -166,6 +166,7 @@ package System.Linq
 				this.asEnumerable().Each(action);
 			}
 				
+				
 			var names:Array = [ "asEnumerable", "getEnumerator", "where", "select", 
 								"selectMany", "take", "takeWhile", "skip", "skipWhile", 
 								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", 
@@ -174,7 +175,7 @@ package System.Linq
 								"toArrayCollection", "toList", "toDictionary", "toLookup", 
 								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
 								"lastOrNone", "single", "singleOrNone", "elementAt", "elementAtOrNone",
-								"Any", "All", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
+								"any", "All", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
 								"Average", "Each"];
 			
 			Enumerable.From(names).Each(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });

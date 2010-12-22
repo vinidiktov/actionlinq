@@ -257,7 +257,7 @@ package System.Linq
 			return dictionary;
 		}
 		
-		private function identity(x) { return x; }
+		public static function identity(x) { return x; }
 		
 		public function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary {
 			throwIfArgumentIsNull(keySelector, "keySelector");

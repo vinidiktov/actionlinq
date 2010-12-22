@@ -31,6 +31,7 @@
 			import flexUnitTests.GroupByTests;
 			import flexUnitTests.FirstTests;
 			import flexUnitTests.ExceptTests;
+			import flexUnitTests.Examples;
 			import flexUnitTests.EnumerableTests;
 			import flexUnitTests.ElementAtTests;
 			import flexUnitTests.DistinctTests;
@@ -55,6 +56,7 @@
 				testsToRun.push(flexUnitTests.DistinctTests);
 				testsToRun.push(flexUnitTests.ElementAtTests);
 				testsToRun.push(flexUnitTests.EnumerableTests);
+				testsToRun.push(flexUnitTests.Examples);
 				testsToRun.push(flexUnitTests.ExceptTests);
 				testsToRun.push(flexUnitTests.FirstTests);
 				testsToRun.push(flexUnitTests.GroupByTests);

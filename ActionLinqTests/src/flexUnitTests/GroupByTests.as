@@ -65,9 +65,9 @@ package flexUnitTests
 										 null,
 										 function(age, pets) { return {
 											 					key:   age, 
-																count: pets.Count(), 
-																min:   pets.Min(function(pet) { return pet.age }), 
-																max:   pets.Max(function(pet) { return pet.age }) }})
+																count: pets.count(), 
+																min:   pets.min(function(pet) { return pet.age }), 
+																max:   pets.max(function(pet) { return pet.age }) }})
 								.select(function(x) { return x.key + " " + x.count + " " + x.min + " " + x.max}) 
 								.toArray();
 			
@@ -87,9 +87,9 @@ package flexUnitTests
 										 function(pet) { return pet.age },
 										 function(baseAge, ages) { return {
 																key:   baseAge, 
-																count: ages.Count(), 
-																min:   ages.Min(), 
-																max:   ages.Max() }})
+																count: ages.count(), 
+																min:   ages.min(), 
+																max:   ages.max() }})
 				.select(function(x) { return x.key + " " + x.count + " " + x.min + " " + x.max}) 
 				.toArray();
 			

@@ -141,29 +141,29 @@ package System.Linq
 			c.prototype.all = function(predicate:Function):Boolean {
 				return this.asEnumerable().all(predicate);
 			}
-			c.prototype.Count = function(predicate:Function=null):int {
-				return this.asEnumerable().Count(predicate);
+			c.prototype.count = function(predicate:Function=null):int {
+				return this.asEnumerable().count(predicate);
 			}
-			c.prototype.Contains = function(value:*, comparer:IEqualityComparer=null):Boolean {
-				return this.asEnumerable().Contains(value, comparer);
+			c.prototype.contains = function(value:*, comparer:IEqualityComparer=null):Boolean {
+				return this.asEnumerable().contains(value, comparer);
 			}
-			c.prototype.Aggregate = function(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
-				return this.asEnumerable().Aggregate(funcOrSeed, func, resultSelector);
+			c.prototype.aggregate = function(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
+				return this.asEnumerable().aggregate(funcOrSeed, func, resultSelector);
 			}
-			c.prototype.Sum =  function(selector:Function=null):* {
-				return this.asEnumerable().Sum(selector);
+			c.prototype.sum =  function(selector:Function=null):* {
+				return this.asEnumerable().sum(selector);
 			}
-			c.prototype.Min = function(selector:Function=null):* {
-				return this.asEnumerable().Min(selector);
+			c.prototype.min = function(selector:Function=null):* {
+				return this.asEnumerable().min(selector);
 			}
-			c.prototype.Max = function(selector:Function=null):* {
-				return this.asEnumerable().Max(selector);
+			c.prototype.max = function(selector:Function=null):* {
+				return this.asEnumerable().max(selector);
 			}
-			c.prototype.Average = function(selector:Function=null):* {
-				return this.asEnumerable().Average(selector);
+			c.prototype.average = function(selector:Function=null):* {
+				return this.asEnumerable().average(selector);
 			}
-			c.prototype.Each = function(action:Function):* {
-				this.asEnumerable().Each(action);
+			c.prototype.eachElement = function(action:Function):* {
+				this.asEnumerable().eachElement(action);
 			}
 				
 				
@@ -175,10 +175,10 @@ package System.Linq
 								"toArrayCollection", "toList", "toDictionary", "toLookup", 
 								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
 								"lastOrNone", "single", "singleOrNone", "elementAt", "elementAtOrNone",
-								"any", "all", "Count", "Contains","Aggregate", "Sum", "Min", "Max", 
-								"Average", "Each"];
+								"any", "all", "count", "contains","aggregate", "sum", "min", "max", 
+								"average", "eachElement"];
 			
-			Enumerable.From(names).Each(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
+			Enumerable.From(names).eachElement(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
 		}
 	}
 }

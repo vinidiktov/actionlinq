@@ -166,7 +166,7 @@ package flexUnitTests
 			var data:Array = [1,2,3];
 			var enumerable:IEnumerable = Enumerable(data);
 			
-			assertThat(enumerable.Sum(), equalTo(6));
+			assertThat(enumerable.sum(), equalTo(6));
 		}
 		
 		[Test]
@@ -238,7 +238,7 @@ package flexUnitTests
 		public function Each_Runs_An_Action_On_Each():void {
 			var count:int = 0;
 			var set:Array = [1, 2, 3, 4];
-			set.Each(function(){count++});
+			set.eachElement(function(){count++});
 			
 			assertThat(count, equalTo(4));
 		}
@@ -247,7 +247,7 @@ package flexUnitTests
 		public function Each_Runs_An_Action_On_Each_With_Parameter():void {
 			var count:int = 0;
 			var set:Array = [1, 2, 3, 4];
-			set.Each(function(x){count+= x});
+			set.eachElement(function(x){count+= x});
 			
 			assertThat(count, equalTo(10));
 		}

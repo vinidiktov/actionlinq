@@ -14,10 +14,10 @@ package flexUnitTests
 				.select(function(x) { return x * 4 } )
 				.skip(1);
 			
-			var result:int = morphed.Sum();
+			var result:int = morphed.sum();
 			Assert.assertEquals(result, 32);
 			
-			result = morphed.Sum();
+			result = morphed.sum();
 			Assert.assertEquals(result, 32);
 			
 		}

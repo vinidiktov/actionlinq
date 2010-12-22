@@ -277,7 +277,7 @@ package System.Linq
 			
 			var result:Lookup = new Lookup();
 			
-			Each(function(x:*):void { result.add(keySelector(x), elementSelector(x)) });
+			eachElement(function(x:*):void { result.add(keySelector(x), elementSelector(x)) });
 			
 			return result;
 		}
@@ -337,7 +337,7 @@ package System.Linq
 			if(predicate == null)
 				predicate = function(x) { return true; };
 			
-			return where(predicate).Aggregate(none, function(acc, x) { return some(x)});
+			return where(predicate).aggregate(none, function(acc, x) { return some(x)});
 		}
 		
 		public function single(predicate:Function=null):* {
@@ -401,7 +401,7 @@ package System.Linq
 			return true;
 		}
 		
-		public function Count(predicate:Function=null):int {
+		public function count(predicate:Function=null):int {
 			var enumerator:IEnumerator = predicate != null ? where(predicate).getEnumerator() : getEnumerator();
 			
 			if("internalCount" in enumerator)
@@ -415,7 +415,7 @@ package System.Linq
 			return count;
 		}
 		
-		public function Contains(value:*, comparer:IEqualityComparer=null):Boolean {
+		public function contains(value:*, comparer:IEqualityComparer=null):Boolean {
 			if(comparer == null) {
 			    var result:Option = firstOrNone(function(x) { return x == value });
 			}
@@ -426,7 +426,7 @@ package System.Linq
 			return result.isSome;
 		}
 		
-		public function Aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
+		public function aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):* {
 			
 			var enumerator:IEnumerator = getEnumerator();
 			
@@ -454,19 +454,19 @@ package System.Linq
 			return resultSelector(aggregate);
 		}
 		
-		public function Sum(selector:Function=null):* {
+		public function sum(selector:Function=null):* {
 			if(selector == null)
 				selector = identity;
 			
-			return Aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
+			return aggregate(0.0, function(accumulator:*, item:*) { return accumulator + selector(item) });
 		}
 		
-		public function Average(selector:Function=null):* {
+		public function average(selector:Function=null):* {
 			if(selector == null)
 				selector = identity;
 			
 			var count:int = 0;
-			var sum:* = Aggregate(0.0, function(accumulator:*, item:*) 
+			var sum:* = aggregate(0.0, function(accumulator:*, item:*) 
 			{
 				count++;
 				return accumulator + selector(item) 
@@ -493,13 +493,13 @@ package System.Linq
 			return extreme;
 		}
 		
-		public function Min(selector:Function=null):* {
+		public function min(selector:Function=null):* {
 			return ExtremeSelector(
 				function(left:*, right:*):* { return left < right },
 				selector);
 		}
 		
-		public function Max(selector:Function=null):* {
+		public function max(selector:Function=null):* {
 			return ExtremeSelector(
 				function(left:*, right:*):* { return left > right },
 				selector);
@@ -531,10 +531,10 @@ package System.Linq
 		}
 		
 		public static function Times(count:int, action:Function):void {
-			Range(count).Each(action);
+			Range(count).eachElement(action);
 		}
 		
-		public function Each(action:Function):void {
+		public function eachElement(action:Function):void {
 			var enumerator:IEnumerator = getEnumerator();
 			while(enumerator.MoveNext())
 				action(enumerator.Current());

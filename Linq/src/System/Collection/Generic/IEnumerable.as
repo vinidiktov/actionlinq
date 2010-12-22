@@ -408,7 +408,7 @@ package System.Collection.Generic
 		 * @throws ArgumentError if keySelector returns a null key
 		 * 
 		 * @see toArray
-		 * @see ToDictionary
+		 * @see toDictionary
 		 * @see toArrayCollection
 		 */
 		function toLookup(keySelector:Function, elementSelector:Function=null):ILookup;
@@ -418,7 +418,7 @@ package System.Collection.Generic
 		 * 
 		 * @return None if source is empty; otherwise some IEnumerable
 		 * 
-		 * @see Any
+		 * @see any
 		 */ 
 		function noneIfEmpty():Option;
 		
@@ -430,7 +430,7 @@ package System.Collection.Generic
 		 * @param The type to filter the elements of the sequence on.
 		 * 
 		 * @see cast
-		 * @see Where
+		 * @see where
 		 */ 
 		function ofType(type:Class):IEnumerable;
 		
@@ -443,7 +443,7 @@ package System.Collection.Generic
 		 * 
 		 * @throws TypeError
 		 * 
-		 * @see Select
+		 * @see select
 		 * @see ofType
 		 */ 
 		function cast(type:Class):IEnumerable;
@@ -692,11 +692,11 @@ package System.Collection.Generic
 		 * 
 		 * @param predicate A function to test each element for a condition.
 		 * 
-		 * @see First
-		 * @see Last
+		 * @see first
+		 * @see last
 		 * 
 		 */ 
-		function Count(predicate:Function=null):int;
+		function count(predicate:Function=null):int;
 		
 		/**
 		 * Determines whether a sequence contains a specified element, optionally using an eauality comparer
@@ -713,10 +713,10 @@ package System.Collection.Generic
 		 * @param value The value to locate in the sequence.
 		 * @param comparer An equality comparer to compare values.
 		 * 
-		 * @see Any
-		 * @see All
+		 * @see any
+		 * @see all
 		 */ 
-		function Contains(value:*, comparer:IEqualityComparer=null):Boolean;
+		function contains(value:*, comparer:IEqualityComparer=null):Boolean;
 		
 		/**
 		 * Applies an accumulator function over a sequence.
@@ -739,12 +739,12 @@ package System.Collection.Generic
 		 * 
 		 * @throws RangeError
 		 * 
-		 * @see Sum
-		 * @see Min
-		 * @see Max
-		 * @see Average
+		 * @see sum
+		 * @see min
+		 * @see max
+		 * @see average
 		 */
-		function Aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):*;
+		function aggregate(funcOrSeed:*, func:Function=null, resultSelector:Function=null):*;
 		
 		/**
 		 * Computes the sum of a sequence of values.
@@ -757,10 +757,10 @@ package System.Collection.Generic
 		 * 
 		 * @throws RangeError
 		 * 
-		 * @see Aggregate
-		 * @see Average
+		 * @see aggregate
+		 * @see average
 		 */
-		function Sum(selector:Function=null):*;
+		function sum(selector:Function=null):*;
 		
 		/**
 		 * Returns the minimum value in a sequence of values. 
@@ -773,10 +773,10 @@ package System.Collection.Generic
 		 * 
 		 * @throws RangeError
 		 * 
-		 * @see Aggregate
-		 * @see Max
+		 * @see aggregate
+		 * @see max
 		 */
-		function Min(selector:Function=null):*;
+		function min(selector:Function=null):*;
 		
 		/**
 		 * Returns the maximum value in a sequence of values. 
@@ -789,10 +789,10 @@ package System.Collection.Generic
 		 * 
 		 * @throws RangeError
 		 * 
-		 * @see Aggregate
-		 * @see Min
+		 * @see aggregate
+		 * @see min
 		 */
-		function Max(selector:Function=null):*;
+		function max(selector:Function=null):*;
 		
 		/**
 		 * Returns the average value in a sequence of values. 
@@ -805,10 +805,10 @@ package System.Collection.Generic
 		 * 
 		 * @throws RangeError
 		 * 
-		 * @see Aggregate
-		 * @see Sum
+		 * @see aggregate
+		 * @see sum
 		 */
-		function Average(selector:Function=null):*;
+		function average(selector:Function=null):*;
 		
 		/**
 		 * Invokes an action on each value in a sequence
@@ -817,6 +817,6 @@ package System.Collection.Generic
 		 * 
 		 * @param action The action to execute on each element in a sequence 
 		 */
-		function Each(action:Function):void;
+		function eachElement(action:Function):void;
 	}
 }

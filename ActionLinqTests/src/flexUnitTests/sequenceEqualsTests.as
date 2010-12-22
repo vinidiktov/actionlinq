@@ -14,7 +14,7 @@ package flexUnitTests
 			var first:Array = [1,2,3];
 			var second:Array = [1,2,3];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second)));
+			assertThat(first.sequenceEqual(Enumerable.from(second)));
 		}
 		
 		[Test]
@@ -22,7 +22,7 @@ package flexUnitTests
 			var first:Array = [1,2,3];
 			var second:Array = [1,2,4];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second)), equalTo(false));
+			assertThat(first.sequenceEqual(Enumerable.from(second)), equalTo(false));
 		}
 		
 		[Test]
@@ -30,7 +30,7 @@ package flexUnitTests
 			var first:Array = [1,2,3,4];
 			var second:Array = [1,2,3];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second)), equalTo(false));
+			assertThat(first.sequenceEqual(Enumerable.from(second)), equalTo(false));
 		}
 		
 		[Test]
@@ -38,7 +38,7 @@ package flexUnitTests
 			var first:Array = [1,2,3];
 			var second:Array = [1,2,3,4];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second)), equalTo(false));
+			assertThat(first.sequenceEqual(Enumerable.from(second)), equalTo(false));
 		}
 		
 		[Test(expected="ArgumentError")]
@@ -53,7 +53,7 @@ package flexUnitTests
 			var first:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567)];
 			var second:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567)];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second), new ModelComparator()));
+			assertThat(first.sequenceEqual(Enumerable.from(second), new ModelComparator()));
 		}
 		
 		[Test]
@@ -61,7 +61,7 @@ package flexUnitTests
 			var first:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567)];
 			var second:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 45678)];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second), new ModelComparator()), equalTo(false));
+			assertThat(first.sequenceEqual(Enumerable.from(second), new ModelComparator()), equalTo(false));
 		}
 		
 		[Test]
@@ -69,7 +69,7 @@ package flexUnitTests
 			var first:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567), new TestModel("eli", 0, 56789)];
 			var second:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567)];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second), new ModelComparator()), equalTo(false));
+			assertThat(first.sequenceEqual(Enumerable.from(second), new ModelComparator()), equalTo(false));
 		}
 		
 		[Test]
@@ -77,7 +77,7 @@ package flexUnitTests
 			var first:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567)];
 			var second:Array = [new TestModel("brian", 33, 12345), new TestModel("cara", 34, 23456), new TestModel("maia", 4, 34567), new TestModel("eli", 0, 56789)];
 			
-			assertThat(first.sequenceEqual(Enumerable.From(second), new ModelComparator()), equalTo(false));
+			assertThat(first.sequenceEqual(Enumerable.from(second), new ModelComparator()), equalTo(false));
 		}
 		
 	}

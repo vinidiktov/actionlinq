@@ -36,10 +36,10 @@ package System.Linq
 		
 		public static function InitializeClass(c:Class):void {
 			c.prototype.asEnumerable = function():IEnumerable {
-				return Enumerable.From(this);
+				return Enumerable.from(this);
 			};
 			c.prototype.getEnumerator = function():IEnumerator {
-				return Enumerable.From(this).getEnumerator();
+				return Enumerable.from(this).getEnumerator();
 			};
 			c.prototype.where = function(predicate:Function):IEnumerable {
 				return this.asEnumerable().where(predicate);
@@ -192,7 +192,7 @@ package System.Linq
 								"any", "all", "count", "contains","aggregate", "sum", "min", "max", 
 								"average", "eachElement"];
 			
-			Enumerable.From(names).eachElement(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
+			Enumerable.from(names).eachElement(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
 		}
 	}
 }

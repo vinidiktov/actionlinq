@@ -40,7 +40,7 @@ package System.Linq
 			
 			var sortedArray:Array = enumerator.toArray();
 			sortedArray.sort(sortFunction);
-			sortedEnumerator = Enumerable.From(sortedArray).getEnumerator();
+			sortedEnumerator = Enumerable.from(sortedArray).getEnumerator();
 			return sortedEnumerator;
 		}
 		

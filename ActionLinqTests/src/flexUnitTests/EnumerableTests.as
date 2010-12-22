@@ -47,7 +47,7 @@ package flexUnitTests
 		{
 			var data:ArrayCollection = new ArrayCollection([1,2,3]);
 			
-			var enumerable:IEnumerable = Enumerable.From(data);
+			var enumerable:IEnumerable = Enumerable.from(data);
 			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
@@ -63,7 +63,7 @@ package flexUnitTests
 		public function Calling_Reset_Will_Reset_The_Enumerator_From_IList()
 		{
 			var data:ArrayCollection = new ArrayCollection([1,2,3,4]);
-			var enumerable:IEnumerable = Enumerable.From(data);
+			var enumerable:IEnumerable = Enumerable.from(data);
 			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			enumerator.MoveNext();
@@ -79,7 +79,7 @@ package flexUnitTests
 		{
 			var data:Vector.<int> = Vector.<int>([1,2,3]);
 			
-			var enumerable:IEnumerable = Enumerable.From(data);
+			var enumerable:IEnumerable = Enumerable.from(data);
 			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
@@ -95,7 +95,7 @@ package flexUnitTests
 		public function Calling_Reset_Will_Reset_The_Enumerator_From_Vector()
 		{
 			var data:Vector.<int> = Vector.<int>([1,2,3]);
-			var enumerable:IEnumerable = Enumerable.From(data);
+			var enumerable:IEnumerable = Enumerable.from(data);
 			var enumerator:IEnumerator = enumerable.getEnumerator();
 			
 			enumerator.MoveNext();
@@ -114,7 +114,7 @@ package flexUnitTests
              				 <item>2</item>
              				 <item>3</item>
 				           </data>;
-			var enumerator:IEnumerator = Enumerable.From(data.item).getEnumerator();
+			var enumerator:IEnumerator = Enumerable.from(data.item).getEnumerator();
 			
 			Assert.assertTrue(enumerator.MoveNext());
 			Assert.assertEquals(enumerator.Current(), 1);
@@ -133,7 +133,7 @@ package flexUnitTests
 							<item>2</item>
 							<item>3</item>
 						   </data>;
-			var enumerator:IEnumerator = Enumerable.From(data.item).getEnumerator();
+			var enumerator:IEnumerator = Enumerable.from(data.item).getEnumerator();
 			
 			enumerator.MoveNext();
 			enumerator.MoveNext();
@@ -196,40 +196,40 @@ package flexUnitTests
 		
 		[Test]
 		public function EnumerableRange_Returns_Enumerable_From_Inputs() {
-			var range:IEnumerable = Enumerable.Range(0, 5);
+			var range:IEnumerable = Enumerable.range(0, 5);
 			
 			assertThat(range.toArray(), array(0, 1, 2, 3, 4));
 		}
 		
 		[Test]
 		public function EnumerableRange_With_Non_Zero_Start_Returns_Enumerable_From_Inputs() {
-			var range:IEnumerable = Enumerable.Range(5, 5);
+			var range:IEnumerable = Enumerable.range(5, 5);
 			
 			assertThat(range.toArray(), array(5, 6, 7, 8, 9));
 		}
 		
 		[Test]
 		public function EnumerableRange_With_One_Parameter_Assumes_Zero_Start() {
-			var range:IEnumerable = Enumerable.Range(5);
+			var range:IEnumerable = Enumerable.range(5);
 			
 			assertThat(range.toArray(), array(0, 1, 2, 3, 4));
 		}
 		
 		[Test]
 		public function EnumerableRepeat_with_item_repeats_n_times() {
-			var repeat:IEnumerable = Enumerable.Repeat("test", 3);
+			var repeat:IEnumerable = Enumerable.repeat("test", 3);
 			
 			assertThat(repeat.toArray(), array("test", "test", "test"));
 		}
 		
 		[Test(expected="RangeError")]
 		public function EnumerableRepeat_throws_RangeError_if_count_less_than_zero():void {
-			var repeat:IEnumerable = Enumerable.Repeat("test", -1);
+			var repeat:IEnumerable = Enumerable.repeat("test", -1);
 		}
 		
 		[Test]
 		public function EnumerableEmpty_returns_empty_enumerable():void {
-			var empty:IEnumerable = Enumerable.Empty();
+			var empty:IEnumerable = Enumerable.empty;
 			
 			assertThat(empty.toArray(), array());
 		}
@@ -255,7 +255,7 @@ package flexUnitTests
 		[Test]
 		public function Times_Does_Something_N_Times():void {
 			var count:int = 0;
-			Enumerable.Times(4, function(){count++});
+			Enumerable.times(4, function(){count++});
 			
 			assertThat(count, equalTo(4));
 		}
@@ -263,7 +263,7 @@ package flexUnitTests
 		[Test]
 		public function Times_Does_Something_N_Times_With_Parameter():void {
 			var count:int = 0;
-			Enumerable.Times(4, function(x){count+= x});
+			Enumerable.times(4, function(x){count+= x});
 			
 			assertThat(count, equalTo(6));
 		}

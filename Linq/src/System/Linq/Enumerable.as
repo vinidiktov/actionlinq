@@ -42,7 +42,7 @@ package System.Linq
 			this.enumeratorFactory = enumeratorFactory;	
 		} 
 		
-		public static function From(obj:Object) : IEnumerable {
+		public static function from(obj:Object) : IEnumerable {
 			if(obj is IEnumerable)
 				return obj as IEnumerable;
 			
@@ -207,7 +207,7 @@ package System.Linq
 		}
 		
 		public function reverse():IEnumerable {
-			return Enumerable.From(toArray().reverse());
+			return Enumerable.from(toArray().reverse());
 		}
 		
 		public function sequenceEqual(second:IEnumerable, comparer:IEqualityComparer=null):Boolean {
@@ -519,7 +519,7 @@ package System.Linq
 				selector);
 		}
 		
-		public static function Range(start:int, count:int=-1):IEnumerable {
+		public static function range(start:int, count:int=-1):IEnumerable {
 			if(count < 0)
 			{
 				count = start;
@@ -531,7 +531,7 @@ package System.Linq
 					return new RangeEnumerator(start, count) });
 		}
 	
-		public static function Repeat(element:*, count:int):IEnumerable {
+		public static function repeat(element:*, count:int):IEnumerable {
 			if(count < 0)
 				throw new RangeError("Count was less than zero");
 			
@@ -540,12 +540,10 @@ package System.Linq
 					return new RepeatEnumerator(element, count) });
 		}
 		
-		public static function Empty():IEnumerable {
-			return From([]);
-		}
+		public static const empty:IEnumerable = from([]);
 		
-		public static function Times(count:int, action:Function):void {
-			Range(count).eachElement(action);
+		public static function times(count:int, action:Function):void {
+			range(count).eachElement(action);
 		}
 		
 		public function eachElement(action:Function):void {

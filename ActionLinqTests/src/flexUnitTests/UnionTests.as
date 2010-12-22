@@ -14,7 +14,7 @@ package flexUnitTests
 			var setA:Array = [0,2,4,5,6,7];
 			var setB:Array = [1,3,5,7];
 			
-			var union:IEnumerable = setA.union(Enumerable.From(setB));
+			var union:IEnumerable = setA.union(Enumerable.from(setB));
 			
 			assertThat(union.toArray(), array(0,2,4,5,6,7,1,3));
 		}
@@ -29,7 +29,7 @@ package flexUnitTests
 				new TestModel("cara", 34, 123454321),
 				new TestModel("eli", 0, 345676543) ];
 			
-			var union:Array = setA.union(Enumerable.From(setB), new ModelComparator()).toArray();
+			var union:Array = setA.union(Enumerable.from(setB), new ModelComparator()).toArray();
 			
 			assertThat(union.length, equalTo(3));
 			assertThat(union[0].name, equalTo("brian"));
@@ -39,7 +39,7 @@ package flexUnitTests
 		
 		[Test(expected="ArgumentError")]
 		public function union_throws_ArgumentError_if_second_is_null():void {
-			var intersection = Enumerable.Empty().union(null);
+			var intersection = Enumerable.empty.union(null);
 		}
 		
 	}

@@ -50,7 +50,7 @@ package flexUnitTests
 		
 		[Test(expected="ArgumentError")]
 		public function concat_throws_ArgumentError_when_second_is_null():void {
-			var result = Enumerable.Empty().concat(null);
+			var result = Enumerable.empty.concat(null);
 		}
 		
 	}

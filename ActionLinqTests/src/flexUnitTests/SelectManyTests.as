@@ -39,7 +39,7 @@ package flexUnitTests
 			var dataB:IEnumerable = [2,5,8].asEnumerable();
 			
 			var result:IEnumerable = [1,4,7].selectMany(
-				function(x) { return x%2 ? dataB : Enumerable.From([]) },
+				function(x) { return x%2 ? dataB : Enumerable.from([]) },
 				function(x, y) { return x + y });
 			
 			assertThat(result.toArray(), array(3,6,9,9,12,15));

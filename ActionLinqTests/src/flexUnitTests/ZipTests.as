@@ -61,12 +61,12 @@ package flexUnitTests
 		
 		[Test(expected="ArgumentError")]
 		public function zip_throws_ArgumentError_when_second_is_null():void {
-			var result = Enumerable.Empty().zip(null, function(x,s){return x});
+			var result = Enumerable.empty.zip(null, function(x,s){return x});
 		}
 		
 		[Test(expected="ArgumentError")]
 		public function zip_throws_ArgumentError_when_resultSelector_is_null():void {
-			var result = Enumerable.Empty().zip(Enumerable.Empty(), null);
+			var result = Enumerable.empty.zip(Enumerable.empty, null);
 		}
 		
 	}

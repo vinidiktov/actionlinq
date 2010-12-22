@@ -61,7 +61,7 @@ package System.Collection.Generic
 		 * <p>selectMany can be called with two different overloads:
 		 * <ul>
 		 *   <li>selectMany(collectionSelector:Function):IEnumerable</li>
-		 *   <li>selectMany(collectionSelector:Function, resultSelector:Function</li>
+		 *   <li>selectMany(collectionSelector:Function, resultSelector:Function):IEnumerable</li>
 		 * </ul></p>
 		 * 
 		 * <p>collectionSelector can be of two prototypes
@@ -156,6 +156,9 @@ package System.Collection.Generic
 		/**
 		 * Correlates the elements of two sequences based on matching keys. The default equality comparer is used to compare keys.
 		 * 
+		 * outerKeySelector and innerKeySelector are of the prototype: function(element:*):*
+		 * resultSelector is of the prototype: function(inner:*, outer:*):*
+		 * 
 		 * @return An IEnumerable that has elements of type TResult that are obtained by performing an inner join on two sequences.
 		 * 
 		 * @param inner The sequence to join to the first sequence.
@@ -171,6 +174,9 @@ package System.Collection.Generic
 		
 		/**
 		 * Correlates the elements of two sequences based on equality of keys and groups the results. The default equality comparer is used to compare keys.
+		 * 
+		 * outerKeySelector and innerKeySelector are of the prototype: function(element:*):*
+		 * resultSelector is of the prototype: function(inner:*, inner:IEnumerable):*
 		 * 
 		 * @return An IEnumerable that contains elements =that are obtained by performing a grouped join on two sequences.
 		 * 
@@ -188,6 +194,8 @@ package System.Collection.Generic
 		/**
 		 * Sorts the elements of a sequence in ascending order by using an optional comparer.
 		 * 
+		 * keySelector is of the prototype: function(element:*):*
+		 * 
 		 * @return An IOrderedEnumerable whose elements are sorted according to a key.
 		 * 
 		 * @param keySelector A function to extract a key from an element.
@@ -203,6 +211,8 @@ package System.Collection.Generic
 		
 		/**
 		 * Sorts the elements of a sequence in descending order by using an optional comparer.
+		 * 
+		 * keySelector is of the prototype: function(element:*):*
 		 * 
 		 * @return An IOrderedEnumerable whose elements are sorted in descending order according to a key.
 		 * 
@@ -220,6 +230,9 @@ package System.Collection.Generic
 		/**
 		 * Groups the elements of a sequence according to a specified key selector function and creates a result value from each group and its key. 
 		 * The elements of each group are projected by using a specified function.
+		 * 
+		 * keySelector and elementSelector are of the prototype: function(element:*):*
+		 * resultSelector is of the prototype: function(key:*, elements:IEnumerable):*
 		 * 
 		 * @return A collection of elements where each element represents a projection over a group and its key.
 		 * 
@@ -246,6 +259,8 @@ package System.Collection.Generic
 		
 		/**
 		 * Merges two sequences by using the specified predicate function.
+		 * 
+		 * resultSelector is of the prototype: function(left*:, right:*):*
 		 * 
 		 * @return An IEnumerable that contains merged elements of two input sequences.
 		 * 
@@ -362,6 +377,8 @@ package System.Collection.Generic
 		/**
 		 * Creates a Dictionary from an IEnumerable according to specified key selector and element selector functions.
 		 * 
+		 * keySelector and elementSelector are of the prototype: function(element:*):*
+		 * 
 		 * @return A Dictionary that contains values selected from the input sequence.
 		 * 
 		 * @param keySelector A function to extract a key from each element.
@@ -379,6 +396,8 @@ package System.Collection.Generic
 		
 		/**
 		 * Creates a Lookup from an IEnumerable according to specified key selector and (optional) element selector functions.
+		 * 
+		 * keySelector and elementSelector are of the prototype: function(element:*):*
 		 * 
 		 * @return A Lookup that contains values selected from the input sequence.
 		 * 
@@ -439,6 +458,8 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
+		 * predicate is of the prototype: function(element:*):*
+		 * 
 		 * @return The first element in the sequence that passes the test in the specified predicate function.
 		 * 
 		 * @param predicate A function to test each element for a condition.
@@ -466,6 +487,8 @@ package System.Collection.Generic
 		 * </ul>
 		 * </p>
 		 * 
+		 * predicate is of the prototype: function(element:*):*
+		 * 
 		 * @return The first element in the sequence that passes the test in the specified predicate function.
 		 * 
 		 * @param predicate A function to test each element for a condition.
@@ -489,6 +512,8 @@ package System.Collection.Generic
 		 *   <li>last(predicate:Function):*</li>
 		 * </ul>
 		 * </p>
+		 * 
+		 * predicate is of the prototype: function(element:*):*
 		 * 
 		 * @return The last element in the sequence that passes the test in the specified predicate function.
 		 * 
@@ -516,6 +541,8 @@ package System.Collection.Generic
 		 *   <li>lastOrNone(predicate:Function):*</li>
 		 * </ul>
 		 * </p>
+		 * 
+		 * predicate is of the prototype: function(element:*):*
 		 * 
 		 * @return The last element in the sequence that passes the test in the specified predicate function.
 		 * 
@@ -547,6 +574,8 @@ package System.Collection.Generic
 		 *   <li>Count(predicate:Function):int</li>
 		 * </ul>
 		 * </p>
+		 * 
+		 * predicate is of the prototype: function(element:*):*
 		 * 
 		 * @return The number of elements in the input sequence.
 		 * 
@@ -588,6 +617,9 @@ package System.Collection.Generic
 		 *   <li>Aggregate(seed:*, func:Function, resultSelector:Function):*</li>
 		 * </ul></p> 
 		 * 
+		 * The accumulate (func) function is of the prototype: function(accumulator:*, element:*):*
+		 * resultSelector is of the prototype: function(accumulator:*):*
+		 * 
 		 * @return The final accumulator value.
 		 * 
 		 * @param funcOrSeed An accumulator function to be invoked on each element. OR The initial accumulator value.
@@ -606,6 +638,8 @@ package System.Collection.Generic
 		/**
 		 * Computes the sum of a sequence of values.
 		 * 
+		 * selector function is of prototype: function(element:*):Number
+		 * 
 		 * @return The sum of the projected values
 		 * 
 		 * @param selector A transform function to apply to each element.
@@ -619,6 +653,8 @@ package System.Collection.Generic
 		
 		/**
 		 * Returns the minimum value in a sequence of values. 
+		 * 
+		 * selector function is of prototype: function(element:*):Number
 		 * 
 		 * @return The minimum value in the sequence.
 		 * 
@@ -634,6 +670,8 @@ package System.Collection.Generic
 		/**
 		 * Returns the maximum value in a sequence of values. 
 		 * 
+		 * selector function is of prototype: function(element:*):Number
+		 * 
 		 * @return The maximum value in the sequence.
 		 * 
 		 * @param selector A transform function to apply to each element.
@@ -648,6 +686,8 @@ package System.Collection.Generic
 		/**
 		 * Returns the average value in a sequence of values. 
 		 * 
+		 * selector function is of prototype: function(element:*):Number
+		 * 
 		 * @return The average value in the sequence.
 		 * 
 		 * @param selector A transform function to apply to each element.
@@ -661,6 +701,8 @@ package System.Collection.Generic
 		
 		/**
 		 * Invokes an action on each value in a sequence
+		 * 
+		 * action function is of prototype: function(element:*):void
 		 * 
 		 * @param action The action to execute on each element in a sequence 
 		 */

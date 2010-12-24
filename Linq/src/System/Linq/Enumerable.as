@@ -20,6 +20,7 @@ package System.Linq
 	import System.Collection.Generic.IEqualityComparer;
 	import System.Collection.Generic.ILookup;
 	import System.Collection.Generic.IOrderedEnumerable;
+	import System.Linq.FunctionBuilder.identity;
 	import System.Linq.Option.Option;
 	import System.Linq.Option.none;
 	import System.Linq.Option.some;
@@ -256,8 +257,6 @@ package System.Linq
 			
 			return dictionary;
 		}
-		
-		public static function identity(x) { return x; }
 		
 		public function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary {
 			throwIfArgumentIsNull(keySelector, "keySelector");

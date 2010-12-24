@@ -5,7 +5,7 @@ package flexUnitTests
 	public class EnumerableTestsBase
 	{
 		[Before]
-		public function Before():void
+		public function before():void
 		{
 			EnumerationExtender.Initialize();
 		}

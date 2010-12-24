@@ -25,6 +25,8 @@
     <classEntry path="System.Collection.Generic.IComparer"/>
     <classEntry path="System.Linq.OrderedEnumerable"/>
     <classEntry path="System.Linq.DefaultComparer"/>
+    <classEntry path="System.Linq.FunctionBuilder.FunctionBuilder"/>
+    <classEntry path="System.Linq.FunctionBuilder.identity"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

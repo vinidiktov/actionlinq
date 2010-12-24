@@ -2,6 +2,8 @@ package flexUnitTests
 {
 	import System.Linq.Enumerable;
 	import System.Linq.EnumerationExtender;
+	import System.Linq.FunctionBuilder.element;
+	import System.Linq.FunctionBuilder.identity;
 	
 	import mx.collections.ArrayCollection;
 	
@@ -48,7 +50,7 @@ package flexUnitTests
 				Enumerable.from(xml.product)
 				.select(function(product):String { return product.@category })
 				.distinct()
-				.orderBy(Enumerable.identity)
+				.orderBy(identity)
 				.toArrayCollection();
 			
 			

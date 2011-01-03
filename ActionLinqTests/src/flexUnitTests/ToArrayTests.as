@@ -58,6 +58,32 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function toVector_converts_IEnumerable_to_Vector():void {
+			var converted:Vector.<int> = 
+				Enumerable.from(Vector.<int>([1,2,3]))
+					.select(function(x){return x*x})
+					.toVector(int);
+			
+			assertThat(converted.length, equalTo(3));
+			assertThat(converted[0] is int && converted[0] == 1);
+			assertThat(converted[1] is int && converted[1] == 4);
+			assertThat(converted[2] is int && converted[2] == 9);
+		}
+		
+		[Test]
+		public function toVector_converts_IEnumerable_to_Vector_and_casts():void {
+			var converted:Vector.<String> = 
+				Enumerable.from(Vector.<int>([1,2,3]))
+				.select(function(x){return x*x})
+				.toVector(String);
+			
+			assertThat(converted.length, equalTo(3));
+			assertThat(converted[0] is String && converted[0] == "1");
+			assertThat(converted[1] is String && converted[1] == "4");
+			assertThat(converted[2] is String && converted[2] == "9");
+		}
+		
+		[Test]
 		public function toDictionary_converts_to_Dictionary():void {
 			var dictionary:Dictionary = [1, 2].toDictionary(function(x) { return x.toString()});
 			

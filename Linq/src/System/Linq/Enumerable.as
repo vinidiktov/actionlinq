@@ -28,6 +28,8 @@ package System.Linq
 	import flash.utils.Dictionary;
 	import flash.utils.Proxy;
 	import flash.utils.flash_proxy;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
 	
 	import mx.collections.ArrayCollection;
 	import mx.collections.ArrayList;
@@ -241,6 +243,13 @@ package System.Linq
 		
 		public function toList():IList {
 			return populateContainer(new ArrayList(), function(al, item) { al.addItem(item) });	
+		}
+		
+		public function toVector(type:Class):* {
+			var typedVectorName:String = getQualifiedClassName(Vector) + ".<" + getQualifiedClassName(type)+ ">";
+			var typedVectorClass:Class = getDefinitionByName(typedVectorName) as Class;
+			
+			return populateContainer(new typedVectorClass(), function(v,item) { v.push(item)} );
 		}
 		
 		private function addLengthToDictionary(dictionary:Dictionary):Dictionary {

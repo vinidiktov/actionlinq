@@ -388,6 +388,8 @@ package System.Collection.Generic
 		 */
 		function toList():IList;
 		
+		function toVector(type:Class):*;
+		
 		/**
 		 * Creates a Dictionary from an IEnumerable according to specified key selector and element selector functions.
 		 * 

@@ -363,6 +363,7 @@ package System.Collection.Generic
 		 * @see toArrayCollection
 		 * @see toList
 		 * @see toDictionary
+		 * @see toVector
 		 */
 		function toArray():Array;
 		
@@ -374,6 +375,7 @@ package System.Collection.Generic
 		 * @see toArray
 		 * @see toList
 		 * @see toDictionary
+		 * @see toVector
 		 */
 		function toArrayCollection():ArrayCollection;
 		
@@ -385,9 +387,22 @@ package System.Collection.Generic
 		 * @see toArrayCollection
 		 * @see toArray
 		 * @see toDictionary
+		 * @see toVector
 		 */
 		function toList():IList;
 		
+		/**
+		 * Creates a typed Vector from an IEnumerable
+		 * 
+		 * @return A Vector.<type> that contains the elements from the input sequence
+		 * 
+		 * @param type The type of the data in the strongly-typed vector
+		 * 
+		 * @see toArrayCollection
+		 * @see toList
+		 * @see toArray
+		 * @see toDictionary
+		 **/
 		function toVector(type:Class):*;
 		
 		/**
@@ -407,6 +422,7 @@ package System.Collection.Generic
 		 * @see toList
 		 * @see toArray
 		 * @see toArrayCollection
+		 * @see toVector
 		 */ 
 		function toDictionary(keySelector:Function, elementSelector:Function=null):Dictionary;
 		
@@ -426,6 +442,7 @@ package System.Collection.Generic
 		 * @see toArray
 		 * @see toDictionary
 		 * @see toArrayCollection
+		 * @see toVector
 		 */
 		function toLookup(keySelector:Function, elementSelector:Function=null):ILookup;
 		

@@ -84,6 +84,17 @@ package flexUnitTests
 		}
 		
 		[Test]
+		public function toVector_from_Array_extensions_passes_through():void {
+			var vector:Vector.<int> = [1,2,3].toVector(int);
+			
+			assertThat(vector.length, equalTo(3));
+			assertThat(vector[0] is int && vector[0] == 1);
+			assertThat(vector[1] is int && vector[1] == 2);
+			assertThat(vector[2] is int && vector[2] == 3);
+		}
+		
+		
+		[Test]
 		public function toDictionary_converts_to_Dictionary():void {
 			var dictionary:Dictionary = [1, 2].toDictionary(function(x) { return x.toString()});
 			

@@ -110,6 +110,9 @@ package System.Linq
 			c.prototype.toList = function():IList {
 				return this.asEnumerable().toList();
 			}
+			c.prototype.toVector = function(type:Class):* {
+				return this.asEnumerable().toVector(type);
+			}
 			c.prototype.toDictionary = function(keySelector:Function, elementSelector:Function=null):Dictionary {
 				return this.asEnumerable().toDictionary(keySelector, elementSelector);
 			}
@@ -186,7 +189,7 @@ package System.Linq
 								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", 
 								"groupBy", "concatEnumerable", "zip", "distinct", "union", "intersect", 
 								"except", "reverseEnumerate", "sequenceEqual", "toArray", 
-								"toArrayCollection", "toList", "toDictionary", "toLookup", 
+								"toArrayCollection", "toList", "toVector", "toDictionary", "toLookup", 
 								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
 								"lastOrNone", "single", "singleOrNone", "elementAt", "elementAtOrNone",
 								"any", "all", "count", "contains","aggregate", "sum", "min", "max", 

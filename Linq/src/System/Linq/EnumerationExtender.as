@@ -24,8 +24,11 @@ package System.Linq
 	
 	import flash.utils.Dictionary;
 	
-	import mx.collections.ArrayCollection;
-	import mx.collections.IList;
+	COMPILE::FLEX
+	{
+		import mx.collections.ArrayCollection;
+		import mx.collections.IList;
+	}
 
 	public class EnumerationExtender
 	{
@@ -104,12 +107,17 @@ package System.Linq
 			c.prototype.toArray = function():Array {
 				return this.asEnumerable().toArray();
 			}
-			c.prototype.toArrayCollection = function():ArrayCollection {
-				return this.asEnumerable().toArrayCollection();
+				
+			COMPILE::FLEX
+			{
+				c.prototype.toArrayCollection = function():ArrayCollection {
+					return this.asEnumerable().toArrayCollection();
+				}
+				c.prototype.toList = function():IList {
+					return this.asEnumerable().toList();
+				}
 			}
-			c.prototype.toList = function():IList {
-				return this.asEnumerable().toList();
-			}
+			
 			c.prototype.toVector = function(type:Class):* {
 				return this.asEnumerable().toVector(type);
 			}
@@ -188,12 +196,17 @@ package System.Linq
 								"selectMany", "take", "takeWhile", "skip", "skipWhile", 
 								"joinEnumerables", "groupJoin", "orderBy", "orderByDescending", 
 								"groupBy", "concatEnumerable", "zip", "distinct", "union", "intersect", 
-								"except", "reverseEnumerate", "sequenceEqual", "toArray", 
-								"toArrayCollection", "toList", "toVector", "toDictionary", "toLookup", 
+								"except", "reverseEnumerate", "sequenceEqual", 
+								"toArray", "toVector", "toDictionary", "toLookup", 
 								"noneIfEmpty", "ofType", "cast", "first", "firstOrNone", "last", 
 								"lastOrNone", "single", "singleOrNone", "elementAt", "elementAtOrNone",
 								"any", "all", "count", "contains","aggregate", "sum", "min", "max", 
 								"average", "eachElement"];
+			
+			COMPILE::FLEX
+			{
+				names = names.concat(["toArrayCollection", "toList"])
+			}
 			
 			Enumerable.from(names).eachElement(function(name:String):void { c.prototype.setPropertyIsEnumerable(name, false) });
 		}

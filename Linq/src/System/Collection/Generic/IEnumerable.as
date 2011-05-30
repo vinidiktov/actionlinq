@@ -19,8 +19,13 @@ package System.Collection.Generic
 	
 	import flash.utils.Dictionary;
 	
-	import mx.collections.ArrayCollection;
-	import mx.collections.IList;
+	import mx.core.FlexBitmap;
+	
+	COMPILE::FLEX
+	{
+		import mx.collections.ArrayCollection;
+		import mx.collections.IList;
+	}
 
 	public interface IEnumerable
 	{
@@ -367,29 +372,32 @@ package System.Collection.Generic
 		 */
 		function toArray():Array;
 		
-		/**
-		 * Creates an ArrayCollection from a IEnumerable
-		 * 
-		 * @return An ArrayCollection that contains the elements from the input sequence.
-		 * 
-		 * @see toArray
-		 * @see toList
-		 * @see toDictionary
-		 * @see toVector
-		 */
-		function toArrayCollection():ArrayCollection;
-		
-		/**
-		 * Creates a List from a IEnumerable
-		 * 
-		 * @return A list that contains the elements from the input sequence.
-		 * 
-		 * @see toArrayCollection
-		 * @see toArray
-		 * @see toDictionary
-		 * @see toVector
-		 */
-		function toList():IList;
+		COMPILE::FLEX
+		{
+			/**
+			 * Creates an ArrayCollection from a IEnumerable
+			 * 
+			 * @return An ArrayCollection that contains the elements from the input sequence.
+			 * 
+			 * @see toArray
+			 * @see toList
+			 * @see toDictionary
+			 * @see toVector
+			 */
+			function toArrayCollection():ArrayCollection;
+			
+			/**
+			 * Creates a List from a IEnumerable
+			 * 
+			 * @return A list that contains the elements from the input sequence.
+			 * 
+			 * @see toArrayCollection
+			 * @see toArray
+			 * @see toDictionary
+			 * @see toVector
+			 */
+			function toList():IList;
+		}
 		
 		/**
 		 * Creates a typed Vector from an IEnumerable

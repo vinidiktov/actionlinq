@@ -14,16 +14,8 @@
 
 package System.Linq
 {
-	import System.Collection.Generic.IEnumerable;
 	import System.Collection.Generic.IEnumerator;
-	import System.Collection.Generic.IEqualityComparer;
 	import System.Collection.Generic.IGrouping;
-	import System.Linq.Option.Option;
-	
-	import flash.utils.Dictionary;
-	
-	import mx.collections.ArrayCollection;
-	import mx.collections.IList;
 	
 	public class Grouping extends Enumerable implements IGrouping
 	{

@@ -31,9 +31,12 @@ package System.Linq
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
 	
-	import mx.collections.ArrayCollection;
-	import mx.collections.ArrayList;
-	import mx.collections.IList;
+	COMPILE::FLEX
+	{
+		import mx.collections.ArrayCollection;
+		import mx.collections.ArrayList;
+		import mx.collections.IList;
+	}
 	
 	public class Enumerable extends Proxy implements IEnumerable
 	{
@@ -53,9 +56,12 @@ package System.Linq
 				return new Enumerable( obj as Array,
 					function(source:*):IEnumerator { return new ArrayEnumerator(source as Array) });
 			
-			if(obj is IList)
-				return new Enumerable(obj as IList,
-					function(source:*):IEnumerator { return new ListEnumerator(obj as IList) });
+			COMPILE::FLEX
+			{
+				if(obj is IList)
+					return new Enumerable(obj as IList,
+						function(source:*):IEnumerator { return new ListEnumerator(obj as IList) });
+			}
 			
 			if(obj is XMLList)
 				return new Enumerable(obj as XMLList,
@@ -237,12 +243,15 @@ package System.Linq
 			return populateContainer(new Array(), function(al, item) { al.push(item) });
 		}
 		
-		public function toArrayCollection():ArrayCollection {
-			return populateContainer(new ArrayCollection(), function(al, item) { al.addItem(item) });	
-		}
-		
-		public function toList():IList {
-			return populateContainer(new ArrayList(), function(al, item) { al.addItem(item) });	
+		COMPILE::FLEX
+		{
+			public function toArrayCollection():ArrayCollection {
+				return populateContainer(new ArrayCollection(), function(al, item) { al.addItem(item) });	
+			}
+			
+			public function toList():IList {
+				return populateContainer(new ArrayList(), function(al, item) { al.addItem(item) });	
+			}
 		}
 		
 		public function toVector(type:Class):* {

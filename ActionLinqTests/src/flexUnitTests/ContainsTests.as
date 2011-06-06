@@ -1,7 +1,5 @@
 package flexUnitTests
 {
-	import net.digitalprimates.fluint.tests.TestMethod;
-	
 	import org.flexunit.assertThat;
 	import org.hamcrest.object.equalTo;
 

@@ -3,8 +3,6 @@ package System.Linq.FunctionBuilder
 	import flash.utils.Proxy;
 	import flash.utils.flash_proxy;
 	
-	import org.osmf.layout.AbsoluteLayoutFacet;
-	
 	public dynamic class FunctionBuilder extends Proxy
 	{
 		public function isGreaterThan(value:Number):Function {

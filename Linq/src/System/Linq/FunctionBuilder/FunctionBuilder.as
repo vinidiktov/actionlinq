@@ -27,6 +27,6 @@ package System.Linq.FunctionBuilder
 		
 		override flash_proxy function getProperty(propName:*):* {
 			return function(x:*):* { return x[propName] };
-		}
+		} 
 	}
 }

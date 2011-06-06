@@ -1,5 +1,6 @@
 package flexUnitTests
 {
+	import System.Linq.Enumerable;
 	import System.Linq.FunctionBuilder.element;
 	import System.Linq.FunctionBuilder.identity;
 	
@@ -58,6 +59,15 @@ package flexUnitTests
 			var selected = [1,2,3,4,5].select(identity).toArray();
 			
 			assertThat(selected, array(1,2,3,4,5));
+		}
+		
+		[Test]
+		public function selecting_xml_attributes_should_work():void {
+			var xml:XML = <root><item id="foo" /></root>;
+			
+			var first = Enumerable.from(xml.item).select(element.@id).first();
+			
+			assertThat(first.toString(), equalTo("foo"));
 		}
 		
 	}

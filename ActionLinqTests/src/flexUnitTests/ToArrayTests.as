@@ -38,7 +38,9 @@ package flexUnitTests
 			assertThat(filtered[0], equalTo(4));
 			assertThat(filtered[1], equalTo(5));
 		}
-		
+
+COMPILE::FLEX
+{		
 		[Test]
 		public function toArrayCollection_converts_IEnumerable_to_ArrayCollection():void{
 			var converted:ArrayCollection = [1,2].toArrayCollection();
@@ -47,7 +49,7 @@ package flexUnitTests
 			assertThat(converted[0], equalTo(1));
 			assertThat(converted[1], equalTo(2));
 		}
-		
+
 		[Test]
 		public function toList_converts_IEnumerable_to_IList():void {
 			var converted:IList = [1,2].toList();
@@ -56,7 +58,8 @@ package flexUnitTests
 			assertThat(converted.getItemAt(0), equalTo(1));
 			assertThat(converted.getItemAt(1), equalTo(2));
 		}
-		
+}
+
 		[Test]
 		public function toVector_converts_IEnumerable_to_Vector():void {
 			var converted:Vector.<int> = 

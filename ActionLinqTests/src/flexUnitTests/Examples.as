@@ -40,6 +40,9 @@ package flexUnitTests
 		private static function isEven(num:int):Boolean { return num % 2 == 0 }
 		private static function square(num:int):int     { return num * num }
 		
+COMPILE::FLEX
+{
+		
 		[Test]
 		public function translate_xml_for_display_to_a_DropdownList():void {
 			var xml = <products>
@@ -62,7 +65,8 @@ package flexUnitTests
 			// categories is ready for a DropDownList.dataProvider with ["Bread", "Cereal", "Meat"]
 			assertThat(categories.source, array("Bread", "Cereal", "Meat"));		
 		}
-		
+}
+
 		[Test]
 		public function joining_tables():void {
 			var customers:Array = [ 
